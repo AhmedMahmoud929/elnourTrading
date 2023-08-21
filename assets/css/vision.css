@@ -1,0 +1,124 @@
+section#vision {
+  position: relative;
+  background-color: var(--dark-bg);
+}
+section#vision .container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+section#vision .container header {
+  /* border: 2px solid red; */
+  padding: var(--section-padding);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+  flex: 1;
+}
+
+#vision .left .section-title {
+  margin-left: 15px;
+}
+
+#vision .left h1.title {
+  font-family: "Rubik", sans-serif;
+  text-transform: capitalize;
+  color: var(--white);
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin-top: 15px;
+}
+
+#vision .left h1.title span {
+  background-image: linear-gradient(
+    to left,
+    var(--dark-blue),
+    var(--light-blue)
+  );
+  -webkit-background-clip: text; /* For Safari and older versions of Chrome */
+  background-clip: text;
+  color: transparent;
+}
+
+#vision .left p {
+  margin: 15px 0px 30px;
+  font-weight: 500;
+  color: var(--gray);
+  font-size: 1.07rem;
+}
+
+#vision .left a {
+  display: block;
+}
+
+#vision .right,
+#vision .left {
+  width: 50%;
+  height: 100%;
+}
+
+#vision .right {
+  margin-bottom: -60px;
+  margin-right: -50px;
+}
+
+@media (max-width: 1000px) {
+  #vision .left h1.title {
+    font-size: 2.2rem;
+  }
+
+  #vision .left p {
+    margin: 10px 0px 25px;
+    font-size: 0.9rem;
+  }
+  #vision .left a button {
+    font-size: 1rem;
+    border-radius: 7px;
+  }
+}
+
+@media (max-width: 750px) {
+  section#vision .container header {
+    flex-direction: column;
+    text-align: center;
+    gap: 5vw;
+  }
+  #vision .left .section-title {
+    margin: 0px auto;
+  }
+  #vision .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  #vision .right {
+    width: 70%;
+    margin: 0px;
+  }
+  #vision .left h1.title {
+    font-size: 2rem;
+  }
+  #vision .left p {
+    margin: 10px 0px 25px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 500px) {
+  #vision .right {
+    width: 100%;
+    margin-top: 20px;
+  }
+  #vision .left h1.title {
+    font-size: 1.8rem;
+  }
+  #vision .left p {
+    margin: 10px 0px 25px;
+    font-size: 0.75rem;
+  }
+}

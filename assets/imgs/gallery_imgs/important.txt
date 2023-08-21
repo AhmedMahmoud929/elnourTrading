@@ -1,0 +1,9 @@
+# TO ADD IMAGE IN THE GALLERY FOLLOW THIS RULES :
+
+[+] Image name must be in this format : g_number.jpg
+          for example : g_15.jpg
+[+] The extension of images must be ".jpg"
+[+] You must edit `countOfImages` variable in the `galleryCreator.js` file by the new count of images or the number images that you want to appear in the gallery page 
+
+!! Note that : the first 9 images will added in the home page (index.html)
+          ,also you can edit that in `slidesCreator.js` file

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 161.00 214.00">
+<circle fill="#00c0fe" cx="3.06" cy="3.02" r="2.84"/>
+<circle fill="#00c0fe" cx="28.82" cy="2.93" r="2.83"/>
+<circle fill="#00c0fe" cx="54.56" cy="2.98" r="2.84"/>
+<circle fill="#00c0fe" cx="80.28" cy="3.00" r="2.85"/>
+<circle fill="#00c0fe" cx="106.03" cy="2.99" r="2.83"/>
+<circle fill="#00c0fe" cx="131.75" cy="2.98" r="2.84"/>
+<circle fill="#00c0fe" cx="157.60" cy="2.99" r="2.86"/>
+<circle fill="#00c0fe" cx="28.84" cy="25.96" r="2.84"/>
+<circle fill="#00c0fe" cx="3.04" cy="26.02" r="2.80"/>
+<circle fill="#00c0fe" cx="54.58" cy="26.04" r="2.81"/>
+<circle fill="#00c0fe" cx="80.29" cy="26.02" r="2.83"/>
+<circle fill="#00c0fe" cx="106.01" cy="26.02" r="2.81"/>
+<circle fill="#00c0fe" cx="131.75" cy="26.05" r="2.81"/>
+<circle fill="#00c0fe" cx="157.56" cy="26.05" r="2.85"/>
+<circle fill="#00c0fe" cx="28.84" cy="48.95" r="2.86"/>
+<circle fill="#00c0fe" cx="3.05" cy="49.08" r="2.81"/>
+<circle fill="#00c0fe" cx="54.57" cy="49.05" r="2.85"/>
+<circle fill="#00c0fe" cx="80.31" cy="49.07" r="2.84"/>
+<circle fill="#00c0fe" cx="106.02" cy="49.07" r="2.83"/>
+<circle fill="#00c0fe" cx="131.75" cy="49.06" r="2.84"/>
+<circle fill="#00c0fe" cx="157.59" cy="49.08" r="2.85"/>
+<circle fill="#00c0fe" cx="3.05" cy="72.09" r="2.82"/>
+<circle fill="#00c0fe" cx="28.85" cy="71.99" r="2.84"/>
+<circle fill="#00c0fe" cx="54.57" cy="72.09" r="2.85"/>
+<circle fill="#00c0fe" cx="80.30" cy="72.10" r="2.86"/>
+<circle fill="#00c0fe" cx="106.01" cy="72.10" r="2.84"/>
+<circle fill="#00c0fe" cx="131.74" cy="72.09" r="2.85"/>
+<circle fill="#00c0fe" cx="157.58" cy="72.09" r="2.87"/>
+<circle fill="#00c0fe" cx="3.04" cy="95.14" r="2.82"/>
+<circle fill="#00c0fe" cx="28.82" cy="95.00" r="2.83"/>
+<circle fill="#00c0fe" cx="54.57" cy="95.11" r="2.83"/>
+<circle fill="#00c0fe" cx="80.31" cy="95.11" r="2.84"/>
+<circle fill="#00c0fe" cx="106.02" cy="95.11" r="2.83"/>
+<circle fill="#00c0fe" cx="131.74" cy="95.12" r="2.85"/>
+<circle fill="#00c0fe" cx="157.59" cy="95.11" r="2.85"/>
+<circle fill="#00c0fe" cx="3.06" cy="119.07" r="2.81"/>
+<circle fill="#00c0fe" cx="28.84" cy="118.95" r="2.83"/>
+<circle fill="#00c0fe" cx="54.58" cy="119.05" r="2.83"/>
+<circle fill="#00c0fe" cx="80.31" cy="119.07" r="2.84"/>
+<circle fill="#00c0fe" cx="106.02" cy="119.08" r="2.83"/>
+<circle fill="#00c0fe" cx="131.75" cy="119.05" r="2.84"/>
+<circle fill="#00c0fe" cx="157.59" cy="119.05" r="2.85"/>
+<circle fill="#00c0fe" cx="3.05" cy="142.03" r="2.82"/>
+<circle fill="#00c0fe" cx="28.85" cy="141.98" r="2.84"/>
+<circle fill="#00c0fe" cx="54.58" cy="142.06" r="2.85"/>
+<circle fill="#00c0fe" cx="80.30" cy="142.05" r="2.84"/>
+<circle fill="#00c0fe" cx="106.02" cy="142.03" r="2.82"/>
+<circle fill="#00c0fe" cx="131.74" cy="142.07" r="2.85"/>
+<circle fill="#00c0fe" cx="157.57" cy="142.07" r="2.88"/>
+<circle fill="#00c0fe" cx="3.05" cy="165.11" r="2.82"/>
+<circle fill="#00c0fe" cx="28.84" cy="164.98" r="2.84"/>
+<circle fill="#00c0fe" cx="54.58" cy="165.09" r="2.85"/>
+<circle fill="#00c0fe" cx="80.29" cy="165.10" r="2.84"/>
+<circle fill="#00c0fe" cx="106.01" cy="165.10" r="2.84"/>
+<circle fill="#00c0fe" cx="131.74" cy="165.08" r="2.84"/>
+<circle fill="#00c0fe" cx="157.60" cy="165.09" r="2.85"/>
+<circle fill="#00c0fe" cx="3.05" cy="188.11" r="2.81"/>
+<circle fill="#00c0fe" cx="28.85" cy="187.99" r="2.83"/>
+<circle fill="#00c0fe" cx="54.56" cy="188.12" r="2.83"/>
+<circle fill="#00c0fe" cx="80.30" cy="188.11" r="2.85"/>
+<circle fill="#00c0fe" cx="106.01" cy="188.12" r="2.83"/>
+<circle fill="#00c0fe" cx="157.60" cy="188.11" r="2.84"/>
+<circle fill="#00c0fe" cx="131.73" cy="188.14" r="2.81"/>
+<path fill="#00c0fe" d="
+  M 3.69 214.00
+  L 2.44 214.00
+  C -0.38 212.71 -0.61 209.24 2.39 208.46
+  C 5.94 207.54 7.23 212.45 3.69 214.00
+  Z"
+/>
+<circle fill="#00c0fe" cx="28.84" cy="211.00" r="2.84"/>
+<path fill="#00c0fe" d="
+  M 54.94 214.00
+  L 53.94 214.00
+  C 51.40 212.79 50.72 209.53 53.58 208.48
+  C 57.04 207.22 59.48 212.56 54.94 214.00
+  Z"
+/>
+<path fill="#00c0fe" d="
+  M 80.69 214.00
+  L 79.69 214.00
+  Q 76.22 212.39 78.13 209.27
+  A 2.28 2.28 0.0 0 1 80.83 208.31
+  C 84.05 209.43 83.90 212.99 80.69 214.00
+  Z"
+/>
+<path fill="#00c0fe" d="
+  M 106.44 214.00
+  L 105.45 214.00
+  Q 101.69 212.31 104.01 209.03
+  A 2.35 2.35 0.0 0 1 107.29 208.47
+  C 109.57 210.10 109.35 213.12 106.44 214.00
+  Z"
+/>
+<path fill="#00c0fe" d="
+  M 132.19 214.00
+  L 131.19 214.00
+  C 128.95 213.08 127.75 210.55 130.08 208.83
+  C 133.53 206.30 137.07 212.54 132.19 214.00
+  Z"
+/>
+<path fill="#00c0fe" d="
+  M 157.94 214.00
+  L 156.95 214.00
+  Q 152.87 212.10 155.67 208.94
+  C 157.96 206.34 164.06 211.71 157.94 214.00
+  Z"
+/>
+</svg>

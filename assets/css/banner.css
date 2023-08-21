@@ -1,0 +1,90 @@
+section#banner {
+  min-height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../imgs/banner_bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+section#banner .grady-bg {
+  position: absolute;
+  width: 100%;
+  height: 101%;
+  top: 0px;
+  left: 0px;
+}
+section#banner .container {
+  text-align: center;
+  flex: 1;
+}
+
+#banner h1.title {
+  font-family: "Rubik", sans-serif;
+  text-transform: capitalize;
+  color: var(--white);
+  font-size: 2.7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+#banner h1.title span {
+  background-image: linear-gradient(
+    to left,
+    var(--dark-blue),
+    var(--light-blue)
+  );
+  -webkit-background-clip: text; /* For Safari and older versions of Chrome */
+  background-clip: text;
+  color: transparent;
+}
+
+#banner p {
+  margin: 15px auto 30px;
+  font-weight: 500;
+  color: var(--gray);
+  font-size: 1.07rem;
+  max-width: 40%;
+}
+
+#banner a {
+  display: block;
+}
+
+@media (max-width: 800px) {
+  #banner h1.title {
+    font-size: 2.4rem;
+    margin-top: 15px;
+  }
+
+  #banner p {
+    margin: 10px auto 25px;
+    font-size: 0.9rem;
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  #banner h1.title {
+    font-size: 2.2rem;
+  }
+  #banner p {
+    margin: 7px auto 22px;
+    font-size: 0.8rem;
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 500px) {
+  #banner h1.title {
+    font-size: 1.8rem;
+  }
+  #banner p {
+    margin: 7px auto 22px;
+    font-size: 0.7rem;
+    max-width: 80%;
+  }
+}

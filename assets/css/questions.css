@@ -1,0 +1,141 @@
+section#questions {
+  background-color: var(--white);
+}
+
+section#questions .container {
+  min-height: 42vh;
+  padding: var(--section-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+}
+
+#questions .left h1.title {
+  font-family: "Rubik", sans-serif;
+  color: var(--dark-bg);
+  font-size: 2.3rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+#questions .left h1.title span {
+  background-image: linear-gradient(
+    to right,
+    var(--dark-blue),
+    var(--light-blue)
+  );
+  -webkit-background-clip: text; /* For Safari and older versions of Chrome */
+  background-clip: text;
+  color: transparent;
+}
+
+#questions .left p {
+  color: var(--gray);
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+#questions .left,
+#questions .right {
+  width: 50%;
+}
+#questions .right form {
+  display: flex;
+  gap: 10px;
+  height: 50px;
+}
+#questions .right form input {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 4px 10px 4px 25px;
+  font-size: 1.1rem;
+  color: var(--dark-bg);
+  font-weight: 500;
+}
+
+#questions .right form input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#questions .right form a,
+#questions .right form a button {
+  height: 100%;
+}
+
+#questions .right p {
+  /* color: var(--gray); */
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+#questions .right p span {
+  color: var(--light-blue);
+}
+
+@media (max-width: 950px) {
+  section#questions .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+  }
+  section#questions .right,
+  section#questions .left {
+    width: 80%;
+  }
+}
+
+@media (max-width: 580px) {
+  section#questions .container {
+    gap: 30px;
+  }
+  section#questions .right,
+  section#questions .left {
+    width: 100%;
+  }
+  #questions .left h1.title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  #questions .left p {
+    margin-top: 5px;
+    font-size: 1rem;
+  }
+  #questions .right form {
+    height: 45px;
+  }
+  #questions .right form input {
+    padding: 3px 10px 3px 20px;
+    font-size: 0.9rem;
+  }
+
+  #questions .right p {
+    margin-top: 4px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 440px) {
+  #questions .right form {
+    flex-direction: column;
+    height: auto;
+  }
+  #questions .right form input {
+    height: 45px;
+  }
+  #questions .left h1.title {
+    font-size: 1.8rem;
+  }
+
+  #questions .left p {
+    font-size: 0.8rem;
+  }
+}
