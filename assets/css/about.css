@@ -120,14 +120,14 @@ section#about .container {
     width: 70%;
     align-self: center;
   }
-  #about .vert {
+  #about .horiz {
     display: none;
   }
-  #about .left .horiz {
+  #about .left .vert {
     display: block;
-    width: 100%;
-    top: 0px;
-    left: 0px;
+    width: 110%;
+    top: 10px;
+    left: 25px;
     position: relative;
   }
 }
