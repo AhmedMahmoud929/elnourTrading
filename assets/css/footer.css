@@ -1,0 +1,139 @@
+footer {
+  background-color: var(--dark-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+footer .circle {
+  position: absolute;
+  height: 850px;
+  width: 850px;
+  border-radius: 50%;
+  border: 130px solid var(--light-blue);
+  opacity: 0.05;
+  z-index: 1;
+}
+
+footer .circle.left {
+  top: -550px;
+  left: -400px;
+}
+footer .circle.right {
+  height: 750px;
+  width: 750px;
+  bottom: -500px;
+  right: -300px;
+}
+
+footer .container {
+  min-height: 55vh;
+  padding: var(--section-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+footer .container .top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+footer img {
+  width: 160px;
+}
+
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+footer ul li a {
+  color: var(--gray);
+  font-size: 1.3rem;
+  font-weight: 300;
+  transition: 0.3s;
+}
+
+footer ul li a:hover {
+  color: var(--white);
+}
+
+footer .separator {
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--gray);
+  opacity: 0.4;
+}
+
+footer p {
+  color: var(--gray);
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+@media (max-width: 650px) {
+  footer ul {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  footer ul li a {
+    font-size: 1.2rem;
+  }
+  footer .circle {
+    height: 650px;
+    width: 650px;
+    border: 120px solid var(--light-blue);
+  }
+
+  footer .circle.left {
+    top: -350px;
+    left: -300px;
+  }
+  footer .circle.right {
+    height: 550px;
+    width: 550px;
+    bottom: -300px;
+    right: -200px;
+  }
+}
+
+@media (max-width: 450px) {
+  footer img {
+    width: 135px;
+  }
+  footer ul li a {
+    font-size: 1.2rem;
+  }
+  footer .circle {
+    height: 550px;
+    width: 550px;
+    border: 90px solid var(--light-blue);
+  }
+  footer .circle.left {
+    top: -350px;
+    left: -250px;
+  }
+  footer .circle.right {
+    height: 450px;
+    width: 450px;
+    bottom: -300px;
+    right: -220px;
+  }
+  footer .container {
+    gap: 30px;
+  }
+  footer .container .top {
+    gap: 30px;
+  }
+}

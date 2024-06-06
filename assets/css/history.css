@@ -1,0 +1,193 @@
+section#history {
+  height: 85vh;
+  background-color: var(--dark-bg);
+  cursor: default;
+}
+
+#history .mySwiper-history {
+  position: relative;
+  height: 100%;
+  margin: 0px;
+}
+#history .mySwiper-history::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 79px;
+  width: 2px;
+  height: 100%;
+  background-color: var(--white);
+  z-index: 2;
+}
+
+#history .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.3);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#history .swiper-pagination-history {
+  position: absolute;
+  top: 50%;
+  right: 70px;
+  transform: translateY(-50%);
+  z-index: 4 !important;
+}
+
+#history .swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  margin: 20px 0px;
+  border-radius: 5px;
+  background-color: var(--white);
+  opacity: 1;
+  transition: 0.4s;
+}
+
+#history .swiper-pagination-bullet-active {
+  background: linear-gradient(90deg, var(--dark-blue), transparent)
+    var(--light-blue);
+}
+
+/* let's work on slides */
+#history .swiper-slide {
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+#history .swiper-slide .container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 3;
+  position: relative;
+  text-align: left;
+}
+
+#history .swiper-slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(3, 14, 33, 0.8), transparent 60%);
+  z-index: 2;
+  mix-blend-mode: darken;
+}
+
+#history h1 {
+  background-image: linear-gradient(
+    to right,
+    var(--dark-blue),
+    var(--light-blue)
+  );
+  -webkit-background-clip: text; /* For Safari and older versions of Chrome */
+  background-clip: text;
+  color: transparent;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+#history h2 {
+  font-family: "Rubik", sans-serif;
+  color: var(--white);
+  font-size: 2.7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  max-width: 50%;
+}
+
+#history p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  font-weight: 300;
+  max-width: 50%;
+  margin-top: 30px;
+  /* border: 2px solid red; */
+  max-height: 250px;
+  overflow-y: scroll;
+}
+#history p::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  #history h1 {
+    font-size: 2rem;
+  }
+  #history h2 {
+    font-size: 2.2rem;
+    max-width: 80%;
+  }
+  #history p {
+    font-size: 1rem;
+    max-width: 60%;
+    margin-top: 25px;
+  }
+  #history .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    margin: 16px 0px;
+    border-radius: 4px;
+  }
+  #history .swiper-pagination-history {
+    right: 50px;
+  }
+  #history .mySwiper-history::before {
+    right: 58px;
+    width: 1.5px;
+  }
+}
+
+@media (max-width: 550px) {
+  #history h1 {
+    font-size: 1.7rem;
+  }
+  #history h2 {
+    font-size: 1.8rem;
+    max-width: 80%;
+  }
+  #history p {
+    font-size: 0.9rem;
+    max-width: 70%;
+  }
+  #history .swiper-pagination-history {
+    right: 40px;
+  }
+  #history .mySwiper-history::before {
+    right: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  #history h1 {
+    font-size: 1.4rem;
+  }
+  #history h2 {
+    font-size: 1.5rem;
+    max-width: 80%;
+  }
+  #history p {
+    font-size: 0.8rem;
+    max-width: 70%;
+    margin-top: 20px;
+  }
+  #history .swiper-pagination-history {
+    right: 28px;
+  }
+  #history .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    margin: 14px 0px;
+  }
+
+  #history .mySwiper-history::before {
+    right: 34px;
+  }
+}

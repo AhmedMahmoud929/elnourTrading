@@ -1,0 +1,79 @@
+/* Default banner */
+body {
+  background-color: var(--dark-bg);
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+  /* border: 1px solid var(--light-blue); */
+  height: 30rem;
+  padding: 0 5%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.banner .ele {
+  color: #fff;
+  z-index: 1;
+  margin-bottom: 4px;
+}
+img.grady,
+img.cover {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 101%;
+  opacity: 0.7;
+}
+
+img.cover {
+  opacity: 1;
+  height: 100%;
+  object-fit: cover;
+  transition: 2s;
+  transform: scale(1.2);
+}
+
+/* Other stuff */
+.banner h1 {
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0 0 2rem black;
+  z-index: 1;
+  font-size: 1.8rem;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .banner h1 {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 400px) {
+  .banner h1 {
+    font-size: 1rem;
+  }
+}
+
+.flags.container {
+  margin-top: 2rem;
+  color: #fff;
+}
+
+article {
+  margin: 1rem 0 3rem;
+}
+article p {
+  color: #fff;
+  opacity: 0.9;
+  font-weight: 300;
+  line-height: 2;
+}

@@ -1,0 +1,99 @@
+<!-- Define ejs functions -->
+<% function formatDate(dateString) { const months = ["Jan", "Feb", "Mar", "Apr",
+"May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; const date = new
+Date(dateString); const month = months[date.getMonth()]; const day =
+date.getDate(); const year = date.getFullYear(); const formattedDate = `${month}
+${day}, ${year}`; return formattedDate; } %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./icons/favicon.ico" rel="shortcut icon" />
+    <link href="./icons/favicon.ico" rel="shortcut icon" />
+    <title>El-Nour Trading</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/article.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="container">
+      <nav>
+        <!-- logo -->
+        <a href="/">
+          <img src="../imgs/white logo.png" alt="el-nour trading" />
+        </a>
+        <!-- list -->
+        <ul>
+          <li><a href="/#home" class="active">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/profile">CO Profile</a></li>
+          <li><a href="/#services">Commodity</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <!-- menu toggle -->
+        <div class="toggle-icon">
+          <div class="top"></div>
+          <div class="middle"></div>
+          <div class="bottom"></div>
+        </div>
+      </nav>
+      <ul class="nav-phone">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="/profile">CO Profile</a></li>
+        <li><a href="#services">Commodity</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Header -->
+    <div class="container">
+      <header class="banner">
+        <img
+          class="cover"
+          src="<%= osType === 'Windows_NT' ? '../' : '' %><%= article.cover %>"
+          alt=""
+        />
+        <img class="grady" src="../imgs/grady_bg.png" alt="" />
+        <div class="ele">
+          <i class="fa-regular fa-calendar"></i>
+          <span><%= formatDate(article.createdAt) %></span>
+        </div>
+        <h1><%= article.title %></h1>
+      </header>
+    </div>
+
+    <div class="container">
+      <article>
+        <p><%= article.desc %></p>
+      </article>
+    </div>
+    <%- include("./parts/footer.ejs") %>
+    <script>
+      window.onload = () => {
+        document.querySelector("img.cover").style.transform = "scale(1)";
+      };
+    </script>
+  </body>
+</html>

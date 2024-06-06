@@ -1,0 +1,94 @@
+section#transportation {
+  background-color: var(--white);
+  padding: 50px;
+}
+
+section#transportation .container {
+  width: 100%;
+  min-height: 65vh;
+  background-color: var(--dark-bg);
+  padding: 50px 20px;
+  gap: 5vw;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section#transportation .main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#transportation h1.title {
+  font-family: "Rubik", sans-serif;
+  text-transform: capitalize;
+  color: var(--white);
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin-top: 20px;
+}
+
+#transportation h1.title span {
+  background-image: linear-gradient(
+    to right,
+    var(--dark-blue),
+    var(--light-blue)
+  );
+  -webkit-background-clip: text; /* For Safari and older versions of Chrome */
+  background-clip: text;
+  color: transparent;
+}
+
+#transportation p {
+  font-weight: 400;
+  color: var(--white);
+  font-size: 1.07rem;
+  max-width: 60%;
+  margin-top: 30px;
+}
+
+#transportation .transport-bg {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  min-width: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  section#transportation {
+    padding: 50px 30px;
+  }
+
+  #transportation h1.title {
+    font-size: 2rem;
+  }
+
+  #transportation p {
+    font-size: 0.9rem;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  section#transportation {
+    padding: 30px 10px;
+  }
+
+  #transportation h1.title {
+    font-size: 1.8rem;
+  }
+
+  #transportation p {
+    font-size: 0.75rem;
+    max-width: 90%;
+  }
+}

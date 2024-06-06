@@ -1,0 +1,75 @@
+{
+  "NAVBAR": {
+    "nav_elements": {
+      "a1": "Home",
+      "a2": "About",
+      "a3": "CO Profile",
+      "a4": "Commodity",
+      "a5": "Gallery",
+      "a6": "Contact"
+    }
+  },
+  "HOME": {
+    "span": "Reliability",
+    "h1": "through years of experience",
+    "p": "EL NOUR TRADING CO was founded in 1995, We are one of the main players within the Egyptian market.",
+    "btn": "Learn more!"
+  },
+  "ABOUT": {
+    "name": "ABOUT",
+    "pre-span": "We're",
+    "span": "Partner",
+    "post-span": "Of Your Innovations",
+    "p": "Founded in 1995, EL-NOUR TRADING CO is a prominent player in Egypt's grain market. specializing in wheat trading and land transportation. Our fleet of 30 trucks supports top-notch logistics.while our team of 250+ experienced employees ensures customer satisfaction and contract fulfillment.",
+    "btn": "Our Vision"
+  },
+  "VALUES": {
+    "mission-card": {
+      "h1": "OUR",
+      "span": "MISSION",
+      "p": "To provide an excellent service to our clients, by giving them their principal position in the business and by treating them with integrity and honesty they deserve. To deliver quality service on time and at the convenience of our clients. To always use quality material to give our customers value for their money. To train young professionals who wish to operate in the same industry",
+      "more-btn": "view more",
+      "less-btn": "view less"
+    },
+    "values-card": {
+      "h1": "OUR",
+      "span": "VALUES",
+      "p": "We value excellence, trust, Respect, empowerment, accountability and mutual relationship. Consistent quality services, Consistent innovation and No substitute for quality.",
+      "more-btn": "view more",
+      "less-btn": "view less"
+    }
+  },
+  "HISTORY": {
+    "slide1": {
+      "date": "1995-2000",
+      "h1": "A New Name, A New Chapter",
+      "p": "El Nour Transportation is founded by Mohamed Abdelmonem to serve the transportation line across Egypt."
+    },
+    "slide2": {
+      "date": "2001-2013",
+      "h1": "Starting With Local Trading",
+      "p": "The company begins forging a new way forward, with renewed focus on sustainability and on building strong relationships based on trust, inspired by our past as we drive toward the future."
+    },
+    "slide3": {
+      "date": "2013-2015",
+      "h1": "Becoming The Value Chain",
+      "p": "The company begins forging a new way forward, with renewed focus on sustainability and on building strong relationships based on trust, inspired by our past as we drive toward the future."
+    },
+    "slide4": {
+      "date": "2015-2018",
+      "h1": "Diversity & Inclusion Council established",
+      "p": "We launch our strategic focus on Diversity & Inclusion which will include a newly created Chief Diversity Officer to lead the efforts."
+    },
+    "slide5": {
+      "date": "2018-2021",
+      "h1": "New beginning in industrial field",
+      "p": "First step in crude oil production As the world is swept by an unprecedented pandemic in modern times, our global reach, trading expertise and entrepreneurial outlook allow us to navigate challenges, deliver strong results and pursue transformation plans."
+    }
+  },
+  "TRANSPORTATION": {
+    "name": "TRANSPORTATION",
+    "h1": "Large Enough To Handle Small Enough To Care",
+    "p": "100% guarantee safe delivery with over 50 highly modernized track, to local goals, We know the value of all products. We make thier save arrival our top priority.",
+    "btn": "Contact"
+  }
+}

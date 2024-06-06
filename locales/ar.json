@@ -1,0 +1,75 @@
+{
+  "NAVBAR": {
+    "nav_elements": {
+      "a1": "الرئيسية",
+      "a2": "من نحن",
+      "a3": "الملف الشخصي للشركة",
+      "a4": "السلع",
+      "a5": "المعرض",
+      "a6": "اتصل بنا"
+    }
+  },
+  "HOME": {
+    "span": "الثقة",
+    "h1": "من خلال سنوات من الخبرة",
+    "p": "تم تأسيس شركة النور للتجارة في عام 1995، نحن أحد اللاعبين الرئيسيين في السوق المصري.",
+    "btn": "تعرف على المزيد!"
+  },
+  "ABOUT": {
+    "name": "من نحن",
+    "pre-span": "نحن",
+    "span": "شريك",
+    "post-span": "ابتكاراتك",
+    "p": "تأسست شركة النور للتجارة في عام 1995، وهي لاعب بارز في سوق الحبوب في مصر. متخصصة في تجارة القمح والنقل البري. يدعم أسطولنا المكون من 30 شاحنة لوجستيات من الدرجة الأولى. بينما يضمن فريقنا المكون من أكثر من 250 موظفًا متمرسًا رضا العملاء والوفاء بالعقود.",
+    "btn": "رؤيتنا"
+  },
+  "VALUES": {
+    "values-card": {
+      "h1": "قيمنا",
+      "span": "قيمنا",
+      "p": "نحن نقدر التميز، الثقة، الاحترام، التمكين، المسؤولية والعلاقة المتبادلة. خدمات عالية الجودة باستمرار، ابتكار مستمر ولا بديل للجودة.",
+      "more-btn": "عرض المزيد",
+      "less-btn": "عرض أقل"
+    },
+    "mission-card": {
+      "h1": "مهمتنا",
+      "span": "مهمتنا",
+      "p": "تقديم خدمة ممتازة لعملائنا من خلال إعطائهم موقعهم الأساسي في العمل ومعاملتهم بالنزاهة والصدق الذي يستحقونه. لتقديم خدمة عالية الجودة في الوقت المناسب وبما يتناسب مع راحة عملائنا. دائمًا استخدام مواد عالية الجودة لمنح عملائنا قيمة مقابل أموالهم. لتدريب المهنيين الشباب الذين يرغبون في العمل في نفس الصناعة",
+      "more-btn": "عرض المزيد",
+      "less-btn": "عرض أقل"
+    }
+  },
+  "HISTORY": {
+    "slide1": {
+      "date": "1995-2000",
+      "h1": "A New Name, A New Chapter",
+      "p": "El Nour Transportation is founded by Mohamed Abdelmonem to serve the transportation line across Egypt."
+    },
+    "slide2": {
+      "date": "2001-2013",
+      "h1": "Starting With Local Trading",
+      "p": "The company begins forging a new way forward, with renewed focus on sustainability and on building strong relationships based on trust, inspired by our past as we drive toward the future."
+    },
+    "slide3": {
+      "date": "2013-2015",
+      "h1": "Becoming The Value Chain",
+      "p": "The company begins forging a new way forward, with renewed focus on sustainability and on building strong relationships based on trust, inspired by our past as we drive toward the future."
+    },
+    "slide4": {
+      "date": "2015-2018",
+      "h1": "Diversity & Inclusion Council established",
+      "p": "We launch our strategic focus on Diversity & Inclusion which will include a newly created Chief Diversity Officer to lead the efforts."
+    },
+    "slide5": {
+      "date": "2018-2021",
+      "h1": "New beginning in industrial field",
+      "p": "First step in crude oil production As the world is swept by an unprecedented pandemic in modern times, our global reach, trading expertise and entrepreneurial outlook allow us to navigate challenges, deliver strong results and pursue transformation plans."
+    }
+  },
+  "TRANSPORTATION": {
+    "name": "TRANSPORTATION",
+    "h1": "Large Enough To Handle Small Enough To Care",
+    "p": "100% guarantee safe delivery with over 50 highly modernized track, to local goals, We know the value of all products. We make thier save arrival our top priority.",
+    "btn": "Contact"
+  }
+}

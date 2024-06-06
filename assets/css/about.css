@@ -1,0 +1,155 @@
+section#about {
+  background-color: var(--white);
+}
+
+section#about .container {
+  min-height: 90vh;
+  padding: var(--section-padding);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+}
+
+#about .right .section-title {
+  margin-left: 15px;
+}
+
+#about .right h1.title {
+  font-family: "Rubik", sans-serif;
+  text-transform: capitalize;
+  color: var(--dark-bg);
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin-top: 15px;
+}
+
+#about .right h1.title span {
+  background-image: linear-gradient(
+    to right,
+    var(--dark-blue),
+    var(--light-blue)
+  );
+  -webkit-background-clip: text; /* For Safari and older versions of Chrome */
+  background-clip: text;
+  color: transparent;
+}
+
+#about .right p {
+  margin: 15px 0px 30px;
+  font-weight: 500;
+  color: var(--gray);
+  font-size: 1.07rem;
+}
+
+#about .right,
+#about .left {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 2px solid red; */
+}
+
+#about .left .horiz {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 340px;
+  z-index: 1;
+  border: 6px solid var(--white);
+}
+#about .left .vert {
+  position: absolute;
+  top: -250px;
+  left: 0px;
+  width: 415px;
+}
+
+@media (max-width: 1200px) {
+  #about .right h1.title {
+    font-size: 2.2rem;
+  }
+  #about .right p {
+    font-size: 0.95rem;
+  }
+  section#about .container {
+    gap: 3vw;
+  }
+}
+
+@media (max-width: 1100px) {
+  #about .left .horiz {
+    display: none;
+  }
+  #about .left .vert {
+    position: relative;
+    top: 0px;
+    margin-left: -40px;
+  }
+  #about .right h1.title {
+    font-size: 2rem;
+  }
+  #about .right p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 900px) {
+  section#about .container {
+    flex-direction: column-reverse;
+    gap: 5vw;
+  }
+
+  #about .right {
+    width: 100%;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  #about .right h1.title,
+  #about .right p {
+    text-align: center;
+  }
+  #about .left {
+    width: 70%;
+    align-self: center;
+  }
+  #about .horiz {
+    display: none;
+  }
+  #about .left .vert {
+    display: block;
+    width: 110%;
+    top: 10px;
+    left: 25px;
+    position: relative;
+  }
+}
+
+@media (max-width: 600px) {
+  #about .left {
+    width: 90%;
+  }
+}
+
+@media (max-width: 450px) {
+  #about .container {
+    padding: 30px !important;
+  }
+  #about .right h1.title {
+    font-size: 1.7rem;
+  }
+  #about .right p {
+    font-size: 0.75rem;
+    margin: 15px 0px;
+  }
+  #about .left {
+    width: 100%;
+  }
+}

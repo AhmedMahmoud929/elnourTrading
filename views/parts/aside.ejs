@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./icons/favicon.ico" rel="shortcut icon" />
+    <title>Elnour Trading</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/dashboard/dashboard.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- mobile message -->
+    <div id="mobileMessage">
+      <h1>For better expreince, use the <span> desktop </span></h1>
+      <button>Continue anyway</button>
+    </div>
+    <!-- mobile message -->
+    <div class="sidebar open">
+      <div class="logo-details">
+        <a href="/dashboard" style="margin-top: 5px">
+          <img src="../../imgs/white logo.png" alt="" />
+        </a>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a
+            href="/dashboard"
+            class="<%= active === 'dashboard' ? 'active' : '' %>"
+          >
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a
+            href="/dashboard/news"
+            class="<%= active === 'news' ? 'active' : '' %>"
+          >
+            <i class="bx bx-news"></i>
+            <span class="links_name">News</span>
+          </a>
+          <span class="tooltip">News</span>
+        </li>
+        <li>
+          <a
+            href="/dashboard/gallery"
+            class="<%= active === 'gallery' ? 'active' : '' %>"
+          >
+            <i class="bx bxs-image-alt"></i>
+            <span class="links_name">Gallery</span>
+          </a>
+          <span class="tooltip">Gallery</span>
+        </li>
+        <li>
+          <a
+            href="/dashboard/brochures"
+            class="<%= active === 'brochures' ? 'active' : '' %>"
+          >
+            <i class="bx bxs-file-pdf"></i>
+            <span class="links_name">Brochures</span>
+          </a>
+          <span class="tooltip">Brochures</span>
+        </li>
+        <li>
+          <a
+            href="/dashboard/content"
+            class="<%= active === 'content' ? 'active' : '' %>"
+          >
+            <i class="fa-solid fa-font"></i>
+            <span class="links_name">Content</span>
+          </a>
+          <span class="tooltip">Content</span>
+        </li>
+
+        <li class="profile">
+          <a href="/dashboard/logout">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
+        </li>
+      </ul>
+    </div>
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let closeBtn = document.querySelector("#btn");
+      let searchBtn = document.querySelector(".bx-search");
+      let mobileMessage = document.getElementById("mobileMessage");
+      let mobileMessageBtn = document.querySelector("#mobileMessage button");
+      function checkWidth() {
+        if (window.innerWidth <= 600) {
+          mobileMessage.style.cssText = `opacity:1; pointer-events: auto;`;
+
+          sidebar.classList.remove("open");
+          menuBtnChange();
+        }
+      }
+      mobileMessageBtn.addEventListener("click", () => {
+        mobileMessage.style.cssText = `opacity:0; pointer-events: none;`;
+      });
+      // Attach a listener to the window's resize event
+      window.addEventListener("load", checkWidth);
+      window.addEventListener("resize", checkWidth);
+
+      closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+        menuBtnChange();
+      });
+      searchBtn.addEventListener("click", () => {
+        // Sidebar open when you click on the search iocn
+        sidebar.classList.toggle("open");
+        menuBtnChange();
+      });
+      // following are the code to change sidebar button(optional)
+      function menuBtnChange() {
+        if (sidebar.classList.contains("open")) {
+          closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the iocns class
+        } else {
+          closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the iocns class
+        }
+      }
+    </script>
+  </body>
+</html>

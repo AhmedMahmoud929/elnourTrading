@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./icons/favicon.ico" rel="shortcut icon" />
+    <title>Draggable Table</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/sortablejs/1.14.0/Sortable.min.css"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-color: #eee;
+      }
+      .list-group-item {
+        padding: 14px;
+        margin: 4px;
+        border: #222 1px solid;
+        background-color: #fff;
+      }
+      .handle {
+        margin-right: 10px;
+        cursor: grab;
+      }
+      /* .handle.ghost {
+        background-color: red;
+      } */
+      .sortable-ghost {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="draggableTable" class="list-group col">
+      <div class="list-group-item" data-id="0">
+        <i class="fas fa-arrows-alt handle"></i> Item 0
+      </div>
+      <div class="list-group-item" data-id="1">
+        <i class="fas fa-arrows-alt handle"></i> Item 1
+      </div>
+      <div class="list-group-item" data-id="2">
+        <i class="fas fa-arrows-alt handle"></i> Item 2
+      </div>
+      <div class="list-group-item" data-id="3">
+        <i class="fas fa-arrows-alt handle"></i> Item 3
+      </div>
+
+      <div class="list-group-item" data-id="4">
+        <i class="fas fa-arrows-alt handle"></i> Item 4
+      </div>
+      <div class="list-group-item" data-id="5">
+        <i class="fas fa-arrows-alt handle"></i> Item 5
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"
+      integrity="sha512-Eezs+g9Lq4TCCq0wae01s9PuNWzHYoCMkE97e2qdkYthpI0pzC3UGB03lgEHn2XM85hDOUF6qgqqszs+iXU4UA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      const table = document.getElementById("draggableTable");
+
+      const sortable = new Sortable(table, {
+        handle: ".handle", // handle's class
+        animation: 150,
+        ghostClass: "sortable-ghost",
+        onEnd: () => {
+          console.log(sortable.toArray());
+        },
+      });
+      //  console.log(sortable.toArray());
+    </script>
+  </body>
+</html>

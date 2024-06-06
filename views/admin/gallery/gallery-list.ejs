@@ -1,0 +1,164 @@
+<!-- Define ejs functions -->
+<% function formatDate(dateString) { const months = ["Jan", "Feb", "Mar", "Apr",
+"May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; const date = new
+Date(dateString); const month = months[date.getMonth()]; const day =
+date.getDate(); const year = date.getFullYear(); const formattedDate = `${month}
+${day}, ${year}`; return formattedDate; } %>
+
+<!--  -->
+<% function getName(path){ const fullName = path.split("/")[3]; const
+originalName = fullName.split("@@@")[0];const ext =
+path.split(".")[path.split(".").length-1]; return originalName+"."+ext } %>
+<!-- const fullName = path.split("/")[3]; const
+originalName = fullName.split("@@@")[0];const ext =
+path.split(".")[path.split(".").length-1]; return originalName+"."+ext -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../icons/favicon.ico" rel="shortcut icon" />
+    <title>Gallery</title>
+
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../../css/dashboard/gallery.css" />
+  </head>
+
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"gallery"}) %>
+    <!-- SECTION -->
+    <section class="home-section" style="position: relative">
+      <div class="view-modal">
+        <i class="fa-solid fa-xmark" onclick="closeView()"></i>
+        <div>
+          <img src="../../imgs/gallery_imgs/g_1.jpg" alt="" />
+        </div>
+      </div>
+      <header>
+        <div class="text">Gallery</div>
+        <a href="/dashboard/gallery/upload">
+          <span class="link_name">Upload</span>
+          <i class="bx bx-cloud-upload"></i>
+        </a>
+      </header>
+      <!-- HERE -->
+      <main data-aos="zoom-out-up" data-aos-duration="700">
+        <p class="info-message">
+          Note That : the first 10 images will be in the home page
+          <small>
+            (so you can change the order of images from the grab icon)
+          </small>
+        </p>
+        <%- include("../../parts/loader.ejs") %>
+        <table class="main-table">
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="draggableTable">
+            <% rows.reverse().forEach(row => { %>
+            <tr class="list-group-item" data-id="<%= row._id%>">
+              <td>
+                <i class="fas fa-arrows-alt handle"></i>
+              </td>
+              <td>
+                <img
+                  src="../<%= row.path %>"
+                  alt=""
+                />
+              </td>
+              <td>
+                <p><%= getName(row.path) %></p>
+              </td>
+              <td>
+                <p><%= formatDate(row.createdAt) %></p>
+              </td>
+              <td>
+                <div class="sure-modal" style="display: none">
+                  <p>Sure?</p>
+                  <div style="display: flex; gap: 5px">
+                    <form
+                      method="POST"
+                      action="/dashboard/gallery/delete"
+                      style="width: 70%"
+                    >
+                      <input
+                        type="text"
+                        name="imageId"
+                        value="<%= row._id %>"
+                        hidden
+                      />
+                      <button class="danger" style="margin-top: 5px">
+                        Yes
+                      </button>
+                    </form>
+                    <button
+                      class="close-sure-modal"
+                      style="margin-top: 5px; width: 30%"
+                    >
+                      No
+                    </button>
+                  </div>
+                </div>
+                <div class="td-btn-group">
+                  <div style="width: 100%">
+                    <button
+                      onclick="openView(`<%= osType === 'Windows_NT' ? '../' : '' %><%= row.path %>`,'img')"
+                    >
+                      View
+                    </button>
+                  </div>
+                  <div style="width: 100%; margin-top: 5px">
+                    <button class="open-sure-modal danger">Delete</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </main>
+    </section>
+
+    <script src="../../js/dashboard/modalHandler.js"></script>
+    <!-- Sortable Library -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"
+      integrity="sha512-Eezs+g9Lq4TCCq0wae01s9PuNWzHYoCMkE97e2qdkYthpI0pzC3UGB03lgEHn2XM85hDOUF6qgqqszs+iXU4UA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="../../js/dashboard/draggableTable.js"></script>
+  </body>
+</html>

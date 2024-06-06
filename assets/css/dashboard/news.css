@@ -1,0 +1,110 @@
+#news table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  color: aliceblue;
+}
+#news table caption {
+  color: var(--white);
+}
+
+#news table caption {
+  font-size: 1.5em;
+  margin: 0.5em 0 0.75em;
+}
+
+#news table tr {
+  background-color: #23203f;
+  border: 1px solid #060515;
+}
+
+#news table th,
+#news table td {
+  padding: 1.5rem 0.625em;
+  text-align: center;
+}
+
+#news table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background-color: #11101d;
+}
+#news table td img {
+  max-width: 140px;
+  max-height: 140px;
+  border-radius: 4px;
+}
+#news table td[data-label="Title"] {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#news table td[data-label="Actions"] form:first-child {
+  margin-bottom: 6px;
+}
+#news table td[data-label="Actions"] form button {
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px 6px;
+  /* font-size: 16px; */
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#news table td[data-label="Actions"] form button.danger {
+  background-color: rgb(202, 26, 26);
+  color: var(--white);
+}
+
+@media screen and (max-width: 600px) {
+  #news table {
+    border: 0;
+  }
+
+  #news table caption {
+    font-size: 1.3em;
+  }
+
+  #news table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  #news table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+    /* margin-right: 10px; */
+  }
+
+  #news table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  #news table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    margin-right: 40px;
+    text-transform: uppercase;
+  }
+
+  #news table td:last-child {
+    border-bottom: 0;
+  }
+}

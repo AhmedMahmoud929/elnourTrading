@@ -1,0 +1,829 @@
+<!-- Define ejs functions -->
+<% function formatDate(dateString) { const months = ["Jan", "Feb", "Mar", "Apr",
+"May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; const date = new
+Date(dateString); const month = months[date.getMonth()]; const day =
+date.getDate(); const year = date.getFullYear(); const formattedDate = `${month}
+${day}, ${year}`; return formattedDate; } %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./icons/favicon.ico" rel="shortcut icon" />
+    <title>El-Nour Trading</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/about.css" />
+    <link rel="stylesheet" href="./css/values.css" />
+    <link rel="stylesheet" href="./css/news.css" />
+    <link rel="stylesheet" href="./css/history.css" />
+    <link rel="stylesheet" href="./css/transportation.css" />
+    <link rel="stylesheet" href="./css/services.css" />
+    <link rel="stylesheet" href="./css/gallery.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+    <link rel="stylesheet" href="./css/questions.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+  </head>
+  <body>
+    <!-- HOME -->
+    <section id="home">
+      <div class="container">
+        <!-- alternative bg -->
+        <img src="./imgs/alt_bg.png" alt="el-nour trading" class="alt-bg" />
+        <!-- vidoe bg -->
+        <video
+          class="video-bg"
+          src="./videos/elnour-trading.mp4"
+          muted
+          loop
+          autoplay
+        ></video>
+        <!-- grady bg -->
+        <img class="grady-bg" src="./imgs/grady_bg.png" alt="" />
+        <!-- circles -->
+        <div class="circle right"></div>
+        <div class="circle left"></div>
+
+        <!-- navbar -->
+        <nav>
+          <!-- logo -->
+          <a href="/">
+            <img src="<%= %>" alt="el-nour trading" />
+          </a>
+          <!-- list -->
+          <ul>
+            <li><a href="#home" class="active"><%= t("NAVBAR.nav_elements.a1") %></a></li>
+            <li><a href="#about"><%= t("NAVBAR.nav_elements.a2") %></a></li>
+            <li><a href="/profile"><%= t("NAVBAR.nav_elements.a3") %></a></li>
+            <li><a href="#services"><%= t("NAVBAR.nav_elements.a4") %></a></li>
+            <li><a href="#gallery"><%= t("NAVBAR.nav_elements.a5") %></a></li>
+            <li><a href="#contact"><%= t("NAVBAR.nav_elements.a6") %></a></li>
+          </ul>
+          <!-- menu toggle -->
+          <div class="toggle-icon">
+            <div class="top"></div>
+            <div class="middle"></div>
+            <div class="bottom"></div>
+          </div>
+        </nav>
+        <ul class="nav-phone">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="/profile">CO Profile</a></li>
+          <li><a href="#services">Commodity</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- header -->
+        <header>
+          <h1 data-aos="zoom-out-down" data-aos-duration="700">
+            <span>
+              <%= t('HOME.span') %>
+            </span>
+            <%= t('HOME.h1') %>
+          </h1>
+          <p
+            data-aos="zoom-out-down"
+            data-aos-duration="700"
+            data-aos-delay="200"
+          >
+          <%= t('HOME.p') %>
+          </p>
+          <a
+            href="#about"
+            data-aos="zoom-out-down"
+            data-aos-duration="700"
+            data-aos-delay="400"
+          >
+            <button class="btn"><%= t('HOME.btn') %></button>
+          </a>
+          <i class="fa-solid fa-circle-pause video-btn-controller"></i>
+        </header>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div
+          class="left"
+          data-aos="fade-right"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <img class="horiz" src="<%=  %>" alt="trucks" />
+          <img class="vert" src="<%= %>" alt="elnour-trading" />
+        </div>
+
+        <div class="right">
+          <h1
+            class="section-title"
+            class="section-title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          >
+          <%= t("ABOUT.name") %>
+          </h1>
+          <h1
+            class="title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+            class="title"
+          >
+          <%= t("ABOUT.pre-span") %><span> <%= t("ABOUT.span") %> </span><%= t("ABOUT.post-span") %>
+          </h1>
+          <p data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">
+            <%= t("ABOUT.p") %>
+          </p>
+          <a
+            data-aos="fade-right"
+            data-aos-duration="600"
+            data-aos-delay="100"
+            href="/vision"
+          >
+            <button class="btn"><%= t("ABOUT.btn") %></button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section id="values">
+      <div class="container">
+        <!-- values -->
+        <div class="card-cont" data-aos="fade-up" data-aos-duration="600">
+          <div class="icon">
+            <img class="icon-img" src="./icons/diamond.svg" alt="our values" />
+          </div>
+          <div class="card">
+            <div class="card-face front">
+              <h1 class="title"><%= t("VALUES.values-card.h1") %> <span><%= t("VALUES.values-card.span") %></span></h1>
+              <p class="view-btn view-more"><%= t("VALUES.values-card.more-btn") %></p>
+            </div>
+            <div class="card-face back">
+              <p>
+                <%= t("VALUES.values-card.p") %>
+              </p>
+              <p class="view-btn view-less"><%= t("VALUES.values-card.less-btn") %></p>
+            </div>
+          </div>
+        </div>
+        <!-- mission -->
+        <div
+          class="card-cont"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <div class="icon">
+            <img class="icon-img" src="./icons/mission.svg" alt="our mission" />
+          </div>
+          <div class="card">
+            <div class="card-face front">
+              <h1 class="title"><%= t("VALUES.mission-card.h1") %> <span><%= t("VALUES.mission-card.span") %></span></h1>
+              <p class="view-btn view-more"><%= t("VALUES.mission-card.more-btn") %></p>
+            </div>
+            <div class="card-face back">
+              <p>
+                <%= t("VALUES.mission-card.p") %>
+              </p>
+              <p class="view-btn view-less"><%= t("VALUES.mission-card.less-btn") %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section id="news">
+      <div class="container">
+        <div class="top">
+          <!-- section-title -->
+          <h1
+            class="section-title"
+            class="section-title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          >
+            NEWS
+          </h1>
+          <!-- <div class="control-btns">
+            <i class="fa-solid fa-chevron-left"></i>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div> -->
+        </div>
+        <!-- main-title -->
+        <!-- <h1
+          class="title"
+          data-aos="fade-right"
+          data-aos-duration="600"
+          class="title"
+        >
+          
+        </h1> -->
+        <!-- swiper -->
+        <div
+          class="swiper-container mySwiper-news"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="200"
+        >
+          <div class="swiper-wrapper">
+            <% for(ele of news) { %>
+            <div class="swiper-slide">
+              <div class="img-cont">
+                <img
+                  src="<%= ele.cover %>"
+                  alt=""
+                />
+              </div>
+              <div class="card-body">
+                <div class="new-date">
+                  <i class="fa-regular fa-calendar"></i>
+                  <span><%= formatDate(ele.createdAt) %></span>
+                </div>
+                <h1><%= ele.title %></h1>
+                <p><%= ele.desc %></p>
+              </div>
+              <div class="btn-cont">
+                <a href="/article/<%= ele._id %>" target="_blank" class="btn"
+                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ></a>
+              </div>
+            </div>
+            <% } %>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history">
+      <!-- Swiper -->
+      <div class="swiper-container mySwiper-history">
+        <div class="swiper-wrapper">
+          <!-- slide 1 -->
+          <div
+            class="swiper-slide"
+            style="background-image: url(./imgs/slide_bg_1.jpg)"
+          >
+            <div class="container">
+              <h1 data-aos="zoom-out-down" data-aos-duration="500">
+                1995-2000
+              </h1>
+              <h2 data-aos="zoom-out-down" data-aos-duration="700">
+                A New Name, A New Chapter
+              </h2>
+              <p
+                data-aos="zoom-out-down"
+                data-aos-duration="700"
+                data-aos-delay="100"
+              >
+                El Nour Transportation is founded by Mohamed Abdelmonem to serve
+                the transportation line across Egypt.
+              </p>
+            </div>
+          </div>
+          <!-- slide 2 -->
+          <div
+            class="swiper-slide"
+            style="background-image: url(./imgs/slide_bg_2.jpg)"
+          >
+            <div class="container">
+              <h1>2001-2013</h1>
+              <h2>Starting With Local Trading</h2>
+              <p>
+                The company begins forging a new way forward, with renewed focus
+                on sustainability and on building strong relationships based on
+                trust, inspired by our past as we drive toward the future.
+              </p>
+            </div>
+          </div>
+          <!-- slide 3 -->
+          <div
+            class="swiper-slide"
+            style="background-image: url(./imgs/slide_bg_3.jpg)"
+          >
+            <div class="container">
+              <h1>2013-2015</h1>
+              <h2>Becoming The Value Chain</h2>
+              <p>
+                The company begins forging a new way forward, with renewed focus
+                on sustainability and on building strong relationships based on
+                trust, inspired by our past as we drive toward the future.
+              </p>
+            </div>
+          </div>
+          <!-- slide 4 -->
+          <div
+            class="swiper-slide"
+            style="background-image: url(./imgs/slide_bg_4.jpg)"
+          >
+            <div class="container">
+              <h1>2015-2018</h1>
+              <h2>Diversity & Inclusion Council established</h2>
+              <p>
+                We launch our strategic focus on Diversity & Inclusion which
+                will include a newly created Chief Diversity Officer to lead the
+                efforts.
+              </p>
+            </div>
+          </div>
+          <!-- slide 5 -->
+          <div
+            class="swiper-slide"
+            style="background-image: url(./imgs/slide_bg_5.jpg)"
+          >
+            <div class="container">
+              <h1>2018-2021</h1>
+              <h2>New beginning in industrial field</h2>
+              <p>
+                First step in crude oil production As the world is swept by an
+                unprecedented pandemic in modern times, our global reach,
+                trading expertise and entrepreneurial outlook allow us to
+                navigate challenges, deliver strong results and pursue
+                transformation plans.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          data-aos="fade-left"
+          data-aos-duration="500"
+          class="swiper-pagination-history"
+        ></div>
+      </div>
+    </section>
+
+    <!-- TRANSPORTATION -->
+    <section id="transportation">
+      <div class="container">
+        <img class="transport-bg" src="./imgs/transport.jpg" alt="" />
+        <img
+          class="transport-bg"
+          src="./imgs/grady_bg.png"
+          alt=""
+          style="opacity: 0.8"
+        />
+        <div class="main">
+          <h1
+            class="section-title"
+            class="section-title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          >
+            TRANSPORTATION
+          </h1>
+          <h1
+            class="title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+            class="title"
+          >
+            Large enough to <span>handle</span><br />
+            Small enough to <span>care</span>
+          </h1>
+          <p data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">
+            100% guarantee safe delivery with over 50 highly modernized track,
+            to local goals, We know the value of all products. We make thier
+            save arrival our top priority.
+          </p>
+          <a
+            data-aos="fade-right"
+            data-aos-duration="600"
+            data-aos-delay="100"
+            href="#contact"
+            style="margin-top: 30px"
+          >
+            <button class="btn">Contact</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="top">
+          <h1
+            class="section-title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          >
+            WHAT WE OFFER
+          </h1>
+          <a href="#contact" data-aos="fade-left" data-aos-duration="600">
+            <button class="btn outline">Contact</button>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="item" data-aos="flip-left" data-aos-duration="700">
+            <div class="icon">
+              <img
+                class="icon-img"
+                src="./icons/wheat-awn-solid.svg"
+                alt="wheat"
+              />
+            </div>
+            <h1>WHEAT</h1>
+            <p>
+              We are one of the largest companies in the wheat trade in Egypt
+            </p>
+            <img
+              class="service-icon-shadow"
+              src="./icons/wheat-awn-solid.svg"
+              alt="wheat"
+            />
+          </div>
+
+          <div class="item" data-aos="flip-left" data-aos-duration="700">
+            <div class="icon">
+              <img class="icon-img" src="./icons/corn-cob.svg" alt="corn" />
+            </div>
+            <h1>CORN</h1>
+            <p>
+              We work in the field of corn from a period and we have a large
+              part in the Egyptian market
+            </p>
+            <img
+              class="service-icon-shadow"
+              src="./icons/corn-cob.svg"
+              alt="corn"
+            />
+          </div>
+
+          <div class="item" data-aos="flip-left" data-aos-duration="700">
+            <div class="icon">
+              <img
+                class="icon-img"
+                src="./icons/grain-bag.svg"
+                alt="sunflower"
+              />
+            </div>
+            <h1>SOYBEAN MEALS</h1>
+            <p>
+              We supply all quantities required of animal feed from soyabean
+              meals
+            </p>
+            <img
+              class="service-icon-shadow"
+              src="./icons/grain-bag.svg"
+              alt="sunflower"
+            />
+          </div>
+
+          <div class="item" data-aos="flip-left" data-aos-duration="700">
+            <div class="icon">
+              <img
+                class="icon-img"
+                src="./icons/oil-bottle.svg"
+                alt="soybean seed"
+              />
+            </div>
+            <h1>SOYA OIL</h1>
+            <p>
+              We supply all quantities required for oil extraction plants from
+              Soybean seed
+            </p>
+            <img
+              class="service-icon-shadow"
+              src="./icons/oil-bottle.svg"
+              alt="oil"
+            />
+          </div>
+
+          <div class="item" data-aos="flip-left" data-aos-duration="700">
+            <div class="icon">
+              <img class="icon-img" src="./icons/soy.svg" alt="soybean" />
+            </div>
+            <h1>SOYABEAN</h1>
+            <p>We supply the quantities required for feed factories</p>
+            <img
+              class="service-icon-shadow"
+              src="./icons/soy.svg"
+              alt="soybean"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="container">
+        <!-- section-title -->
+        <h1
+          class="section-title"
+          class="section-title"
+          data-aos="fade-right"
+          data-aos-duration="600"
+        >
+          GALLERY
+        </h1>
+        <!-- main-title -->
+        <h1
+          class="title"
+          data-aos="fade-right"
+          data-aos-duration="600"
+          class="title"
+        >
+          Our company in <span>frames</span>
+        </h1>
+        <!-- swiper -->
+        <div
+          class="swiper-container mySwiper-gallery"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="200"
+        >
+          <div class="swiper-wrapper">
+            <% for(let i=0;i<Math.min(10,galleryImgs.length);i++){ %>
+            <div class="swiper-slide">
+              <img
+                class="bg-img"
+                src="<%= galleryImgs[i].path %>"
+                alt="gallery"
+              />
+              <img
+                class="main-img"
+                src="<%= galleryImgs[i].path %>"
+                alt="gallery"
+              />
+            </div>
+
+            <% } %>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <!-- button -->
+        <a
+          href="/gallery"
+          data-aos="fade-left"
+          data-aos-duration="600"
+          class="a-btn"
+        >
+          <button class="btn">View All</button>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="top">
+          <!-- section-title -->
+          <h1
+            class="section-title"
+            class="section-title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          >
+            CONTACT
+          </h1>
+          <!-- main-title -->
+          <h1
+            class="title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+            class="title"
+          >
+            Let's stay <span>connected</span>
+          </h1>
+        </div>
+        <div class="bottom">
+          <!-- LIST -->
+          <ul
+            class="left"
+            data-aos="fade-right"
+            data-aos-duration="600"
+            data-aos-delay="100"
+          >
+            <!-- location -->
+            <li class="location">
+              <div class="head">
+                <div class="icon">
+                  <img src="./icons/location-dot-solid.svg" />
+                </div>
+                <h1>Location</h1>
+              </div>
+              <ul>
+                <li>Egypt/El-Gharbiya/Kafr-Elzayat/El-Dalgamon</li>
+              </ul>
+            </li>
+            <!-- phone -->
+            <li class="phone">
+              <div class="head">
+                <div class="icon">
+                  <img src="./icons/phone-solid.svg" />
+                </div>
+                <h1>Phone</h1>
+              </div>
+              <ul>
+                <li>
+                  Head of trade : Marwan El-Fouly<br />Mob:
+                  <a href="tel:+201000343444"> +2 01000343444 </a>
+                </li>
+                <li>
+                  Chief financial officer : Hisham Atef<br />
+                  <a href="tel:+201066652975"> Mob: +2 01066652975 </a>
+                </li>
+                <li>
+                  Plant Manager : Ahmed Shaltout<br />Mob:
+                  <a href="tel:+2 01011393902"> +2 01011393902 </a>
+                </li>
+              </ul>
+            </li>
+            <!-- social -->
+            <li class="social">
+              <div class="head">
+                <div class="icon">
+                  <img src="./icons/facebook-f.svg" />
+                </div>
+                <h1>
+                  <a
+                    style="color: var(--white)"
+                    target="_blank"
+                    href="https://www.facebook.com/profile.php?id=100024270064870"
+                    >Social</a
+                  >
+                </h1>
+              </div>
+            </li>
+          </ul>
+          <!-- MAP -->
+          <iframe
+            class="right"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13706.65451112505!2d30.831620000000004!3d30.812065999999998!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f634723350ee21%3A0x2284d9ef134cc012!2z2LTYsdmD2Kkg2KfZhNmG2YjYsSDZhNmE2YbZgtmEINmI2KfZhNin2LPYqtmK2LHYp9ivINmI2KfZhNiq2LXYr9mK2LE!5e0!3m2!1sen!2sus!4v1691331399677!5m2!1sen!2sus"
+            allowfullscreen=""
+            referrerpolicy="no-referrer-when-downgrade"
+            data-aos="fade-left"
+            data-aos-duration="600"
+            data-aos-delay="100"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section id="questions">
+      <div class="container">
+        <div class="left">
+          <h1
+            class="title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+            class="title"
+          >
+            Questions? <span>Email us!</span>
+          </h1>
+          <p
+            class="title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+            data-aos-delay="100"
+          >
+            If you have any questions or need assistance feel free to contact
+            us.
+          </p>
+        </div>
+        <div class="right">
+          <form
+            action=""
+            data-aos="fade-left"
+            data-aos-duration="600"
+            data-aos-delay="100"
+          >
+            <input type="" placeholder="Enter your email" />
+            <a href="mailto:info@elnourtrading.com">
+              <button class="btn">Send</button>
+            </a>
+          </form>
+          <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+            we care about your data in our <span> privacy policy </span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <!-- circles -->
+      <div class="circle right"></div>
+      <div class="circle left"></div>
+      <!-- container -->
+      <div class="container">
+        <div class="top">
+          <img src="./imgs/blue logo.png" alt="el-nour trading" />
+          <!-- list -->
+          <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="/profile">CO Profile</a></li>
+            <li><a href="#services">Commodity</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <!-- just for styling -->
+        <div class="separator"></div>
+        <!-- bottom -->
+        <p>© 2023 El-Nour, All rights reserved</p>
+      </div>
+    </footer>
+
+    <!-- Main Scripts -->
+    <script src="./js/cardsHandler.js"></script>
+    <script src="./js/videoController.js"></script>
+    <script src="./js/phoneNavbar.js"></script>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swipers-->
+    <script>
+      // History swipper
+      var historySwiper = new Swiper(".mySwiper-history", {
+        direction: "vertical",
+        slidesPerView: 1,
+        spaceBetween: 30,
+        autoplay: false,
+        pagination: {
+          el: ".swiper-pagination-history",
+          clickable: true,
+        },
+        allowTouchMove: window.innerWidth > 768,
+        grabCursor: window.innerWidth > 768,
+      });
+      // Gallery swipper
+      var gallerySwiper = new Swiper(".mySwiper-gallery", {
+        autoHeight: true,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          696: {
+            slidesPerView: 1,
+          },
+
+          992: {
+            slidesPerView: 2,
+          },
+        },
+      });
+      // News swipper
+      var newsSwiper = new Swiper(".mySwiper-news", {
+        autoHeight: true,
+        spaceBetween: 25,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          800: {
+            slidesPerView: 1,
+          },
+          1000: {
+            slidesPerView: 2,
+          },
+          1200: {
+            slidesPerView: 3,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./icons/favicon.ico" rel="shortcut icon" />
+    <link href="./icons/favicon.ico" rel="shortcut icon" />
+    <title>El-Nour Trading - Gallery</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/gallery-page.css" />
+    <link rel="stylesheet" href="./css/banner.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+  </head>
+  <body>
+    <!-- HOME -->
+    <section id="gallery-page">
+      <div class="container">
+        <!-- navbar -->
+        <nav>
+          <!-- logo -->
+          <a href="/">
+            <img src="./imgs/white logo.png" alt="el-nour trading" />
+          </a>
+          <!-- list -->
+          <ul>
+            <li><a href="/#home">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/profile">CO Profile</a></li>
+            <li><a href="/#services">Commodity</a></li>
+            <li><a href="#gallery-page" class="active">Gallery</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+          <!-- menu toggle -->
+          <div class="toggle-icon">
+            <div class="top"></div>
+            <div class="middle"></div>
+            <div class="bottom"></div>
+          </div>
+        </nav>
+        <ul class="nav-phone">
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/profile">CO Profile</a></li>
+          <li><a href="/#services">Commodity</a></li>
+          <li><a href="#gallery-page" class="active">Gallery</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+
+        <!-- header -->
+        <header>
+          <h1
+            class="title"
+            data-aos="fade-down"
+            data-aos-duration="600"
+            class="title"
+          >
+            Our company in <span>frames</span>
+          </h1>
+          <!--  -->
+          <div class="frames">
+            <% galleryImgs.forEach(function(img) { %>
+            <div
+              class="item"
+              data-aos="flip-right"
+              data-aos-duration="900"
+              data-aos-delay="100"
+            >
+              <img class="bg-img" src="<%= img.path %>" alt="gallery" />
+              <img class="main-img" src="<%= img.path %>" alt="gallery" />
+            </div>
+
+            <% }) %>
+          </div>
+          <!--  -->
+          <a
+            data-aos="fade-right"
+            data-aos-duration="600"
+            data-aos-delay="100"
+            href="/"
+          >
+            <button class="btn">Back To Home</button>
+          </a>
+        </header>
+      </div>
+    </section>
+
+    <!-- BANNER -->
+    <section id="banner">
+      <!-- grady bg -->
+      <img class="grady-bg" src="./imgs/grady_bg.png" alt="" />
+      <!-- container -->
+      <div class="container">
+        <h1
+          class="title"
+          data-aos="zoom-out-down"
+          data-aos-duration="600"
+          class="title"
+        >
+          Let's stay <span>connected</span>
+        </h1>
+        <p
+          data-aos="zoom-out-down"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          AL-Nour Co. has a big and ambitious vision to raise, Contact us now if
+          you have any questions
+        </p>
+        <a
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="200"
+          href="/#contact"
+        >
+          <button class="btn">Contact</button>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <!-- circles -->
+      <div class="circle right"></div>
+      <div class="circle left"></div>
+      <!-- container -->
+      <div class="container">
+        <div class="top">
+          <img src="./imgs/blue logo.png" alt="el-nour trading" />
+          <!-- list -->
+          <ul>
+            <li><a href="/#home">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/profile">CO Profile</a></li>
+            <li><a href="/#services">Commodity</a></li>
+            <li><a href="#gallery-page">Gallery</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </div>
+        <!-- just for styling -->
+        <div class="separator"></div>
+        <!-- bottom -->
+        <p>© 2023 El-Nour, All rights reserved</p>
+      </div>
+    </footer>
+
+    <!-- Main Scripts -->
+    <script src="./js/phoneNavbar.js"></script>
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

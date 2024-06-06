@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../icons/favicon.ico" rel="shortcut icon" />
+    <title>Publish a new</title>
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../../css/dashboard/brochures.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"news"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <header>
+        <div class="text">Publish a new</div>
+        <a href="/dashboard/news/">
+          <span class="link_name">Back</span>
+          <!-- <i class='bx bx-plus'></i> -->
+          <i class="bx bx-undo"></i>
+        </a>
+      </header>
+      <!-- HERE -->
+      <main id="uploadBrochure">
+        <div class="grid">
+          <form
+            data-aos="fade-up"
+            data-aos-duration="600"
+            action="/dashboard/news/publish"
+            method="POST"
+            class="form login"
+            enctype="multipart/form-data"
+          >
+            <div class="form__field">
+              <label for="login__username">
+                <i class="bx bxs-pencil icon"></i>
+                <span class="hidden">Title</span></label
+              >
+              <input
+                autocomplete="off"
+                id="login__username"
+                type="text"
+                name="title"
+                class="form__input"
+                placeholder="Title"
+                required
+              />
+            </div>
+            <div class="form__field">
+              <label for="login__username">
+                <i class="bx bxs-pencil icon"></i>
+                <span class="hidden">Description</span></label
+              >
+              <textarea
+                cols="30"
+                rows="10"
+                style="padding: 10px; resize: none"
+                autocomplete="off"
+                id="login__username"
+                type="text"
+                name="desc"
+                class="form__input"
+                placeholder="Description"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form__field">
+              <label for="login__password">
+                <i class="bx bxs-image icon"></i>
+                <span class="hidden">Cover</span>
+              </label>
+              <input
+                id="login__password"
+                type="file"
+                name="cover"
+                class="form__input"
+                placeholder="Cover"
+                required
+              />
+            </div>
+
+            <div class="form__field">
+              <input type="submit" value="Publish" />
+            </div>
+          </form>
+        </div>
+      </main>
+    </section>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./icons/favicon.ico" rel="shortcut icon" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/dashboard/dashboard.css" />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ASIDE -->
+    <%- include("../parts/aside.ejs",{active:"dashboard"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <header>
+        <div class="text">Dashboard</div>
+      </header>
+      <main id="dashboard">
+        <article class="main-card" data-aos="fade-up" data-aos-duration="500">
+          <div class="text">
+            <h1><%= visits %></h1>
+            <h2>Views</h2>
+          </div>
+          <div class="icon">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+        </article>
+        <article class="main-card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
+          <div class="text">
+            <h1><%= newsCount %></h1>
+            <h2>News</h2>
+          </div>
+          <div class="icon">
+            <i class="fa-solid fa-newspaper"></i>
+          </div>
+        </article>
+        <article class="main-card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
+          <div class="text">
+            <h1><%= imagesCount %></h1>
+            <h2>Images</h2>
+          </div>
+          <div class="icon">
+            <i class="fa-solid fa-image"></i>
+          </div>
+        </article>
+        <article class="main-card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+          <div class="text">
+            <h1><%= brochuresCount %></h1>
+            <h2>Brochures</h2>
+          </div>
+          <div class="icon">
+            <i class="fa-solid fa-file-pdf"></i>
+          </div>
+        </article>
+      </main>
+    </section>
+  </body>
+
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</html>

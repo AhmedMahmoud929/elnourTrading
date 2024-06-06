@@ -1,0 +1,106 @@
+<!-- Define ejs functions -->
+<% function formatDate(dateString) { const months = ["Jan", "Feb", "Mar", "Apr",
+"May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; const date = new
+Date(dateString); const month = months[date.getMonth()]; const day =
+date.getDate(); const year = date.getFullYear(); const formattedDate = `${month}
+${day}, ${year}`; return formattedDate; } %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../icons/favicon.ico" rel="shortcut icon" />
+    <title>News</title>
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../../css/dashboard/news.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"news"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <header>
+        <div class="text">News</div>
+        <a href="/dashboard/news/publish">
+          <span class="link_name">Add New</span>
+          <i class="bx bx-plus"></i>
+        </a>
+      </header>
+      <main id="news">
+        <table data-aos="zoom-out-up" data-aos-duration="700">
+          <caption>
+            Published News
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Img</th>
+              <th scope="col">Title</th>
+              <th scope="col">Date</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- row -->
+            <% for(ele of news) { %>
+            <tr>
+              <td data-label="Img">
+                <img
+                  src="<%= osType === 'Windows_NT' ? '../' : '' %><%= ele.cover %>"
+                />
+              </td>
+              <td data-label="Title"><%= ele.title %></td>
+              <td data-label="Date"><%= formatDate(ele.createdAt) %></td>
+              <td data-label="Actions">
+                <form id="viewForm">
+                  <a href="/article/<%= ele._id %>">
+                    <button>View</button>
+                  </a>
+                </form>
+
+                <form action="/dashboard/news/delete" method="POST">
+                  <input
+                    type="text"
+                    name="newId"
+                    value="<%= ele._id %>"
+                    hidden
+                  />
+                  <button class="danger">Delete</button>
+                </form>
+              </td>
+            </tr>
+            <%} %>
+          </tbody>
+        </table>
+      </main>
+    </section>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      const viewForms = document.querySelectorAll("#viewForm");
+
+      viewForms.forEach((f, ix) => {
+        f.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const newWindow = window.open("", "_blank");
+          newWindow.location.href = f.children[0].href;
+        });
+      });
+    </script>
+  </body>
+</html>

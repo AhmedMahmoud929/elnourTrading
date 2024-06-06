@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../icons/favicon.ico" rel="shortcut icon" />
+    <title>Upload images</title>
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../../css/dashboard/gallery.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"gallery"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <header>
+        <div class="text">Upload an Image</div>
+        <a href="/dashboard/gallery/">
+          <span class="link_name">Back</span>
+          <!-- <i class='bx bx-plus'></i> -->
+          <i class="bx bx-undo"></i>
+        </a>
+      </header>
+      <main>
+        <div class="modal" data-aos="fade-up" data-aos-duration="600">
+          <div class="modal-header">
+            <div class="modal-logo">
+              <span class="logo-circle">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="512"
+                  height="419.116"
+                  viewBox="0 0 512 419.116"
+                >
+                  <defs>
+                    <clipPath id="clip-folder-new">
+                      <rect width="512" height="419.116" />
+                    </clipPath>
+                  </defs>
+                  <g id="folder-new" clip-path="url(#clip-folder-new)">
+                    <path
+                      id="Union_1"
+                      data-name="Union 1"
+                      d="M16.991,419.116A16.989,16.989,0,0,1,0,402.125V16.991A16.989,16.989,0,0,1,16.991,0H146.124a17,17,0,0,1,10.342,3.513L227.217,57.77H437.805A16.989,16.989,0,0,1,454.8,74.761v53.244h40.213A16.992,16.992,0,0,1,511.6,148.657L454.966,405.222a17,17,0,0,1-16.6,13.332H410.053v.562ZM63.06,384.573H424.722L473.86,161.988H112.2Z"
+                      fill="var(--c-action-primary)"
+                      stroke=""
+                      stroke-width="1"
+                    />
+                  </g>
+                </svg>
+              </span>
+            </div>
+          </div>
+          <form class="modal-body" enctype="multipart/form-data">
+            <h2 class="modal-title">Upload here</h2>
+            <p class="modal-description">Attach the image below</p>
+            <!-- loader -->
+            <%- include("../../parts/loader.ejs") %>
+            <!-- items-list -->
+            <ul class="uploaded-items"></ul>
+            <!-- done -->
+            <div id="lordIcon" style="display: none; justify-content: center">
+              <lord-icon
+                src="https://cdn.lordicon.com/lupuorrc.json"
+                trigger="loop"
+                colors="primary:#fff,secondary:#3080e8"
+                style="width: 200px; height: 200px"
+              >
+              </lord-icon>
+            </div>
+            <!-- button -->
+            <button class="upload-area">
+              <span class="upload-area-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="340.531"
+                  height="419.116"
+                  viewBox="0 0 340.531 419.116"
+                >
+                  <g id="files-new" clip-path="url(#clip-files-new)">
+                    <path
+                      id="Union_2"
+                      data-name="Union 2"
+                      d="M-2904.708-8.885A39.292,39.292,0,0,1-2944-48.177V-388.708A39.292,39.292,0,0,1-2904.708-428h209.558a13.1,13.1,0,0,1,9.3,3.8l78.584,78.584a13.1,13.1,0,0,1,3.8,9.3V-48.177a39.292,39.292,0,0,1-39.292,39.292Zm-13.1-379.823V-48.177a13.1,13.1,0,0,0,13.1,13.1h261.947a13.1,13.1,0,0,0,13.1-13.1V-323.221h-52.39a26.2,26.2,0,0,1-26.194-26.195v-52.39h-196.46A13.1,13.1,0,0,0-2917.805-388.708Zm146.5,241.621a14.269,14.269,0,0,1-7.883-12.758v-19.113h-68.841c-7.869,0-7.87-47.619,0-47.619h68.842v-18.8a14.271,14.271,0,0,1,7.882-12.758,14.239,14.239,0,0,1,14.925,1.354l57.019,42.764c.242.185.328.485.555.671a13.9,13.9,0,0,1,2.751,3.292,14.57,14.57,0,0,1,.984,1.454,14.114,14.114,0,0,1,1.411,5.987,14.006,14.006,0,0,1-1.411,5.973,14.653,14.653,0,0,1-.984,1.468,13.9,13.9,0,0,1-2.751,3.293c-.228.2-.313.485-.555.671l-57.019,42.764a14.26,14.26,0,0,1-8.558,2.847A14.326,14.326,0,0,1-2771.3-147.087Z"
+                      transform="translate(2944 428)"
+                      fill="var(--c-action-primary)"
+                    />
+                  </g>
+                </svg>
+              </span>
+              <span class="upload-area-title"
+                >Select image(s) here to upload.</span
+              >
+              <input class="file-input" name="files" type="file" multiple />
+            </button>
+          </form>
+
+          <div class="modal-footer">
+            <button id="resetBtn" class="btn-primary" style="display: none">
+              Upload another image(s)
+            </button>
+            <button id="uploadBtn" class="btn-primary">Upload image(s)</button>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+    <script>
+      let uploadForm = document.querySelector("form.modal-body");
+      let filesInput = document.querySelector("form input[type='file']");
+      let uploadBtn = document.getElementById("uploadBtn");
+      let resetBtn = document.getElementById("resetBtn");
+      let uploadedItems = document.querySelector(".uploaded-items");
+      let loader = document.getElementById("loaderCont");
+      let lordIcon = document.getElementById("lordIcon");
+
+      let files = [];
+      let currentReader = null;
+
+      filesInput.addEventListener("change", (e) => {
+        files = filesInput.files;
+        document.querySelector(".upload-area").style.cssText = `
+          opacity:0;
+          position:absolute;
+          pointer-events:none;
+        `;
+        uploadedItems.style.display = "block";
+
+        for (let i = 0; i < files.length; i++) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            uploadedItems.innerHTML += `<li>
+            <img src="${e.target.result}" alt="" />
+            <span>${files[i].name}</span>
+          </li>`;
+          };
+
+          reader.readAsDataURL(files[i]);
+        }
+      });
+
+      uploadBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        if (files.length === 0) {
+          alert("Please select files to upload.");
+          return;
+        }
+        // Set the loader
+        loader.style.display = "flex";
+        uploadedItems.style.display = "none";
+        try {
+          const formData = new FormData(uploadForm);
+          const response = await fetch("/dashboard/gallery/upload", {
+            method: "POST",
+            body: formData,
+          });
+
+          if (response.ok) {
+            loader.style.display = "none";
+            lordIcon.style.display = "flex";
+            uploadBtn.style.display = "none";
+            resetBtn.style.display = "block";
+            resetBtn.addEventListener("click", () => window.location.reload());
+            console.log("Upload is OK");
+          } else {
+            console.log("FAILED");
+          }
+        } catch (error) {
+          console.error("Error uploading files:", error);
+        }
+      });
+    </script>
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
