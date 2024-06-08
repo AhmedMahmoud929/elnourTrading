@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../icons/favicon.ico" rel="shortcut icon" />
+    <title>Media</title>
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../../css/dashboard/content.css" />
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"media"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <div class="view-modal">
+        <i class="fa-solid fa-xmark" onclick="closeView()"></i>
+
+        <iframe src=""></iframe>
+      </div>
+      <header>
+        <div class="text">Media</div>
+        <!-- <a href="/dashboard/brochures/upload">
+          <span class="link_name">Upload</span>
+          <i class="bx bx-cloud-upload"></i>
+        </a> -->
+      </header>
+      <!-- HERE -->
+      <main id="content">
+        <!-- Loader -->
+        <!-- <div class="dot-spinner">
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+        </div> -->
+        <!-- Elements -->
+        <ul class="tree collapsed">
+          <li>
+            <span class="caret main caret-down">TEST</span>
+            <ul class="nested">
+              <li>
+                ${key} :
+                <div class="trans-cont">
+                  <div
+                    class="edit-float"
+                    key="${key}"
+                    en="${en}"
+                    ar="${ar}"
+                    mainTitle="${mainTitle}"
+                    subTitle="${subTitle}"
+                  >
+                    <i class="fa-solid fa-pen"></i>
+                  </div>
+                  <div class="inputs-cont">
+                    <div class="form__field">
+                      <label>EN</label>
+                      <input
+                        autocomplete="off"
+                        style="pointer-events: none"
+                        readOnly
+                        type="text"
+                        class="form__input"
+                        placeholder="${key}"
+                        value="${ar}"
+                      />
+                    </div>
+                    <div class="form__field">
+                      <label>AR</label>
+
+                      <input
+                        autocomplete="off"
+                        style="pointer-events: none"
+                        readOnly
+                        type="text"
+                        class="form__input"
+                        placeholder="${key}"
+                        value="${ar}"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </main>
+    </section>
+
+    <!-- <script src="../../js/dashboard/contentList.js"></script> -->
+    <script src="../../js/dashboard/modalHandler.js"></script>
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      const activateDropDowns = () => {
+        const togglers = document.querySelectorAll(".caret");
+        togglers.forEach((ele) => {
+          ele.addEventListener("click", function () {
+            let nestedList = this.parentElement.querySelector(".nested");
+            nestedList.classList.toggle("collapsed");
+            this.classList.toggle("caret-down");
+          });
+        });
+      };
+      window.onload = activateDropDowns;
+    </script>
+  </body>
+</html>

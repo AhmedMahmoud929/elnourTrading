@@ -23,6 +23,11 @@
   }
 }
 
+span,
+a {
+  font-family: "Rubik", sans-serif !important;
+}
+
 body {
   overflow-x: hidden;
 }

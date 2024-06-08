@@ -45,7 +45,37 @@
         </a> -->
       </header>
       <!-- HERE -->
-      <main id="brochures">
+      <main id="content">
+        <!-- Popup -->
+        <div class="edit-popup hidden">
+          <i class="fa-solid fa-xmark" id="closePopupBtn"></i>
+          <div class="keys">
+            <span>HOME</span>
+            <i class="fa-solid fa-angle-right"></i>
+            <span>nav_elements</span>
+            <i class="fa-solid fa-angle-right"></i>
+            <span>span</span>
+          </div>
+          <form
+            class="inputs-cont"
+            method="POST"
+            action="/dashboard/locales"
+            style="width: 100%"
+          >
+            <input type="hidden" name="key" />
+            <div class="form__field">
+              <label>EN</label>
+            </div>
+            <div class="form__field">
+              <label>AR</label>
+            </div>
+
+            <div class="form__field">
+              <input type="submit" value="Edit" />
+            </div>
+          </form>
+        </div>
+        <!-- Loader -->
         <div class="dot-spinner">
           <div class="dot-spinner__dot"></div>
           <div class="dot-spinner__dot"></div>
@@ -56,6 +86,7 @@
           <div class="dot-spinner__dot"></div>
           <div class="dot-spinner__dot"></div>
         </div>
+        <!-- Elements -->
         <ul class="tree collapsed"></ul>
       </main>
     </section>

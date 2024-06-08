@@ -85,12 +85,12 @@ ${day}, ${year}`; return formattedDate; } %>
           </div>
         </nav>
         <ul class="nav-phone">
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="/profile">CO Profile</a></li>
-          <li><a href="#services">Commodity</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#home" class="active"><%= t("NAVBAR.nav_elements.a1") %></a></li>
+          <li><a href="#about"><%= t("NAVBAR.nav_elements.a2") %></a></li>
+          <li><a href="/profile"><%= t("NAVBAR.nav_elements.a3") %></a></li>
+          <li><a href="#services"><%= t("NAVBAR.nav_elements.a4") %></a></li>
+          <li><a href="#gallery"><%= t("NAVBAR.nav_elements.a5") %></a></li>
+          <li><a href="#contact"><%= t("NAVBAR.nav_elements.a6") %></a></li>
         </ul>
 
         <!-- header -->
@@ -116,7 +116,10 @@ ${day}, ${year}`; return formattedDate; } %>
           >
             <button class="btn"><%= t('HOME.btn') %></button>
           </a>
-          <i class="fa-solid fa-circle-pause video-btn-controller"></i>
+          <i class="fa-solid fa-circle-pause video-btn-controller "></i>
+         <a href="" class="trans-btn">
+          <img class="home-btn-item" src="/icons/translate.png" alt="">
+         </a>
         </header>
       </div>
     </section>
@@ -289,18 +292,17 @@ ${day}, ${year}`; return formattedDate; } %>
           >
             <div class="container">
               <h1 data-aos="zoom-out-down" data-aos-duration="500">
-                1995-2000
+                <%= t("HISTORY.slide1.date") %>
               </h1>
               <h2 data-aos="zoom-out-down" data-aos-duration="700">
-                A New Name, A New Chapter
+                <%= t("HISTORY.slide1.h1") %>
               </h2>
               <p
                 data-aos="zoom-out-down"
                 data-aos-duration="700"
                 data-aos-delay="100"
               >
-                El Nour Transportation is founded by Mohamed Abdelmonem to serve
-                the transportation line across Egypt.
+              <%= t("HISTORY.slide1.p") %>
               </p>
             </div>
           </div>
@@ -309,62 +311,70 @@ ${day}, ${year}`; return formattedDate; } %>
             class="swiper-slide"
             style="background-image: url(./imgs/slide_bg_2.jpg)"
           >
-            <div class="container">
-              <h1>2001-2013</h1>
-              <h2>Starting With Local Trading</h2>
-              <p>
-                The company begins forging a new way forward, with renewed focus
-                on sustainability and on building strong relationships based on
-                trust, inspired by our past as we drive toward the future.
-              </p>
-            </div>
+          <div class="container">
+            <h1>
+              <%= t("HISTORY.slide2.date") %>
+            </h1>
+            <h2>
+              <%= t("HISTORY.slide2.h1") %>
+            </h2>
+            <p>
+            <%= t("HISTORY.slide2.p") %>
+            </p>
+          </div>
           </div>
           <!-- slide 3 -->
           <div
             class="swiper-slide"
             style="background-image: url(./imgs/slide_bg_3.jpg)"
           >
-            <div class="container">
-              <h1>2013-2015</h1>
-              <h2>Becoming The Value Chain</h2>
-              <p>
-                The company begins forging a new way forward, with renewed focus
-                on sustainability and on building strong relationships based on
-                trust, inspired by our past as we drive toward the future.
-              </p>
-            </div>
+          <div class="container">
+            <h1>
+              <%= t("HISTORY.slide2.date") %>
+            </h1>
+            <h2>
+              <%= t("HISTORY.slide2.h1") %>
+            </h2>
+            <p
+            >
+            <%= t("HISTORY.slide2.p") %>
+            </p>
+          </div>
           </div>
           <!-- slide 4 -->
           <div
             class="swiper-slide"
             style="background-image: url(./imgs/slide_bg_4.jpg)"
           >
-            <div class="container">
-              <h1>2015-2018</h1>
-              <h2>Diversity & Inclusion Council established</h2>
-              <p>
-                We launch our strategic focus on Diversity & Inclusion which
-                will include a newly created Chief Diversity Officer to lead the
-                efforts.
-              </p>
-            </div>
+          <div class="container">
+            <h1>
+              <%= t("HISTORY.slide4.date") %>
+            </h1>
+            <h2>
+              <%= t("HISTORY.slide4.h1") %>
+            </h2>
+            <p>
+            <%= t("HISTORY.slide4.p") %>
+            </p>
+          </div>
           </div>
           <!-- slide 5 -->
           <div
             class="swiper-slide"
             style="background-image: url(./imgs/slide_bg_5.jpg)"
           >
-            <div class="container">
-              <h1>2018-2021</h1>
-              <h2>New beginning in industrial field</h2>
-              <p>
-                First step in crude oil production As the world is swept by an
-                unprecedented pandemic in modern times, our global reach,
-                trading expertise and entrepreneurial outlook allow us to
-                navigate challenges, deliver strong results and pursue
-                transformation plans.
-              </p>
-            </div>
+          <div class="container">
+            <h1>
+              <%= t("HISTORY.slide5.date") %>
+            </h1>
+            <h2>
+              <%= t("HISTORY.slide5.h1") %>
+            </h2>
+            <p
+            >
+            <%= t("HISTORY.slide5.p") %>
+            </p>
+          </div>
           </div>
         </div>
         <div
@@ -392,7 +402,7 @@ ${day}, ${year}`; return formattedDate; } %>
             data-aos="fade-right"
             data-aos-duration="600"
           >
-            TRANSPORTATION
+          <%= t("TRANSPORTATION.name") %>
           </h1>
           <h1
             class="title"
@@ -400,13 +410,14 @@ ${day}, ${year}`; return formattedDate; } %>
             data-aos-duration="600"
             class="title"
           >
-            Large enough to <span>handle</span><br />
-            Small enough to <span>care</span>
+          <%= t("TRANSPORTATION.h1_first") %>
+          <span><%= t("TRANSPORTATION.span_first") %></span>
+          <br />
+          <%= t("TRANSPORTATION.h1_second") %>  
+          <span><%= t("TRANSPORTATION.span_second") %></span>
           </h1>
           <p data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">
-            100% guarantee safe delivery with over 50 highly modernized track,
-            to local goals, We know the value of all products. We make thier
-            save arrival our top priority.
+            <%= t("TRANSPORTATION.p") %>
           </p>
           <a
             data-aos="fade-right"
@@ -415,7 +426,7 @@ ${day}, ${year}`; return formattedDate; } %>
             href="#contact"
             style="margin-top: 30px"
           >
-            <button class="btn">Contact</button>
+            <button class="btn"><%= t("TRANSPORTATION.btn") %></button>
           </a>
         </div>
       </div>
@@ -430,10 +441,10 @@ ${day}, ${year}`; return formattedDate; } %>
             data-aos="fade-right"
             data-aos-duration="600"
           >
-            WHAT WE OFFER
+          <%= t("PRODUCTS.title") %>
           </h1>
           <a href="#contact" data-aos="fade-left" data-aos-duration="600">
-            <button class="btn outline">Contact</button>
+            <button class="btn outline"><%= t("PRODUCTS.contactBtn") %></button>
           </a>
         </div>
         <div class="bottom">
@@ -445,9 +456,9 @@ ${day}, ${year}`; return formattedDate; } %>
                 alt="wheat"
               />
             </div>
-            <h1>WHEAT</h1>
+            <h1><%= t("PRODUCTS.product1.name") %></h1>
             <p>
-              We are one of the largest companies in the wheat trade in Egypt
+              <%= t("PRODUCTS.product1.desc") %>
             </p>
             <img
               class="service-icon-shadow"
@@ -460,10 +471,9 @@ ${day}, ${year}`; return formattedDate; } %>
             <div class="icon">
               <img class="icon-img" src="./icons/corn-cob.svg" alt="corn" />
             </div>
-            <h1>CORN</h1>
+            <h1><%= t("PRODUCTS.product2.name") %></h1>
             <p>
-              We work in the field of corn from a period and we have a large
-              part in the Egyptian market
+              <%= t("PRODUCTS.product2.desc") %>
             </p>
             <img
               class="service-icon-shadow"
@@ -480,10 +490,9 @@ ${day}, ${year}`; return formattedDate; } %>
                 alt="sunflower"
               />
             </div>
-            <h1>SOYBEAN MEALS</h1>
+            <h1><%= t("PRODUCTS.product3.name") %></h1>
             <p>
-              We supply all quantities required of animal feed from soyabean
-              meals
+              <%= t("PRODUCTS.product3.desc") %>
             </p>
             <img
               class="service-icon-shadow"
@@ -500,10 +509,9 @@ ${day}, ${year}`; return formattedDate; } %>
                 alt="soybean seed"
               />
             </div>
-            <h1>SOYA OIL</h1>
+            <h1><%= t("PRODUCTS.product4.name") %></h1>
             <p>
-              We supply all quantities required for oil extraction plants from
-              Soybean seed
+              <%= t("PRODUCTS.product4.desc") %>
             </p>
             <img
               class="service-icon-shadow"
@@ -516,8 +524,10 @@ ${day}, ${year}`; return formattedDate; } %>
             <div class="icon">
               <img class="icon-img" src="./icons/soy.svg" alt="soybean" />
             </div>
-            <h1>SOYABEAN</h1>
-            <p>We supply the quantities required for feed factories</p>
+            <h1><%= t("PRODUCTS.product5.name") %></h1>
+            <p>
+              <%= t("PRODUCTS.product5.desc") %>
+            </p>
             <img
               class="service-icon-shadow"
               src="./icons/soy.svg"
@@ -538,7 +548,7 @@ ${day}, ${year}`; return formattedDate; } %>
           data-aos="fade-right"
           data-aos-duration="600"
         >
-          GALLERY
+        <%= t("GALLERY.name") %>
         </h1>
         <!-- main-title -->
         <h1
@@ -547,7 +557,7 @@ ${day}, ${year}`; return formattedDate; } %>
           data-aos-duration="600"
           class="title"
         >
-          Our company in <span>frames</span>
+        <%= t("GALLERY.h1") %> <span><%= t("GALLERY.span") %></span>
         </h1>
         <!-- swiper -->
         <div
@@ -582,7 +592,7 @@ ${day}, ${year}`; return formattedDate; } %>
           data-aos-duration="600"
           class="a-btn"
         >
-          <button class="btn">View All</button>
+          <button class="btn"><%= t("GALLERY.btn") %></button>
         </a>
       </div>
     </section>
@@ -598,7 +608,7 @@ ${day}, ${year}`; return formattedDate; } %>
             data-aos="fade-right"
             data-aos-duration="600"
           >
-            CONTACT
+          <%= t("CONTACT.name") %>
           </h1>
           <!-- main-title -->
           <h1
@@ -607,7 +617,7 @@ ${day}, ${year}`; return formattedDate; } %>
             data-aos-duration="600"
             class="title"
           >
-            Let's stay <span>connected</span>
+          <%= t("CONTACT.h1") %> <span><%= t("CONTACT.span") %></span>
           </h1>
         </div>
         <div class="bottom">
@@ -624,10 +634,10 @@ ${day}, ${year}`; return formattedDate; } %>
                 <div class="icon">
                   <img src="./icons/location-dot-solid.svg" />
                 </div>
-                <h1>Location</h1>
+                <h1><%= t("CONTACT.location.title") %></h1>
               </div>
               <ul>
-                <li>Egypt/El-Gharbiya/Kafr-Elzayat/El-Dalgamon</li>
+                <li><%= t("CONTACT.location.content") %></li>
               </ul>
             </li>
             <!-- phone -->
@@ -636,20 +646,20 @@ ${day}, ${year}`; return formattedDate; } %>
                 <div class="icon">
                   <img src="./icons/phone-solid.svg" />
                 </div>
-                <h1>Phone</h1>
+                <h1><%= t("CONTACT.phone.title") %></h1>
               </div>
               <ul>
                 <li>
-                  Head of trade : Marwan El-Fouly<br />Mob:
-                  <a href="tel:+201000343444"> +2 01000343444 </a>
+                  <%= t("CONTACT.phone.ele1_job") %> : <%= t("CONTACT.phone.ele1_name") %><br />Mob:
+                  <a href="tel:<%= t("CONTACT.phone.ele1_num") %>"> <%= t("CONTACT.phone.ele1_num") %> </a>
                 </li>
                 <li>
-                  Chief financial officer : Hisham Atef<br />
-                  <a href="tel:+201066652975"> Mob: +2 01066652975 </a>
+                  <%= t("CONTACT.phone.ele2_job") %> : <%= t("CONTACT.phone.ele2_name") %><br />Mob:
+                  <a href="tel:<%= t("CONTACT.phone.ele2_num") %>"> <%= t("CONTACT.phone.ele2_num") %> </a>
                 </li>
                 <li>
-                  Plant Manager : Ahmed Shaltout<br />Mob:
-                  <a href="tel:+2 01011393902"> +2 01011393902 </a>
+                  <%= t("CONTACT.phone.ele3_job") %> : <%= t("CONTACT.phone.ele3_name") %><br />Mob:
+                  <a href="tel:<%= t("CONTACT.phone.ele3_num") %>"> <%= t("CONTACT.phone.ele3_num") %> </a>
                 </li>
               </ul>
             </li>
@@ -663,8 +673,8 @@ ${day}, ${year}`; return formattedDate; } %>
                   <a
                     style="color: var(--white)"
                     target="_blank"
-                    href="https://www.facebook.com/profile.php?id=100024270064870"
-                    >Social</a
+                    href="<%= t("CONTACT.social.url") %>"
+                    ><%= t("CONTACT.social.title") %></a
                   >
                 </h1>
               </div>
@@ -694,7 +704,7 @@ ${day}, ${year}`; return formattedDate; } %>
             data-aos-duration="600"
             class="title"
           >
-            Questions? <span>Email us!</span>
+          <%= t("QUESTIONS.h1") %> <span>  <%= t("QUESTIONS.h1_span") %></span>
           </h1>
           <p
             class="title"
@@ -702,8 +712,7 @@ ${day}, ${year}`; return formattedDate; } %>
             data-aos-duration="600"
             data-aos-delay="100"
           >
-            If you have any questions or need assistance feel free to contact
-            us.
+          <%= t("QUESTIONS.h1_p") %>
           </p>
         </div>
         <div class="right">
@@ -715,11 +724,11 @@ ${day}, ${year}`; return formattedDate; } %>
           >
             <input type="" placeholder="Enter your email" />
             <a href="mailto:info@elnourtrading.com">
-              <button class="btn">Send</button>
+              <button class="btn">  <%= t("QUESTIONS.btn") %></button>
             </a>
           </form>
           <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-            we care about your data in our <span> privacy policy </span>
+            <%= t("QUESTIONS.form_p") %><span>   <%= t("QUESTIONS.form_span") %></span>
           </p>
         </div>
       </div>
@@ -736,18 +745,18 @@ ${day}, ${year}`; return formattedDate; } %>
           <img src="./imgs/blue logo.png" alt="el-nour trading" />
           <!-- list -->
           <ul>
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="/profile">CO Profile</a></li>
-            <li><a href="#services">Commodity</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home" class="active"><%= t("FOOTER.footer_elements.a1") %></a></li>
+            <li><a href="#about"><%= t("FOOTER.footer_elements.a2") %></a></li>
+            <li><a href="/profile"><%= t("FOOTER.footer_elements.a3") %></a></li>
+            <li><a href="#services"><%= t("FOOTER.footer_elements.a4") %></a></li>
+            <li><a href="#gallery"><%= t("FOOTER.footer_elements.a5") %></a></li>
+            <li><a href="#contact"><%= t("FOOTER.footer_elements.a6") %></a></li>
           </ul>
         </div>
         <!-- just for styling -->
         <div class="separator"></div>
         <!-- bottom -->
-        <p>© 2023 El-Nour, All rights reserved</p>
+        <p>  <%= t("FOOTER.p") %></p>
       </div>
     </footer>
 
@@ -824,6 +833,21 @@ ${day}, ${year}`; return formattedDate; } %>
           },
         },
       });
+    </script>
+    <script>
+      const transBtn = document.querySelector(".trans-btn");
+      // Directly using the current URL of the browser
+      const params = new URLSearchParams(window.location.search);
+      const baseUrl = window.location.origin + window.location.pathname;
+      const lang = params.get('lang');
+      console.log(lang);
+      // 
+      if (lang=="ar"){
+        transBtn.setAttribute("href",`${baseUrl}?lang=en`)
+        }
+        else{
+        transBtn.setAttribute("href",`${baseUrl}?lang=ar`)
+      }
     </script>
   </body>
 </html>

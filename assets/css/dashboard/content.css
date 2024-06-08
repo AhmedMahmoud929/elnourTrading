@@ -1,3 +1,57 @@
+main#content {
+  position: relative;
+}
+
+main#content.disabled {
+  overflow: hidden;
+}
+
+main#content .edit-popup {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 100px;
+  transition: 0.5s;
+}
+
+main#content .edit-popup .fa-xmark {
+  position: absolute;
+  right: 40px;
+  top: 30px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+main#content .edit-popup.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+main#content .edit-popup .inputs-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-left: 50px;
+}
+
+main#content .edit-popup > div {
+  width: 100%;
+}
+
 .tree {
   width: 100%;
   padding-left: 0.5vw;
@@ -54,12 +108,42 @@
 
 .trans-cont {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-direction: row-reverse;
   margin: 1rem;
   margin-left: 1.5rem;
   margin-top: 0.5rem;
+  gap: 15px;
 }
+.trans-cont .edit-float {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #33404e;
+  border-radius: 0.25rem;
+  width: 13%;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.trans-cont .edit-float:hover {
+  transform: translateY(0px);
+  box-shadow: 0 0px 0 rgba(0, 0, 0, 0.2);
+}
+
+.trans-cont .edit-float i {
+  font-size: 2rem;
+}
+
+.trans-cont .inputs-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 87%;
+}
+
 .trans-ele {
   margin-left: 3rem;
   font-size: 1rem;
@@ -68,7 +152,8 @@
   flex-direction: column;
 }
 
-input {
+input,
+textarea {
   background-image: none;
   border: 0;
   color: inherit;
@@ -82,7 +167,8 @@ input {
 
 .form input[type="password"],
 .form input[type="text"],
-.form input[type="submit"] {
+.form input[type="submit"],
+textarea {
   width: 100%;
 }
 
@@ -90,6 +176,7 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
 }
 
 .form__input {
@@ -101,9 +188,24 @@ input {
 label,
 input[type="text"],
 input[type="password"],
-input[type="submit"] {
+input[type="submit"],
+textarea {
   border-radius: 0.25rem;
   padding: 13px 16px;
+}
+
+input[type="submit"] {
+  background-color: #4cc5ea;
+  color: #eee;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 100%;
+  cursor: pointer;
+}
+
+input[type="submit"]:focus,
+input[type="submit"]:hover {
+  background-color: #6eddff;
 }
 
 label {
@@ -117,7 +219,8 @@ label {
 }
 
 input[type="password"],
-input[type="text"] {
+input[type="text"],
+textarea {
   background-color: #3b4148;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
@@ -126,8 +229,15 @@ input[type="text"] {
 input[type="password"]:focus,
 input[type="password"]:hover,
 input[type="text"]:focus,
-input[type="text"]:hover {
+input[type="text"]:hover,
+textarea:focus,
+textarea:hover {
   background-color: #434a52;
+}
+
+textarea {
+  resize: none;
+  height: 120px;
 }
 
 /* LOADER */

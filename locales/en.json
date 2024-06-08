@@ -10,7 +10,7 @@
     }
   },
   "HOME": {
-    "span": "Reliability",
+    "span": "Reliability2",
     "h1": "through years of experience",
     "p": "EL NOUR TRADING CO was founded in 1995, We are one of the main players within the Egyptian market.",
     "btn": "Learn more!"
@@ -68,8 +68,85 @@
   },
   "TRANSPORTATION": {
     "name": "TRANSPORTATION",
-    "h1": "Large Enough To Handle Small Enough To Care",
+    "h1_first": "Large Enough To",
+    "span_first": "Handle",
+    "h1_second": "Small Enough To",
+    "span_second": "Care",
     "p": "100% guarantee safe delivery with over 50 highly modernized track, to local goals, We know the value of all products. We make thier save arrival our top priority.",
     "btn": "Contact"
+  },
+  "PRODUCTS": {
+    "title": "WHAT WE OFFER",
+    "contactBtn": "Contact",
+    "product1": {
+      "name": "WHEAT",
+      "desc": "We are one of the largest companies in the wheat trade in Egypt"
+    },
+    "product2": {
+      "name": "CORN",
+      "desc": "We work in the field of corn from a period and we have a large part in the Egyptian market"
+    },
+    "product3": {
+      "name": "SOYBEAN MEALS",
+      "desc": "We supply all quantities required of animal feed from soyabean meals"
+    },
+    "product4": {
+      "name": "SOYA OIL",
+      "desc": "We supply all quantities required for oil extraction plants from Soybean seed"
+    },
+    "product5": {
+      "name": "SOYABEAN",
+      "desc": "We supply the quantities required for feed factories"
+    }
+  },
+  "GALLERY": {
+    "name": "GALLERY",
+    "h1": "Our company in",
+    "span": "frames",
+    "btn": "View All"
+  },
+  "CONTACT": {
+    "name": "CONTACT",
+    "h1": "Let's stay",
+    "span": "connected",
+    "location": {
+      "title": "Location",
+      "content": "Egypt/El-Gharbiya/Kafr-Elzayat/El-Dalgamon"
+    },
+    "phone": {
+      "title": "Phone",
+      "ele1_job": "Head of trade",
+      "ele1_name": "Marwan El-Fouly",
+      "ele1_num": "+2 01000343444",
+      "ele2_job": "Chief financial officer",
+      "ele2_name": "Hisham Atef",
+      "ele2_num": "+2 01066652975",
+      "ele3_job": "Plant Manager",
+      "ele3_name": "Ahmed Shaltout",
+      "ele3_num": "+2 01011393902"
+    },
+    "social": {
+      "title": "Social",
+      "url": "https://www.facebook.com/profile.php?id=100024270064870"
+    }
+  },
+  "QUESTIONS": {
+    "h1": "Questions?",
+    "h1_span": "Email us!",
+    "h1_p": "If you have any questions or need assistance feel free to contact us.",
+    "form_p": "we care about your data in our",
+    "form_span": "privacy policy",
+    "btn": "Send"
+  },
+  "FOOTER": {
+    "footer_elements": {
+      "a1": "Home",
+      "a2": "About",
+      "a3": "CO Profile",
+      "a4": "Commodity",
+      "a5": "Gallery",
+      "a6": "Contact"
+    },
+    "p": "© 2024 El-Nour, All rights reserved"
   }
 }

@@ -93,8 +93,20 @@ section#home .container {
   color: var(--light-blue);
   transition: 0.3s;
 }
-
-#home header .video-btn-controller:hover {
+#home header .home-btn-item {
+  cursor: pointer;
+  position: absolute;
+  bottom: 82px;
+  right: 30px;
+  background-color: var(--light-blue);
+  transition: 0.3s;
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  padding: 8px;
+}
+#home header .video-btn-controller:hover,
+#home header .home-btn-item:hover {
   transform: scale(0.95);
   opacity: 0.8;
 }

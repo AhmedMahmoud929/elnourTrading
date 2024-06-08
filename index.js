@@ -24,6 +24,7 @@ const NewsRouter = require("./routers/news.router");
 const GalleryRouter = require("./routers/gallery.router");
 const BrochuresRouter = require("./routers/brochures.router");
 const contentRouter = require("./routers/content.router");
+const mediaRouter = require("./routers/media.router");
 
 // Connect to MongoDB
 mongoose
@@ -77,8 +78,11 @@ app.use((req, res, next) => {
 // Flash Sessions
 app.use(flash());
 
-// Body-Parser middleware
-app.use(bodyParser.urlencoded({ extended: true }));
+// create application/json parser
+app.use(bodyParser.json());
+
+// create application/x-www-form-urlencoded parser
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set up EJS as the view engine
 app.set("view engine", "ejs");
@@ -94,6 +98,7 @@ app.use("/dashboard", requireAuth, NewsRouter);
 app.use("/dashboard", requireAuth, GalleryRouter);
 app.use("/dashboard", requireAuth, BrochuresRouter);
 app.use("/dashboard", requireAuth, contentRouter);
+app.use("/dashboard", requireAuth, mediaRouter);
 
 // Server Listening
 app.listen(port, () => {
