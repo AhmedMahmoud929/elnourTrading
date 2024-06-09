@@ -74,9 +74,7 @@ router.post("/locales", (req, res) => {
         "utf8",
         (err) => {
           if (err) {
-            return res
-              .status(500)
-              .json({ error: "Could not write localization file" });
+            return res.status(500).json({ error: "" });
           }
           fs.writeFile(
             arFilePath,
@@ -86,7 +84,12 @@ router.post("/locales", (req, res) => {
               if (err) {
                 return res
                   .status(500)
-                  .json({ error: "Could not write localization file" });
+                  .json({
+                    error: "Could not write localization file",
+                    keyItems,
+                    enData,
+                    arData,
+                  });
               }
 
               res.redirect("/dashboard/content");
