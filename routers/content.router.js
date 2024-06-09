@@ -83,10 +83,7 @@ router.post("/locales", (req, res) => {
             (err) => {
               if (err) {
                 return res.status(500).json({
-                  error: "Could not write localization file",
-                  keyItems: keyItems,
-                  enData: enData,
-                  arData: arData,
+                  error: "Could not write localization file"
                 });
               }
 
