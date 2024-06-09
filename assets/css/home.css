@@ -143,6 +143,11 @@ section#home .container {
     font-size: 2.3rem;
     bottom: 22px;
   }
+  #home header .home-btn-item {
+    bottom: 70px;
+    width: 40px;
+    height: 40px;
+  }
   #home .circle {
     height: 650px;
     width: 650px;
@@ -173,6 +178,12 @@ section#home .container {
     font-size: 2rem;
     bottom: 22px;
   }
+  #home header .home-btn-item {
+    bottom: 63px;
+    width: 35px;
+    height: 35px;
+    padding: 7px;
+  }
 }
 
 @media (max-width: 450px) {
@@ -185,6 +196,11 @@ section#home .container {
   #home header .video-btn-controller {
     right: 18px;
     bottom: 18px;
+  }
+
+  #home header .home-btn-item {
+    right: 18px;
+    bottom: 62px;
   }
   #home header {
     padding-bottom: 60px;

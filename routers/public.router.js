@@ -3,14 +3,33 @@ const Gallery = require("../models/gallery.model");
 const Brochure = require("../models/brochure.model");
 const New = require("../models/new.model");
 const os = require("os");
+const path = require("path");
+const fs = require("fs");
 const osType = os.type();
 // GET index page
 router.get("/", async (req, res) => {
   const currentLocale = res.getLocale();
   let galleryImgs = await Gallery.find().sort({ order: 1 });
   let news = (await New.find()).reverse();
-  console.log(res.__);
-  res.render("index", { galleryImgs, news, osType, t: res.__, currentLocale });
+
+  const imagesFilePath = path.join(
+    __dirname,
+    "..",
+    "assets",
+    "imgs",
+    "images.json"
+  );
+  
+  const images = await require(imagesFilePath);
+
+  res.render("index", {
+    galleryImgs,
+    news,
+    osType,
+    t: res.__,
+    currentLocale,
+    images,
+  });
 });
 
 // GET gallery page

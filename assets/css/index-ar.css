@@ -1,0 +1,7 @@
+.section-title::before {
+  top: 15px;
+  right: -25px;
+}
+.section-title {
+  margin-right: 25px;
+}

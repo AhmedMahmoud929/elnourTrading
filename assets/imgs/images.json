@@ -1,0 +1,37 @@
+{
+  "WEBSITE_ICON": {
+    "icon": "/icons/favicon.ico"
+  },
+  "NAVBAR": {
+    "logo": "/imgs/uploadedImages/new-logo1717967559653.png"
+  },
+  "HOME": {
+    "alt_bg": "imgs/alt_bg.png",
+    "gradient": "/imgs/grady_bg.png"
+  },
+  "ABOUT": {
+    "horiz_img": "imgs/left-horiz.png",
+    "vert_img": "imgs/left-vert.png"
+  },
+  "HISTORY": {
+    "slide1": "imgs/slide_bg_1.jpg",
+    "slide2": "imgs/slide_bg_2.jpg",
+    "slide3": "imgs/slide_bg_3.jpg",
+    "slide4": "imgs/slide_bg_4.jpg",
+    "slide5": "imgs/slide_bg_5.jpg"
+  },
+  "TRANSPORTATION": {
+    "bg": "imgs/transport.jpg",
+    "gradient": "/imgs/trans_grady_bg.png"
+  },
+  "PRODUCTS": {
+    "prod1": "icons/wheat-awn-solid.svg",
+    "prod2": "icons/corn-cob.svg",
+    "prod3": "icons/grain-bag.svg",
+    "prod4": "icons/oil-bottle.svg",
+    "prod5": "icons/soy.svg"
+  },
+  "FOOTER": {
+    "logo": "imgs/footer-logo.png"
+  }
+}

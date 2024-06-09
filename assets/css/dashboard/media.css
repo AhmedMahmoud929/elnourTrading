@@ -1,0 +1,133 @@
+.images-ul {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  overflow: visible;
+  /* mar */
+}
+
+.images-ul.opened {
+  padding: 20px;
+}
+
+.image-item {
+  position: relative;
+  background-color: #33404e;
+  width: 250px;
+  height: 280px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.1;
+}
+
+.image-item .image-label {
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-item .img-cont {
+  padding: 10px;
+  border-bottom: 2px solid #5d6d7e;
+  border-top: 2px solid #5d6d7e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 65%;
+}
+
+.image-item .img-cont img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.image-item .btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 20%;
+}
+.image-item .btns a {
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  position: relative;
+}
+.image-item .btns a:hover {
+  transform: scale(0.9);
+}
+
+.image-item .btns a.delete {
+  background-color: #ca1a1a;
+}
+
+.image-item .btns a i {
+  font-size: 1.2rem;
+  color: #33404e;
+}
+
+.image-item .btns .edit-a input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+main#content .edit-popup .image-cont {
+  max-height: 50vh;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  width: fit-content;
+}
+
+main#content .edit-popup .image-cont img {
+  height: 100%;
+  object-fit: contain;
+}
+
+main#content .edit-popup .btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+main#content .edit-popup .btns button {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 10px 40px;
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+main#content .edit-popup .btns button.cancel {
+  background-color: #ca1a1a;
+  color: #fff;
+}
+
+main#content .edit-popup .btns button:hover {
+  transform: scale(0.9);
+}

@@ -67,7 +67,7 @@ main#content .edit-popup > div {
   list-style-type: none;
   margin-left: 4vw;
   color: white;
-  transition: max-height 2s ease-in-out, opacity 0.3s ease-out;
+  transition: max-height 1s ease-in-out, opacity 0s ease-out;
   font-size: 1.2rem;
 }
 

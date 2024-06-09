@@ -6,11 +6,11 @@ date.getDate(); const year = date.getFullYear(); const formattedDate = `${month}
 ${day}, ${year}`; return formattedDate; } %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= currentLocale %>" dir="<%= currentLocale=='en' ? 'ltr' : 'rtl' %>" >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./icons/favicon.ico" rel="shortcut icon" />
+    <link href="<%= images.WEBSITE_ICON.icon %>" rel="shortcut icon" />
     <title>El-Nour Trading</title>
     <!-- Font Awesome -->
     <link
@@ -28,6 +28,7 @@ ${day}, ${year}`; return formattedDate; } %>
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
     <!-- Main Style -->
+   
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/navbar.css" />
     <link rel="stylesheet" href="./css/home.css" />
@@ -41,13 +42,16 @@ ${day}, ${year}`; return formattedDate; } %>
     <link rel="stylesheet" href="./css/contact.css" />
     <link rel="stylesheet" href="./css/questions.css" />
     <link rel="stylesheet" href="./css/footer.css" />
+    <% if (currentLocale === 'ar') { %>
+      <link rel="stylesheet" href="./css/index-ar.css">
+    <% } %>
   </head>
   <body>
     <!-- HOME -->
     <section id="home">
       <div class="container">
         <!-- alternative bg -->
-        <img src="./imgs/alt_bg.png" alt="el-nour trading" class="alt-bg" />
+        <img src="<%= images.HOME.alt_bg %>" alt="el-nour trading" class="alt-bg" />
         <!-- vidoe bg -->
         <video
           class="video-bg"
@@ -57,7 +61,7 @@ ${day}, ${year}`; return formattedDate; } %>
           autoplay
         ></video>
         <!-- grady bg -->
-        <img class="grady-bg" src="./imgs/grady_bg.png" alt="" />
+        <img class="grady-bg" src="<%= images.HOME.gradient %>" alt="" />
         <!-- circles -->
         <div class="circle right"></div>
         <div class="circle left"></div>
@@ -66,7 +70,7 @@ ${day}, ${year}`; return formattedDate; } %>
         <nav>
           <!-- logo -->
           <a href="/">
-            <img src="<%= %>" alt="el-nour trading" />
+            <img src="<%= images.NAVBAR.logo %>" alt="el-nour trading" />
           </a>
           <!-- list -->
           <ul>
@@ -133,8 +137,8 @@ ${day}, ${year}`; return formattedDate; } %>
           data-aos-duration="600"
           data-aos-delay="100"
         >
-          <img class="horiz" src="<%=  %>" alt="trucks" />
-          <img class="vert" src="<%= %>" alt="elnour-trading" />
+          <img class="horiz" src="<%= images.ABOUT.horiz_img %>" alt="trucks" />
+          <img class="vert" src="<%= images.ABOUT.vert_img %>" alt="elnour-trading" />
         </div>
 
         <div class="right">
@@ -227,7 +231,7 @@ ${day}, ${year}`; return formattedDate; } %>
             data-aos="fade-right"
             data-aos-duration="600"
           >
-            NEWS
+            NEWS <small style="color: black;">(still under development)</small>
           </h1>
           <!-- <div class="control-btns">
             <i class="fa-solid fa-chevron-left"></i>
@@ -288,7 +292,7 @@ ${day}, ${year}`; return formattedDate; } %>
           <!-- slide 1 -->
           <div
             class="swiper-slide"
-            style="background-image: url(./imgs/slide_bg_1.jpg)"
+            style="background-image: url('<%= images.HISTORY.slide1 %>')"
           >
             <div class="container">
               <h1 data-aos="zoom-out-down" data-aos-duration="500">
@@ -309,7 +313,7 @@ ${day}, ${year}`; return formattedDate; } %>
           <!-- slide 2 -->
           <div
             class="swiper-slide"
-            style="background-image: url(./imgs/slide_bg_2.jpg)"
+            style="background-image: url('<%= images.HISTORY.slide2 %>')"
           >
           <div class="container">
             <h1>
@@ -326,7 +330,7 @@ ${day}, ${year}`; return formattedDate; } %>
           <!-- slide 3 -->
           <div
             class="swiper-slide"
-            style="background-image: url(./imgs/slide_bg_3.jpg)"
+            style="background-image: url('<%= images.HISTORY.slide3 %>')"
           >
           <div class="container">
             <h1>
@@ -344,7 +348,7 @@ ${day}, ${year}`; return formattedDate; } %>
           <!-- slide 4 -->
           <div
             class="swiper-slide"
-            style="background-image: url(./imgs/slide_bg_4.jpg)"
+            style="background-image: url('<%= images.HISTORY.slide4 %>')"
           >
           <div class="container">
             <h1>
@@ -361,7 +365,7 @@ ${day}, ${year}`; return formattedDate; } %>
           <!-- slide 5 -->
           <div
             class="swiper-slide"
-            style="background-image: url(./imgs/slide_bg_5.jpg)"
+            style="background-image: url('<%= images.HISTORY.slide5 %>')"
           >
           <div class="container">
             <h1>
@@ -388,10 +392,10 @@ ${day}, ${year}`; return formattedDate; } %>
     <!-- TRANSPORTATION -->
     <section id="transportation">
       <div class="container">
-        <img class="transport-bg" src="./imgs/transport.jpg" alt="" />
+        <img class="transport-bg" src="<%= images.TRANSPORTATION.bg %>" alt="" />
         <img
           class="transport-bg"
-          src="./imgs/grady_bg.png"
+          src="<%= images.TRANSPORTATION.gradient %>"
           alt=""
           style="opacity: 0.8"
         />
@@ -452,7 +456,7 @@ ${day}, ${year}`; return formattedDate; } %>
             <div class="icon">
               <img
                 class="icon-img"
-                src="./icons/wheat-awn-solid.svg"
+                src="<%= images.PRODUCTS.prod1 %>"
                 alt="wheat"
               />
             </div>
@@ -462,14 +466,14 @@ ${day}, ${year}`; return formattedDate; } %>
             </p>
             <img
               class="service-icon-shadow"
-              src="./icons/wheat-awn-solid.svg"
+              src="<%= images.PRODUCTS.prod1 %>"
               alt="wheat"
             />
           </div>
 
           <div class="item" data-aos="flip-left" data-aos-duration="700">
             <div class="icon">
-              <img class="icon-img" src="./icons/corn-cob.svg" alt="corn" />
+              <img class="icon-img" src="<%= images.PRODUCTS.prod2 %>" alt="corn" />
             </div>
             <h1><%= t("PRODUCTS.product2.name") %></h1>
             <p>
@@ -477,7 +481,7 @@ ${day}, ${year}`; return formattedDate; } %>
             </p>
             <img
               class="service-icon-shadow"
-              src="./icons/corn-cob.svg"
+              src="<%= images.PRODUCTS.prod2 %>"
               alt="corn"
             />
           </div>
@@ -486,7 +490,7 @@ ${day}, ${year}`; return formattedDate; } %>
             <div class="icon">
               <img
                 class="icon-img"
-                src="./icons/grain-bag.svg"
+                src="<%= images.PRODUCTS.prod3 %>"
                 alt="sunflower"
               />
             </div>
@@ -496,7 +500,7 @@ ${day}, ${year}`; return formattedDate; } %>
             </p>
             <img
               class="service-icon-shadow"
-              src="./icons/grain-bag.svg"
+              src="<%= images.PRODUCTS.prod3 %>"
               alt="sunflower"
             />
           </div>
@@ -505,7 +509,7 @@ ${day}, ${year}`; return formattedDate; } %>
             <div class="icon">
               <img
                 class="icon-img"
-                src="./icons/oil-bottle.svg"
+                src="<%= images.PRODUCTS.prod4 %>"
                 alt="soybean seed"
               />
             </div>
@@ -515,14 +519,14 @@ ${day}, ${year}`; return formattedDate; } %>
             </p>
             <img
               class="service-icon-shadow"
-              src="./icons/oil-bottle.svg"
+              src="<%= images.PRODUCTS.prod4 %>"
               alt="oil"
             />
           </div>
 
           <div class="item" data-aos="flip-left" data-aos-duration="700">
             <div class="icon">
-              <img class="icon-img" src="./icons/soy.svg" alt="soybean" />
+              <img class="icon-img" src="<%= images.PRODUCTS.prod5 %>" alt="soybean" />
             </div>
             <h1><%= t("PRODUCTS.product5.name") %></h1>
             <p>
@@ -530,7 +534,7 @@ ${day}, ${year}`; return formattedDate; } %>
             </p>
             <img
               class="service-icon-shadow"
-              src="./icons/soy.svg"
+              src="<%= images.PRODUCTS.prod5 %>"
               alt="soybean"
             />
           </div>
@@ -742,7 +746,7 @@ ${day}, ${year}`; return formattedDate; } %>
       <!-- container -->
       <div class="container">
         <div class="top">
-          <img src="./imgs/blue logo.png" alt="el-nour trading" />
+          <img src="<%= images.FOOTER.logo %>" alt="el-nour trading" />
           <!-- list -->
           <ul>
             <li><a href="#home" class="active"><%= t("FOOTER.footer_elements.a1") %></a></li>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../css/index.css" />
     <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
     <link rel="stylesheet" href="../../css/dashboard/content.css" />
+    <link rel="stylesheet" href="../../css/dashboard/media.css" />
     <!-- Boxicons CSS -->
     <link
       flex
@@ -32,11 +33,6 @@
     <%- include("../../parts/aside.ejs",{active:"media"}) %>
     <!-- SECTION -->
     <section class="home-section">
-      <div class="view-modal">
-        <i class="fa-solid fa-xmark" onclick="closeView()"></i>
-
-        <iframe src=""></iframe>
-      </div>
       <header>
         <div class="text">Media</div>
         <!-- <a href="/dashboard/brochures/upload">
@@ -46,71 +42,56 @@
       </header>
       <!-- HERE -->
       <main id="content">
-        <!-- Loader -->
-        <!-- <div class="dot-spinner">
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-        </div> -->
+        <!-- Popup -->
+        <div class="edit-popup hidden">
+          <div class="image-cont">
+            <img src="" alt="" id="imagePreview" />
+          </div>
+          <div class="btns">
+            <input type="file" name="" hidden />
+            <button class="cancel">Cancel</button>
+            <button class="apply">Apply</button>
+          </div>
+        </div>
         <!-- Elements -->
         <ul class="tree collapsed">
-          <li>
-            <span class="caret main caret-down">TEST</span>
-            <ul class="nested">
-              <li>
-                ${key} :
-                <div class="trans-cont">
-                  <div
-                    class="edit-float"
-                    key="${key}"
-                    en="${en}"
-                    ar="${ar}"
-                    mainTitle="${mainTitle}"
-                    subTitle="${subTitle}"
-                  >
-                    <i class="fa-solid fa-pen"></i>
-                  </div>
-                  <div class="inputs-cont">
-                    <div class="form__field">
-                      <label>EN</label>
-                      <input
-                        autocomplete="off"
-                        style="pointer-events: none"
-                        readOnly
-                        type="text"
-                        class="form__input"
-                        placeholder="${key}"
-                        value="${ar}"
-                      />
-                    </div>
-                    <div class="form__field">
-                      <label>AR</label>
-
-                      <input
-                        autocomplete="off"
-                        style="pointer-events: none"
-                        readOnly
-                        type="text"
-                        class="form__input"
-                        placeholder="${key}"
-                        value="${ar}"
-                      />
-                    </div>
-                  </div>
+          <% Object.entries(images).forEach(([key,obj],ix)=>{ %>
+          <li
+            data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-delay="<%= 100 + 100*ix %>"
+            data-aos-anchor=".ceret"
+          >
+            <span class="caret main caret-down"><%= key %></span>
+            <ul class="nested collapsed images-ul">
+              <% Object.entries(obj).forEach(([name,path])=>{ %>
+              <li class="image-item">
+                <div class="image-label" key="<%= key %>-<%= name %>">
+                  <%= name %>
+                </div>
+                <div class="img-cont">
+                  <img src="../../<%= path %>" alt="<%= name %>" />
+                </div>
+                <div class="btns">
+                  <!-- <a><i class="fa-solid fa-eye"></i></a> -->
+                  <a href="../../<%= path %>" download="<%name%>">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                  </a>
+                  <a class="edit-a"
+                    ><i class="fa-solid fa-pen"></i>
+                    <input type="file" name="" id="imageUpload" />
+                  </a>
                 </div>
               </li>
+              <% }) %>
             </ul>
           </li>
+          <% }) %>
         </ul>
       </main>
     </section>
 
-    <!-- <script src="../../js/dashboard/contentList.js"></script> -->
+    <script src="../../js/dashboard/mediaHandler.js"></script>
     <script src="../../js/dashboard/modalHandler.js"></script>
     <!-- AOS Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -125,6 +106,7 @@
             let nestedList = this.parentElement.querySelector(".nested");
             nestedList.classList.toggle("collapsed");
             this.classList.toggle("caret-down");
+            nestedList.classList.toggle("opened");
           });
         });
       };
