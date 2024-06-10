@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="<%= currentLocale %>"
+  dir="<%= currentLocale=='en' ? 'ltr' : 'rtl' %>"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./icons/favicon.ico" rel="shortcut icon" />
-    <link href="./icons/favicon.ico" rel="shortcut icon" />
-    <title>El-Nour Trading - Vision</title>
+    <link href="<%= images.WEBSITE_ICON.icon %>" rel="shortcut icon" />
+    <title>El-Nour Trading - Profile</title>
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -22,6 +24,9 @@
     <link rel="stylesheet" href="./css/profile.css" />
     <link rel="stylesheet" href="./css/banner.css" />
     <link rel="stylesheet" href="./css/footer.css" />
+    <% if (currentLocale === 'ar') { %>
+    <link rel="stylesheet" href="./css/index-ar.css" />
+    <% } %>
   </head>
   <body>
     <!-- HOME -->
@@ -31,16 +36,24 @@
         <nav>
           <!-- logo -->
           <a href="/">
-            <img src="./imgs/white logo.png" alt="el-nour trading" />
+            <img src="<%= images.NAVBAR.logo %>" alt="el-nour trading" />
           </a>
           <!-- list -->
           <ul>
-            <li><a href="/#home">Home</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="#profile" class="active">CO Profile</a></li>
-            <li><a href="/#services">Commodity</a></li>
-            <li><a href="/#gallery">Gallery</a></li>
-            <li><a href="/#contact">Contact</a></li>
+            <li>
+              <a href="#home"><%= t("NAVBAR.nav_elements.a1") %></a>
+            </li>
+            <li><a href="/#about"><%= t("NAVBAR.nav_elements.a2") %></a></li>
+            <li>
+              <a href="/profile" class="active"
+                ><%= t("NAVBAR.nav_elements.a3") %></a
+              >
+            </li>
+            <li><a href="/#services"><%= t("NAVBAR.nav_elements.a4") %></a></li>
+            <li>
+              <a href="#gallery"><%= t("NAVBAR.nav_elements.a5") %></a>
+            </li>
+            <li><a href="/#contact"><%= t("NAVBAR.nav_elements.a6") %></a></li>
           </ul>
           <!-- menu toggle -->
           <div class="toggle-icon">
@@ -50,12 +63,20 @@
           </div>
         </nav>
         <ul class="nav-phone">
-          <li><a href="/#home">Home</a></li>
-          <li><a href="/#about">About</a></li>
-          <li><a href="#profile" class="active">CO Profile</a></li>
-          <li><a href="/#services">Commodity</a></li>
-          <li><a href="/#gallery">Gallery</a></li>
-          <li><a href="/#contact">Contact</a></li>
+          <li>
+            <a href="#home"><%= t("NAVBAR.nav_elements.a1") %></a>
+          </li>
+          <li><a href="/#about"><%= t("NAVBAR.nav_elements.a2") %></a></li>
+          <li>
+            <a href="/profile" class="active"
+              ><%= t("NAVBAR.nav_elements.a3") %></a
+            >
+          </li>
+          <li><a href="/#services"><%= t("NAVBAR.nav_elements.a4") %></a></li>
+          <li>
+            <a href="#gallery"><%= t("NAVBAR.nav_elements.a5") %></a>
+          </li>
+          <li><a href="/#contact"><%= t("NAVBAR.nav_elements.a6") %></a></li>
         </ul>
 
         <!-- header -->
@@ -66,7 +87,7 @@
             data-aos-duration="600"
             class="title"
           >
-            Company <span>profile</span>
+            <%= t("PROFILE.h1") %> <span><%= t("PROFILE.span") %></span>
           </h1>
           <!-- start of MAIN ELEMENT -->
           <!-- <iframe
@@ -106,7 +127,7 @@
           </div>
           <!-- end of MAIN ELEMENT -->
           <a data-aos="fade-up" data-aos-duration="600" href="/">
-            <button class="btn">Back To Home</button>
+            <button class="btn"><%= t("PROFILE.btn") %></button>
           </a>
         </header>
       </div>
@@ -115,7 +136,7 @@
     <!-- BANNER -->
     <section id="banner">
       <!-- grady bg -->
-      <img class="grady-bg" src="./imgs/grady_bg.png" alt="" />
+      <img class="grady-bg" src=" <%= images.HOME.gradient %> " alt="" />
       <!-- container -->
       <div class="container">
         <h1
@@ -124,15 +145,14 @@
           data-aos-duration="600"
           class="title"
         >
-          Let's stay <span>connected</span>
+          <%= t("CONTACT.h1") %> <span><%= t("CONTACT.span") %></span>
         </h1>
         <p
           data-aos="zoom-out-down"
           data-aos-duration="600"
           data-aos-delay="100"
         >
-          AL-Nour Co. has a big and ambitious vision to raise, Contact us now if
-          you have any questions
+          <%= t("CONTACT.sub_pages_contact_p") %>
         </p>
         <a
           data-aos="fade-up"
@@ -140,7 +160,7 @@
           data-aos-delay="200"
           href="/#contact"
         >
-          <button class="btn">Contact</button>
+          <button class="btn"><%= t("CONTACT.sub_pages_contact_btn") %></button>
         </a>
       </div>
     </section>
@@ -153,21 +173,33 @@
       <!-- container -->
       <div class="container">
         <div class="top">
-          <img src="./imgs/blue logo.png" alt="el-nour trading" />
+          <img src="<%= images.FOOTER.logo %>" alt="el-nour trading" />
           <!-- list -->
           <ul>
-            <li><a href="/#home">Home</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="#profile" class="active">CO Profile</a></li>
-            <li><a href="/#services">Commodity</a></li>
-            <li><a href="/#gallery">Gallery</a></li>
-            <li><a href="/#contact">Contact</a></li>
+            <li>
+              <a href="/#home"><%= t("FOOTER.footer_elements.a1") %></a>
+            </li>
+            <li><a href="/#about"><%= t("FOOTER.footer_elements.a2") %></a></li>
+            <li>
+              <a href="/profile"><%= t("FOOTER.footer_elements.a3") %></a>
+            </li>
+            <li>
+              <a href="/#services"><%= t("FOOTER.footer_elements.a4") %></a>
+            </li>
+            <li>
+              <a href="/#gallery" class="active"
+                ><%= t("FOOTER.footer_elements.a5") %></a
+              >
+            </li>
+            <li>
+              <a href="/#contact"><%= t("FOOTER.footer_elements.a6") %></a>
+            </li>
           </ul>
         </div>
         <!-- just for styling -->
         <div class="separator"></div>
         <!-- bottom -->
-        <p>© 2023 El-Nour, All rights reserved</p>
+        <p><%= t("FOOTER.p") %></p>
       </div>
     </footer>
 

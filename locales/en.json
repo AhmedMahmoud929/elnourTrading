@@ -103,7 +103,8 @@
     "name": "GALLERY",
     "h1": "Our company in",
     "span": "frames",
-    "btn": "View All"
+    "btn": "View All",
+    "sub_page_btn": "Back To Home"
   },
   "CONTACT": {
     "name": "CONTACT",
@@ -128,7 +129,9 @@
     "social": {
       "title": "Social",
       "url": "https://www.facebook.com/profile.php?id=100024270064870"
-    }
+    },
+    "sub_pages_contact_btn": "Contact",
+    "sub_pages_contact_p": "AL-Nour Co. has a big and ambitious vision to raise, Contact us now if you have any questions"
   },
   "QUESTIONS": {
     "h1": "Questions?",
@@ -137,6 +140,18 @@
     "form_p": "we care about your data in our",
     "form_span": "privacy policy",
     "btn": "Send"
+  },
+  "VISION": {
+    "name": "VISION",
+    "h1": "Visionary Minds",
+    "span": "Unite",
+    "p": "Al Nour co. has a big and ambitious vision to raise the size of the company. Through the opening of many areas in the labor market and not to stand on what has been established only. We are in the process of establishing a plant to extract the oils of 1000 tons daily On an area of 17000 meters , We are establishing a subsidiary of Al Nour under the name of Global Green",
+    "btn": "Back to home"
+  },
+  "PROFILE": {
+    "h1": "Company",
+    "span": "profile",
+    "btn": "Back to home"
   },
   "FOOTER": {
     "footer_elements": {

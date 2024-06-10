@@ -31,6 +31,9 @@
     "prod4": "icons/oil-bottle.svg",
     "prod5": "icons/soy.svg"
   },
+  "VISION": {
+    "main_img": "imgs/vision_image.png"
+  },
   "FOOTER": {
     "logo": "imgs/footer-logo.png"
   }

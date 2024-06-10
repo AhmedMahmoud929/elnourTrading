@@ -8,10 +8,10 @@ const fs = require("fs");
 const osType = os.type();
 // GET index page
 router.get("/", async (req, res) => {
-  const currentLocale = res.getLocale();
   let galleryImgs = await Gallery.find().sort({ order: 1 });
   let news = (await New.find()).reverse();
 
+  const currentLocale = res.getLocale();
   const imagesFilePath = path.join(
     __dirname,
     "..",
@@ -19,7 +19,6 @@ router.get("/", async (req, res) => {
     "imgs",
     "images.json"
   );
-  
   const images = await require(imagesFilePath);
 
   res.render("index", {
@@ -36,7 +35,23 @@ router.get("/", async (req, res) => {
 router.get("/gallery", async (req, res) => {
   try {
     let galleryImgs = await Gallery.find().sort({ order: 1 });
-    res.render("gallery", { galleryImgs, osType });
+    const currentLocale = res.getLocale();
+    const imagesFilePath = path.join(
+      __dirname,
+      "..",
+      "assets",
+      "imgs",
+      "images.json"
+    );
+    const images = await require(imagesFilePath);
+
+    res.render("gallery", {
+      galleryImgs,
+      osType,
+      currentLocale,
+      t: res.__,
+      images,
+    });
   } catch (err) {
     res.send("Internal server error");
   }
@@ -44,15 +59,41 @@ router.get("/gallery", async (req, res) => {
 
 // GET vision page
 router.get("/vision", (req, res) => {
-  res.render("vision");
+  const currentLocale = res.getLocale();
+  const imagesFilePath = path.join(
+    __dirname,
+    "..",
+    "assets",
+    "imgs",
+    "images.json"
+  );
+  const images = require(imagesFilePath);
+
+  res.render("vision", { images, currentLocale, t: res.__ });
 });
 
 // GET profile page
 router.get("/profile", async (req, res) => {
   try {
     const brochures = await Brochure.find({});
-    console.log(brochures);
-    res.render("profile", { brochures, osType });
+
+    const currentLocale = res.getLocale();
+    const imagesFilePath = path.join(
+      __dirname,
+      "..",
+      "assets",
+      "imgs",
+      "images.json"
+    );
+    const images = require(imagesFilePath);
+
+    res.render("profile", {
+      brochures,
+      osType,
+      images,
+      currentLocale,
+      t: res.__,
+    });
   } catch (err) {
     res.send("Internal Server Error");
   }
