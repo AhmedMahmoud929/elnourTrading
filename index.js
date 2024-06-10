@@ -58,6 +58,9 @@ i18n.configure({
   directory: path.join(__dirname, "locales"),
   defaultLocale: "en",
   cookie: "locale",
+  autoReload: true, // This enables auto-reloading
+  updateFiles: true,
+  syncFiles: true,
   objectNotation: true,
   register: global,
 });
