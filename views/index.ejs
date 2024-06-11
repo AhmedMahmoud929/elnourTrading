@@ -10,7 +10,7 @@ ${day}, ${year}`; return formattedDate; } %>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="<%= images.WEBSITE_ICON.icon %>" rel="shortcut icon" />
+    <link href="<%= images.FAVICON.icon %>" rel="shortcut icon" />
     <title>El-Nour Trading</title>
     <!-- Font Awesome -->
     <link
@@ -55,7 +55,7 @@ ${day}, ${year}`; return formattedDate; } %>
         <!-- vidoe bg -->
         <video
           class="video-bg"
-          src="./videos/elnour-trading.mp4"
+          src="<%= images.HOME.bg_vid.src %>"
           muted
           loop
           autoplay
@@ -687,7 +687,7 @@ ${day}, ${year}`; return formattedDate; } %>
           <!-- MAP -->
           <iframe
             class="right"
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13706.65451112505!2d30.831620000000004!3d30.812065999999998!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f634723350ee21%3A0x2284d9ef134cc012!2z2LTYsdmD2Kkg2KfZhNmG2YjYsSDZhNmE2YbZgtmEINmI2KfZhNin2LPYqtmK2LHYp9ivINmI2KfZhNiq2LXYr9mK2LE!5e0!3m2!1sen!2sus!4v1691331399677!5m2!1sen!2sus"
+            src="<%= t("CONTACT.map_location") %>"
             allowfullscreen=""
             referrerpolicy="no-referrer-when-downgrade"
             data-aos="fade-left"

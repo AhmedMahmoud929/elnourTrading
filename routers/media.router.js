@@ -54,8 +54,11 @@ router.post("/media", upload.single("file"), async (req, res) => {
   try {
     const images = require(imagesFilePath);
     const keys = req.body.key.split("-");
-    images[keys[0]][keys[1]] = "/imgs/uploadedImages/" + req.file.filename;
-    console.log(images);
+    if (req.body.type == "video/mp4")
+      images[keys[0]][keys[1]].src =
+        "/imgs/uploadedImages/" + req.file.filename;
+    else images[keys[0]][keys[1]] = "/imgs/uploadedImages/" + req.file.filename;
+
     fs.writeFileSync(imagesFilePath, JSON.stringify(images, null, 2));
     res.status(200).json({ msg: "Image has been updated successfully" });
   } catch (err) {

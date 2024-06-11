@@ -110,6 +110,9 @@
     "name": "CONTACT",
     "h1": "Let's stay",
     "span": "connected",
+    "map_location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13706.65451112505!2d30.831620000000004!3d30.812065999999998!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f634723350ee21%3A0x2284d9ef134cc012!2z2LTYsdmD2Kkg2KfZhNmG2YjYsSDZhNmE2YbZgtmEINmI2KfZhNin2LPYqtmK2LHYp9ivINmI2KfZhNiq2LXYr9mK2LE!5e0!3m2!1sen!2sus!4v1691331399677!5m2!1sen!2sus",
+    "sub_pages_contact_btn": "Contact",
+    "sub_pages_contact_p": "AL-Nour Co. has a big and ambitious vision to raise, Contact us now if you have any questions",
     "location": {
       "title": "Location",
       "content": "Egypt/El-Gharbiya/Kafr-Elzayat/El-Dalgamon"
@@ -129,9 +132,7 @@
     "social": {
       "title": "Social",
       "url": "https://www.facebook.com/profile.php?id=100024270064870"
-    },
-    "sub_pages_contact_btn": "Contact",
-    "sub_pages_contact_p": "AL-Nour Co. has a big and ambitious vision to raise, Contact us now if you have any questions"
+    }
   },
   "QUESTIONS": {
     "h1": "Questions?",

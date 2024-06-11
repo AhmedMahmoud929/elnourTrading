@@ -45,7 +45,16 @@
         <!-- Popup -->
         <div class="edit-popup hidden">
           <div class="image-cont">
-            <img src="" alt="" id="imagePreview" />
+            <img src="" alt="" id="imagePreview" style="display: none" />
+            <video
+              controls
+              autoplay
+              height="100%"
+              id="videoPreview"
+              style="display: none"
+            >
+              <source src="" type="video/mp4" />
+            </video>
           </div>
           <div class="btns">
             <input type="file" name="" hidden />
@@ -64,23 +73,52 @@
           >
             <span class="caret main caret-down"><%= key %></span>
             <ul class="nested collapsed images-ul">
-              <% Object.entries(obj).forEach(([name,path])=>{ %>
+              <% Object.entries(obj).forEach(([name,value])=>{ %>
               <li class="image-item">
                 <div class="image-label" key="<%= key %>-<%= name %>">
                   <%= name %>
                 </div>
                 <div class="img-cont">
-                  <img src="../../<%= path %>" alt="<%= name %>" />
+                  <!-- Image -->
+                  <% if(typeof(value)=="string") { %>
+                  <img src="../../<%= value %>" alt="<%= name %>" />
+                  <% } %>
+                  <!-- Video -->
+                  <% if(typeof(value)=="object") { %>
+                  <video width="100%" controls autoplay>
+                    <source src="../../<%= value.src %>" type="video/mp4" />
+                  </video>
+                  <% } %>
                 </div>
                 <div class="btns">
-                  <!-- <a><i class="fa-solid fa-eye"></i></a> -->
-                  <a href="../../<%= path %>" download="<%name%>">
+                  <% if(typeof(value)=="string") { %>
+                  <a href="../../<%= value %>" download="<%name%>">
                     <i class="fa-solid fa-floppy-disk"></i>
                   </a>
                   <a class="edit-a"
                     ><i class="fa-solid fa-pen"></i>
-                    <input type="file" name="" id="imageUpload" />
+                    <input
+                      type="file"
+                      name=""
+                      id="imageUpload"
+                      accept="image/*"
+                    />
                   </a>
+                  <!-- Video -->
+                  <% } %> <% if(typeof(value)=="object") { %>
+                  <a href="../../<%= value.src %>" download="<%name%>">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                  </a>
+                  <a class="edit-a"
+                    ><i class="fa-solid fa-pen"></i>
+                    <input
+                      type="file"
+                      name=""
+                      id="imageUpload"
+                      accept="video/*"
+                    />
+                  </a>
+                  <% } %>
                 </div>
               </li>
               <% }) %>

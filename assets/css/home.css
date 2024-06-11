@@ -96,7 +96,7 @@ section#home .container {
 #home header .home-btn-item {
   cursor: pointer;
   position: absolute;
-  bottom: 82px;
+  top: 30px;
   right: 30px;
   background-color: var(--light-blue);
   transition: 0.3s;
