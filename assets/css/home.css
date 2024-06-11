@@ -88,25 +88,14 @@ section#home .container {
   cursor: pointer;
   font-size: 2.5rem;
   position: absolute;
-  bottom: 30px;
+  bottom: 26px;
   right: 30px;
   color: var(--light-blue);
   transition: 0.3s;
 }
-#home header .home-btn-item {
-  cursor: pointer;
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  background-color: var(--light-blue);
-  transition: 0.3s;
-  width: 44px;
-  height: 44px;
-  border-radius: 100%;
-  padding: 8px;
-}
+
 #home header .video-btn-controller:hover,
-#home header .home-btn-item:hover {
+.home-btn-item:hover {
   transform: scale(0.95);
   opacity: 0.8;
 }
@@ -119,6 +108,10 @@ section#home .container {
   }
   #home header p {
     font-size: 1.1rem;
+  }
+  #home header .video-btn-controller,
+  #home header .home-btn-item {
+    right: 15px;
   }
 }
 

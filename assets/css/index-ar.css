@@ -1,7 +1,18 @@
+* {
+  letter-spacing: 0px !important;
+}
 .section-title::before {
   top: 15px;
   right: -25px;
 }
 .section-title {
+  margin-right: 25px;
+}
+
+nav .main-ul {
+  margin-left: -50px;
+}
+
+nav .image-li {
   margin-right: 25px;
 }

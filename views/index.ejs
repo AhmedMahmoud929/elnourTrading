@@ -69,17 +69,30 @@ ${day}, ${year}`; return formattedDate; } %>
         <!-- navbar -->
         <nav>
           <!-- logo -->
-          <a href="/">
-            <img src="<%= images.NAVBAR.logo %>" alt="el-nour trading" />
-          </a>
+          <div style="display:flex;justify-items:center;align-items:center; gap:14px">
+            <a href="/">
+              <img src="<%= images.NAVBAR.logo %>" alt="el-nour trading" />
+            </a>
+          </div>
           <!-- list -->
-          <ul>
+          <ul class="main-ul">
             <li><a href="#home" class="active"><%= t("NAVBAR.nav_elements.a1") %></a></li>
             <li><a href="#about"><%= t("NAVBAR.nav_elements.a2") %></a></li>
             <li><a href="/profile"><%= t("NAVBAR.nav_elements.a3") %></a></li>
             <li><a href="#services"><%= t("NAVBAR.nav_elements.a4") %></a></li>
             <li><a href="#gallery"><%= t("NAVBAR.nav_elements.a5") %></a></li>
             <li><a href="#contact"><%= t("NAVBAR.nav_elements.a6") %></a></li>
+            <li class="image-li">
+              <% if(currentLocale=="en"){%>
+                <a href="/?lang=ar">
+                  <img src="/icons/saudi-arabia.png" alt="">
+                </a>
+              <%} else {%>
+                <a href="/?lang=en">
+                  <img src="/icons/united-kingdom.png" alt="">
+                </a>
+              <%} %>
+            </li>
           </ul>
           <!-- menu toggle -->
           <div class="toggle-icon">
@@ -95,6 +108,17 @@ ${day}, ${year}`; return formattedDate; } %>
           <li><a href="#services"><%= t("NAVBAR.nav_elements.a4") %></a></li>
           <li><a href="#gallery"><%= t("NAVBAR.nav_elements.a5") %></a></li>
           <li><a href="#contact"><%= t("NAVBAR.nav_elements.a6") %></a></li>
+          <li class="image-li">
+            <% if(currentLocale=="en"){%>
+              <a href="/?lang=ar">
+                <img src="/icons/saudi-arabia.png" alt="">
+              </a>
+            <%} else {%>
+              <a href="/?lang=en">
+                <img src="/icons/united-kingdom.png" alt="">
+              </a>
+            <%} %>
+          </li>
         </ul>
 
         <!-- header -->
@@ -121,9 +145,7 @@ ${day}, ${year}`; return formattedDate; } %>
             <button class="btn"><%= t('HOME.btn') %></button>
           </a>
           <i class="fa-solid fa-circle-pause video-btn-controller "></i>
-         <a href="" class="trans-btn">
-          <img class="home-btn-item" src="/icons/translate.png" alt="">
-         </a>
+        
         </header>
       </div>
     </section>

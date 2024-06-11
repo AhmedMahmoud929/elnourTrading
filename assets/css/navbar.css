@@ -4,9 +4,39 @@ nav {
   align-items: flex-end;
   height: 12vh;
 }
+nav .main-ul {
+  margin-right: -50px;
+}
 
 nav a img {
   width: 140px;
+}
+
+.image-li {
+  margin-bottom: -7px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 25px;
+}
+
+.nav-phone .image-li {
+  margin-left: 0px;
+}
+
+.image-li:hover {
+  transform: scale(0.9);
+  opacity: 0.75;
+}
+
+.image-li a {
+  opacity: 1 !important;
+}
+
+.image-li img {
+  width: 38px;
+  border-radius: 5px;
+  padding: 0.5px;
+  background-color: #fff;
 }
 
 .nav-phone,
@@ -16,6 +46,7 @@ nav a img {
 
 nav ul {
   display: flex;
+  align-items: center;
   gap: 30px;
   margin-bottom: 10px;
 }
@@ -54,7 +85,7 @@ nav ul li a:hover,
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     z-index: 99;
     transition: 0.4s;
 
@@ -94,12 +125,15 @@ nav ul li a:hover,
   }
 
   nav a img {
-    width: 120px;
+    width: 115px;
+  }
+  .toggle-icon {
+    transform: scale(0.93) translateY(5px);
   }
 }
 
 @media (max-width: 450px) {
   nav a img {
-    width: 125px;
+    width: 110px;
   }
 }
