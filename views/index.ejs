@@ -85,11 +85,11 @@ ${day}, ${year}`; return formattedDate; } %>
             <li class="image-li">
               <% if(currentLocale=="en"){%>
                 <a href="/?lang=ar">
-                  <img src="/icons/saudi-arabia.png" alt="">
+                  <img src="<%= images.NAVBAR.ar_icon %>" alt="">
                 </a>
               <%} else {%>
                 <a href="/?lang=en">
-                  <img src="/icons/united-kingdom.png" alt="">
+                  <img src="<%= images.NAVBAR.en_icon %>" alt="">
                 </a>
               <%} %>
             </li>
@@ -111,11 +111,11 @@ ${day}, ${year}`; return formattedDate; } %>
           <li class="image-li">
             <% if(currentLocale=="en"){%>
               <a href="/?lang=ar">
-                <img src="/<%= images.NAVBAR.ar_icon %>" alt="">
+                <img src="<%= images.NAVBAR.ar_icon %>" alt="">
               </a>
             <%} else {%>
               <a href="/?lang=en">
-                <img src="/<%= images.NAVBAR.en_icon %>" alt="">
+                <img src="<%= images.NAVBAR.en_icon %>" alt="">
               </a>
             <%} %>
           </li>
