@@ -3,7 +3,9 @@
     "icon": "/icons/favicon.ico"
   },
   "NAVBAR": {
-    "logo": "/imgs/uploadedImages/new-logo1718111650895.png"
+    "logo": "/imgs/uploadedImages/new-logo1718111650895.png",
+    "ar_icon": "icons/saudi-arabia.png",
+    "en_icon": "icons/united-kingdom.png"
   },
   "HOME": {
     "alt_bg": "imgs/alt_bg.png",
