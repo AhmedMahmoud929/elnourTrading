@@ -37,35 +37,8 @@ ${day}, ${year}`; return formattedDate; } %>
   <body>
     <!-- navbar -->
     <div class="container">
-      <nav>
-        <!-- logo -->
-        <a href="/">
-          <img src="../imgs/white logo.png" alt="el-nour trading" />
-        </a>
-        <!-- list -->
-        <ul>
-          <li><a href="/#home" class="active">Home</a></li>
-          <li><a href="/#about">About</a></li>
-          <li><a href="/profile">CO Profile</a></li>
-          <li><a href="/#services">Commodity</a></li>
-          <li><a href="/gallery">Gallery</a></li>
-          <li><a href="/#contact">Contact</a></li>
-        </ul>
-        <!-- menu toggle -->
-        <div class="toggle-icon">
-          <div class="top"></div>
-          <div class="middle"></div>
-          <div class="bottom"></div>
-        </div>
-      </nav>
-      <ul class="nav-phone">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="/profile">CO Profile</a></li>
-        <li><a href="#services">Commodity</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <!-- navbar -->
+      <%- include("./parts/navbar.ejs") %>
     </div>
     <!-- Header -->
     <div class="container">
