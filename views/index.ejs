@@ -67,7 +67,7 @@ ${day}, ${year}`; return formattedDate; } %>
         <div class="circle left"></div>
 
         <!-- navbar -->
-       <%- include("./parts/navbar.ejs") %>
+       <%- include("./parts/navbar.ejs",{base:""}) %>
 
         <!-- header -->
         <header>
@@ -709,7 +709,7 @@ ${day}, ${year}`; return formattedDate; } %>
     </section>
 
     <!-- FOOTER -->
-    <%- include("./parts/footer.ejs") %>
+    <%- include("./parts/footer.ejs",{base:""}) %>
 
     <!-- Main Scripts -->
     <script src="./js/cardsHandler.js"></script>

@@ -33,7 +33,7 @@
     <section id="vision">
       <div class="container">
         <!-- navbar -->
-        <%- include("./parts/navbar.ejs") %>
+        <%- include("./parts/navbar.ejs",{base:"/"}) %>
 
         <!-- header -->
         <header>
@@ -115,7 +115,7 @@
     </section>
 
     <!-- FOOTER -->
-    <%- include("./parts/footer.ejs") %>
+    <%- include("./parts/footer.ejs",{base:"/"}) %>
 
     <!-- Main Scripts -->
     <script src="./js/phoneNavbar.js"></script>

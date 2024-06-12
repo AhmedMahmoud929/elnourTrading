@@ -11,12 +11,18 @@
   <!-- list -->
   <ul class="main-ul">
     <li>
-      <a href="/#home" class="active"><%= t("NAVBAR.nav_elements.a1") %></a>
+      <a href="<%= base %>#home" class="active"
+        ><%= t("NAVBAR.nav_elements.a1") %></a
+      >
     </li>
-    <li><a href="/#about"><%= t("NAVBAR.nav_elements.a2") %></a></li>
+    <li><a href="<%= base %>#about"><%= t("NAVBAR.nav_elements.a2") %></a></li>
     <li><a href="/profile"><%= t("NAVBAR.nav_elements.a3") %></a></li>
-    <li><a href="/#services"><%= t("NAVBAR.nav_elements.a4") %></a></li>
-    <li><a href="/#gallery"><%= t("NAVBAR.nav_elements.a5") %></a></li>
+    <li>
+      <a href="<%= base %>#services"><%= t("NAVBAR.nav_elements.a4") %></a>
+    </li>
+    <li>
+      <a href="<%= base %>#gallery"><%= t("NAVBAR.nav_elements.a5") %></a>
+    </li>
     <li><a href="#contact"><%= t("NAVBAR.nav_elements.a6") %></a></li>
     <li class="image-li">
       <% if(currentLocale=="en"){%>
@@ -38,11 +44,15 @@
   </div>
 </nav>
 <ul class="nav-phone">
-  <li><a href="/#home" class="active"><%= t("NAVBAR.nav_elements.a1") %></a></li>
-  <li><a href="/#about"><%= t("NAVBAR.nav_elements.a2") %></a></li>
+  <li>
+    <a href="<%= base %>#home" class="active"
+      ><%= t("NAVBAR.nav_elements.a1") %></a
+    >
+  </li>
+  <li><a href="<%= base %>#about"><%= t("NAVBAR.nav_elements.a2") %></a></li>
   <li><a href="/profile"><%= t("NAVBAR.nav_elements.a3") %></a></li>
-  <li><a href="/#services"><%= t("NAVBAR.nav_elements.a4") %></a></li>
-  <li><a href="/#gallery"><%= t("NAVBAR.nav_elements.a5") %></a></li>
+  <li><a href="<%= base %>#services"><%= t("NAVBAR.nav_elements.a4") %></a></li>
+  <li><a href="<%= base %>#gallery"><%= t("NAVBAR.nav_elements.a5") %></a></li>
   <li><a href="#contact"><%= t("NAVBAR.nav_elements.a6") %></a></li>
   <li class="image-li">
     <% if(currentLocale=="en"){%>
