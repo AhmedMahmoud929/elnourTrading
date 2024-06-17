@@ -39,6 +39,14 @@
       "less-btn": "view less"
     }
   },
+  "NEWS": {
+    "name": "NEWS",
+    "h1": "The News",
+    "span": "Ledger",
+    "p": "Founded in 1995, EL-NOUR TRADING CO is a prominent player in Egypt's grain market. Founded in 1995, EL-NOUR TRADING CO is a prominent player in Egypt's grain market.",
+    "home_btn": "Our Blog",
+    "back_btn": "Back to home"
+  },
   "HISTORY": {
     "slide1": {
       "date": "1995-2000",

@@ -11,15 +11,7 @@ router.get("/", async (req, res) => {
   let galleryImgs = await Gallery.find().sort({ order: 1 });
   let news = (await New.find()).reverse();
 
-  const currentLocale = res.getLocale();
-  const imagesFilePath = path.join(
-    __dirname,
-    "..",
-    "assets",
-    "imgs",
-    "images.json"
-  );
-  const images = await require(imagesFilePath);
+  const { currentLocale, images } = getJsons(res);
 
   res.render("index", {
     galleryImgs,
@@ -35,15 +27,7 @@ router.get("/", async (req, res) => {
 router.get("/gallery", async (req, res) => {
   try {
     let galleryImgs = await Gallery.find().sort({ order: 1 });
-    const currentLocale = res.getLocale();
-    const imagesFilePath = path.join(
-      __dirname,
-      "..",
-      "assets",
-      "imgs",
-      "images.json"
-    );
-    const images = await require(imagesFilePath);
+    const { currentLocale, images } = getJsons(res);
 
     res.render("gallery", {
       galleryImgs,
@@ -59,16 +43,7 @@ router.get("/gallery", async (req, res) => {
 
 // GET vision page
 router.get("/vision", (req, res) => {
-  const currentLocale = res.getLocale();
-  const imagesFilePath = path.join(
-    __dirname,
-    "..",
-    "assets",
-    "imgs",
-    "images.json"
-  );
-  const images = require(imagesFilePath);
-
+  const { currentLocale, images } = getJsons(res);
   res.render("vision", { images, currentLocale, t: res.__ });
 });
 
@@ -76,16 +51,7 @@ router.get("/vision", (req, res) => {
 router.get("/profile", async (req, res) => {
   try {
     const brochures = await Brochure.find({});
-
-    const currentLocale = res.getLocale();
-    const imagesFilePath = path.join(
-      __dirname,
-      "..",
-      "assets",
-      "imgs",
-      "images.json"
-    );
-    const images = require(imagesFilePath);
+    const { currentLocale, images } = getJsons(res);
 
     res.render("profile", {
       brochures,
@@ -100,7 +66,15 @@ router.get("/profile", async (req, res) => {
 });
 
 // GET article page
-router.get("/article/:id", async (req, res) => {
+router.get("/blog", async (req, res) => {
+  let articles = (await New.find()).reverse();
+  console.log(articles);
+  const { currentLocale, images } = getJsons(res);
+  res.render("blog", { articles, images, currentLocale, t: res.__ });
+});
+
+// GET article page
+router.get("/blog/article/:id", async (req, res) => {
   // const galleryImgs = await Gallery.find({});
   const { id } = req.params;
   const article = await New.findById(id);
@@ -112,5 +86,18 @@ router.get("/test", async (req, res) => {
   // const galleryImgs = await Gallery.find({});
   res.render("test");
 });
+
+const getJsons = (res) => {
+  const currentLocale = res.getLocale();
+  const imagesFilePath = path.join(
+    __dirname,
+    "..",
+    "assets",
+    "imgs",
+    "images.json"
+  );
+  const images = require(imagesFilePath);
+  return { currentLocale, imagesFilePath, images };
+};
 
 module.exports = router;

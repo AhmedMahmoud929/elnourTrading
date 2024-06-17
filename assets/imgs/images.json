@@ -19,6 +19,9 @@
     "horiz_img": "imgs/left-horiz.png",
     "vert_img": "imgs/left-vert.png"
   },
+  "NEWS": {
+    "main": "imgs/news-landing2.png"
+  },
   "HISTORY": {
     "slide1": "imgs/slide_bg_1.jpg",
     "slide2": "imgs/slide_bg_2.jpg",

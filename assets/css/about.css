@@ -11,6 +11,10 @@ section#about .container {
   gap: 5vw;
 }
 
+#about.news .container {
+  min-height: 65vh;
+}
+
 #about .right .section-title {
   margin-left: 15px;
 }
