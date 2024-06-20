@@ -48,8 +48,14 @@
           </div>
         </div>
         <div class="cards-container">
-          <% for(msg of messages) {%>
-          <div class="card">
+          <% for (let i = 0; i < messages.length; i++) { let msg = messages[i];
+          %>
+          <div
+            class="card"
+            data-aos="flip-up"
+            data-aos-duration="600"
+            data-aos-delay="<%= 300 + i*100 %>"
+          >
             <div class="icons-cont">
               <div
                 class="icon view"
@@ -91,9 +97,10 @@
   </script>
   <script>
     const deleteMsg = (ele, id) => {
-      ele.style.transitionDelay = "0s";
-      ele.style.opacity = 0.4;
-      ele.style.transform = "scale(0.9)";
+      ele.classList.add("active");
+      ele.addEventListener("mouseout", () => {
+        ele.classList.remove("active");
+      });
       fetch(`/dashboard/messages/delete/${id}`, { method: "delete" })
         .then((res) => res.json())
         .then((data) => location.reload())
@@ -102,6 +109,7 @@
     const viewMsg = (name, email, msg) => {
       const viewMsg = document.querySelector(".view-msg");
       const viewMsgName = document.querySelector(".view-msg .msg-header h1");
+
       const viewMsgEmail = document.querySelector(
         ".view-msg .msg-header small"
       );

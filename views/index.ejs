@@ -1,9 +1,5 @@
 <!-- Define ejs functions -->
-<% function formatDate(dateString) { const months = ["Jan", "Feb", "Mar", "Apr",
-"May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; const date = new
-Date(dateString); const month = months[date.getMonth()]; const day =
-date.getDate(); const year = date.getFullYear(); const formattedDate = `${month}
-${day}, ${year}`; return formattedDate; } %>
+<% function lang(){ return `?lang=${currentLocale}` } %>
 
 <!DOCTYPE html>
 <html lang="<%= currentLocale %>" dir="<%= currentLocale=='en' ? 'ltr' : 'rtl' %>" >
@@ -142,7 +138,7 @@ ${day}, ${year}`; return formattedDate; } %>
             data-aos="fade-right"
             data-aos-duration="600"
             data-aos-delay="100"
-            href="/vision"
+            href="/vision<%=lang()%>"
           >
             <button class="btn"><%= t("ABOUT.btn") %></button>
           </a>
@@ -223,7 +219,7 @@ ${day}, ${year}`; return formattedDate; } %>
             data-aos="fade-right"
             data-aos-duration="600"
             data-aos-delay="100"
-            href="/blog"
+            href="/blog<%=lang()%>"
           >
             <button class="btn"><%= t("NEWS.home_btn") %></button>
           </a>
@@ -547,7 +543,7 @@ ${day}, ${year}`; return formattedDate; } %>
         </div>
         <!-- button -->
         <a
-          href="/gallery"
+          href="/gallery<%=lang()%>"
           data-aos="fade-left"
           data-aos-duration="600"
           class="a-btn"

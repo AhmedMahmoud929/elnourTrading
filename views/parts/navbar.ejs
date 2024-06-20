@@ -1,3 +1,4 @@
+<% function lang(){ return `?lang=${currentLocale}` } %>
 <!-- navbar -->
 <nav>
   <!-- logo -->
@@ -11,26 +12,36 @@
   <!-- list -->
   <ul class="main-ul">
     <li>
-      <a href="<%= base %>#home" class="active"
+      <a href="<%= base %><%=lang()%>#home" class="active"
         ><%= t("NAVBAR.nav_elements.a1") %></a
       >
     </li>
-    <li><a href="<%= base %>#about"><%= t("NAVBAR.nav_elements.a2") %></a></li>
-    <li><a href="/profile"><%= t("NAVBAR.nav_elements.a3") %></a></li>
     <li>
-      <a href="<%= base %>#services"><%= t("NAVBAR.nav_elements.a4") %></a>
+      <a href="<%= base %><%=lang()%>#about"
+        ><%= t("NAVBAR.nav_elements.a2") %></a
+      >
     </li>
     <li>
-      <a href="<%= base %>#gallery"><%= t("NAVBAR.nav_elements.a5") %></a>
+      <a href="/profile<%=lang()%>"><%= t("NAVBAR.nav_elements.a3") %></a>
+    </li>
+    <li>
+      <a href="<%= base %><%=lang()%>#services"
+        ><%= t("NAVBAR.nav_elements.a4") %></a
+      >
+    </li>
+    <li>
+      <a href="<%= base %><%=lang()%>#gallery"
+        ><%= t("NAVBAR.nav_elements.a5") %></a
+      >
     </li>
     <li><a href="#contact"><%= t("NAVBAR.nav_elements.a6") %></a></li>
     <li class="image-li">
       <% if(currentLocale=="en"){%>
-      <a href="/?lang=ar">
+      <a lang="<%= currentLocale %>">
         <img src="<%= images.NAVBAR.ar_icon %>" alt="" />
       </a>
       <%} else {%>
-      <a href="/?lang=en">
+      <a lang="<%= currentLocale %>">
         <img src="<%= images.NAVBAR.en_icon %>" alt="" />
       </a>
       <%} %>
@@ -66,3 +77,10 @@
     <%} %>
   </li>
 </ul>
+<script>
+  const langHref = document.querySelector(".image-li a");
+  const pathName = location.pathname;
+  let currentLang = langHref.getAttribute("lang");
+  currentLang = currentLang == "en" ? "ar" : "en";
+  langHref.setAttribute("href", `${pathName}?lang=${currentLang}`);
+</script>

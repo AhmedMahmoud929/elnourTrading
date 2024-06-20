@@ -1,3 +1,4 @@
+<% function lang(){ return `?lang=${currentLocale}` } %>
 <footer id="footer">
   <!-- circles -->
   <div class="circle right"></div>
@@ -9,23 +10,27 @@
       <!-- list -->
       <ul>
         <li>
-          <a href="<%= base %>#home" class="active"
+          <a href="<%= base %><%=lang()%>#home" class="active"
             ><%= t("FOOTER.footer_elements.a1") %></a
           >
         </li>
         <li>
-          <a href="<%= base %>#about"><%= t("FOOTER.footer_elements.a2") %></a>
+          <a href="<%= base %><%=lang()%>#about"
+            ><%= t("FOOTER.footer_elements.a2") %></a
+          >
         </li>
         <li>
-          <a href="/profile"><%= t("FOOTER.footer_elements.a3") %></a>
+          <a href="/profile<%=lang()%>"
+            ><%= t("FOOTER.footer_elements.a3") %></a
+          >
         </li>
         <li>
-          <a href="<%= base %>#services"
+          <a href="<%= base %><%=lang()%>#services"
             ><%= t("FOOTER.footer_elements.a4") %></a
           >
         </li>
         <li>
-          <a href="<%= base %>#gallery"
+          <a href="<%= base %><%=lang()%>#gallery"
             ><%= t("FOOTER.footer_elements.a5") %></a
           >
         </li>

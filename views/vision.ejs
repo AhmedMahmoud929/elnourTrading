@@ -1,3 +1,4 @@
+<% function lang(){ return `?lang=${currentLocale}` } %>
 <!DOCTYPE html>
 <html
   lang="<%= currentLocale %>"
@@ -65,7 +66,7 @@
               data-aos="fade-right"
               data-aos-duration="600"
               data-aos-delay="100"
-              href="/"
+              href="/<%=lang()%>"
             >
               <button class="btn"><%= t("VISION.btn") %></button>
             </a>
@@ -83,36 +84,7 @@
     </section>
 
     <!-- BANNER -->
-    <section id="banner">
-      <!-- grady bg -->
-      <img class="grady-bg" src=" <%= images.HOME.gradient %> " alt="" />
-      <!-- container -->
-      <div class="container">
-        <h1
-          class="title"
-          data-aos="zoom-out-down"
-          data-aos-duration="600"
-          class="title"
-        >
-          <%= t("CONTACT.h1") %> <span><%= t("CONTACT.span") %></span>
-        </h1>
-        <p
-          data-aos="zoom-out-down"
-          data-aos-duration="600"
-          data-aos-delay="100"
-        >
-          <%= t("CONTACT.sub_pages_contact_p") %>
-        </p>
-        <a
-          data-aos="fade-up"
-          data-aos-duration="600"
-          data-aos-delay="200"
-          href="/#contact"
-        >
-          <button class="btn"><%= t("CONTACT.sub_pages_contact_btn") %></button>
-        </a>
-      </div>
-    </section>
+    <%- include("./parts/banner.ejs") %>
 
     <!-- FOOTER -->
     <%- include("./parts/footer.ejs",{base:"/"}) %>
