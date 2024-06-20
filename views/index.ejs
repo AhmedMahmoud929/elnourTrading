@@ -556,6 +556,7 @@
     <!-- CONTACT -->
     <section id="contact">
       <div class="container">
+        <%- include("./parts/notification.ejs") %>
         <div class="top">
           <!-- section-title -->
           <h1
@@ -581,9 +582,8 @@
           <form
           data-aos="flip-left"
           data-aos-duration="600"
-          action="/messages"
-          method="POST"
           class="form login contact"
+          lang="<%=currentLocale%>"
         >
           <!-- Title en -->
           <div class="form__field">
@@ -597,7 +597,7 @@
               type="text"
               name="name"
               class="form__input"
-              placeholder="Name"
+              placeholder="<%= t("CONTACT.form.name_placeholder")%>"
               required
             />
           </div>
@@ -612,7 +612,7 @@
               type="email"
               name="email"
               class="form__input"
-              placeholder="Email"
+              placeholder="<%= t("CONTACT.form.email_placeholder")%>"
               required
             />
           </div>
@@ -630,7 +630,7 @@
               type="text"
               name="msg"
               class="form__input"
-              placeholder="Message"
+              placeholder="<%= t("CONTACT.form.msg_placeholder")%>"
               required
             ></textarea>
           </div>
@@ -638,7 +638,7 @@
 
 
           <div class="form__field">
-            <input class="btn" type="submit" value="Send" />
+            <input class="btn" type="submit" value="<%= t("CONTACT.form.btn")%>" />
           </div>
         </form>
           <!-- MAP -->
@@ -761,6 +761,7 @@
     <script src="./js/cardsHandler.js"></script>
     <script src="./js/videoController.js"></script>
     <script src="./js/phoneNavbar.js"></script>
+    <script src="./js/contactForm.js"></script>
 
     <!-- AOS Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

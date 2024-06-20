@@ -16,3 +16,20 @@ nav .main-ul {
 nav .image-li {
   margin-right: 25px;
 }
+
+.login input[type="password"],
+.login input[type="text"],
+.login input[type="email"],
+.login textarea {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.login label {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  padding-right: 20px;
+  padding-right: 1.25rem;
+  padding-left: 20px;
+  padding-left: 1.25rem;
+}

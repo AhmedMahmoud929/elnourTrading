@@ -84,17 +84,46 @@ router.get("/blog/article/:id", async (req, res) => {
 
 // POST new message
 router.post("/messages", async (req, res) => {
+  const reply = {
+    success: {
+      en: {
+        title: "Success",
+        msg: "Your message has been recieved",
+        done: true,
+      },
+      ar: {
+        title: "تم",
+        msg: "تم استقبال رسالتك بنجاح",
+        done: true,
+      },
+    },
+    failed: {
+      en: {
+        title: "failed",
+        msg: "Oops! Something went wrong. Please try again.",
+        done: false,
+      },
+      ar: {
+        title: "فشل",
+        msg: "لم يتم ارسال الرسالة. يرجى المحاولة مجدداً",
+        done: false,
+      },
+    },
+  };
+  let locale = "en";
   try {
-    const { name, email, msg } = req.body;
+    const { name, email, msg, lang } = req.body;
+    locale = lang;
     const newMsg = new Message({
       name,
       email,
       msg,
     });
     await newMsg.save();
-    res.redirect("/#contact");
+
+    res.status(200).json(reply.success[locale]);
   } catch (err) {
-    res.send("Internal server error.");
+    res.status(500).json(reply.failed[locale]);
   }
 });
 
