@@ -33,3 +33,22 @@ nav .image-li {
   padding-left: 20px;
   padding-left: 1.25rem;
 }
+
+#about.news .left img {
+  left: -350px;
+  right: 0px;
+}
+
+@media (max-width: 1100px) {
+  #about.news .left img {
+    left: -400px;
+  }
+}
+@media (max-width: 900px) {
+  #about.news .left img {
+    bottom: -510px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 700px;
+  }
+}

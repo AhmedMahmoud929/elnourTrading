@@ -1,4 +1,5 @@
 <% function lang(){ return `?lang=${currentLocale}` } %>
+<% function isFourth(ix){ return  ix==0 } %>
 <!DOCTYPE html>
 <html
   lang="<%= currentLocale %>"
@@ -50,25 +51,46 @@
 
           <div class="articles-cont">
             <% for([ix,ele] of articles.entries()) { %>
-            <div class="article <%= Number.isInteger((ix+1)/4) ? "row" : "" %>">
+            <div
+            class="article <%= isFourth(ix) ? "row" : "" %>" data-aos="fade-up"
+            data-aos-duration="600"
+            data-aos-delay="<%= 100 + ix*100 %>"
+            data-aos-anchor=".article"
+            >
               <div class="cover">
                 <img src="<%= ele.cover %>" class="mask" />
               </div>
               <div class="content">
-                <div class="title <%= Number.isInteger((ix+1)/4) ? "" : "ellipsis" %>"><%= ele.title %></div>
+                <% const title = currentLocale=="en" ? ele.title : ele.titleAr %>
+                <% const desc = currentLocale=="en" ? ele.desc : ele.descAr %>
+                
+                <div class="title <%= isFourth(ix) ? "not-ellipsis" : "ellipsis" %>"><%= title %></div>
                
-                <% if(Number.isInteger((ix+1)/4)) { %>
+                <% if(isFourth(ix)) { %>
                   <div class="desc">
-                    <%= ele.desc.slice(0,500) %> ...
+                    <%= desc.slice(0,500) %> ...
                   </div>
+                  <script>
+                    const descEle = document.querySelector(".content .desc")
+                    window.onload = () =>{
+                      if(window.innerWidth<=1111) {
+                        descEle.innerHTML = descEle.innerHTML.slice(0,300) 
+                      }
+                      if (window.innerWidth <= 905) {
+                        descEle.innerHTML = descEle.innerHTML.slice(0,100) + " ..."
+                        document.querySelector(".article.row").classList.remove("row")
+                        document.querySelector(".title.not-ellipsis").classList.add("ellipsis")
+                      }
+                    }
+                  </script>
                 <% } else {%>
                   <div class="desc">
-                    <%= ele.desc.slice(0,100) %> ...
+                    <%= desc.slice(0,100) %> ...
                   </div>
                 <%}%>
                 <div style="align-self: end">
                   <a class="button" href="/blog/article/<%= ele._id %><%=lang()%>"
-                    >Read More
+                    ><%= t("NEWS.view_btn") %>
                     <i class="fa-solid fa-arrow-up-right-from-square"></i
                   ></a>
                 </div>
