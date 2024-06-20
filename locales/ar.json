@@ -113,6 +113,12 @@
 		"map_location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13706.65451112505!2d30.831620000000004!3d30.812065999999998!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f634723350ee21%3A0x2284d9ef134cc012!2z2LTYsdmD2Kkg2KfZhNmG2YjYsSDZhNmE2YbZgtmEINmI2KfZhNin2LPYqtmK2LHYp9ivINmI2KfZhNiq2LXYr9mK2LE!5e0!3m2!1sen!2sus!4v1691331399677!5m2!1sen!2sus",
 		"sub_pages_contact_btn": "اتصل",
 		"sub_pages_contact_p": "شركة النور لديها رؤية كبيرة وطموحة للنهوض، اتصل بنا الآن إذا كان لديك أي أسئلة",
+		"form": {
+			"name_placeholder": "الاسم",
+			"email_placeholder": "البريد الالكتروني",
+			"msg_placeholder": "الرسالة",
+			"btn": "ارسال"
+		},
 		"location": {
 			"title": "الموقع",
 			"content": "مصر/الغربية/كفر الزيات/الدلجمون"
