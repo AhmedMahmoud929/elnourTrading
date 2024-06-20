@@ -91,3 +91,15 @@
   cursor: pointer;
   font-family: "merriweather";
 }
+
+@media (max-width: 905px) {
+  .articles-cont {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .articles-cont .article {
+    width: 90vw;
+  }
+}

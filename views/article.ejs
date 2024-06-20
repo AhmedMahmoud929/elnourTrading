@@ -6,7 +6,10 @@ date.getDate(); const year = date.getFullYear(); const formattedDate = `${month}
 ${day}, ${year}`; return formattedDate; } %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="<%= currentLocale %>"
+  dir="<%= currentLocale=='en' ? 'ltr' : 'rtl' %>"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,13 +56,13 @@ ${day}, ${year}`; return formattedDate; } %>
           <i class="fa-regular fa-calendar"></i>
           <span><%= formatDate(article.createdAt) %></span>
         </div>
-        <h1><%= article.title %></h1>
+        <h1><%= currentLocale=="en" ? article.title : article.titleAr %></h1>
       </header>
     </div>
 
     <div class="container">
       <article>
-        <p><%= article.desc %></p>
+        <p><%= currentLocale=="en" ? article.desc : article.descAr %></p>
       </article>
     </div>
     <%- include("./parts/footer.ejs",{base:"/"}) %>
