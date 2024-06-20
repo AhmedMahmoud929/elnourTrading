@@ -12,7 +12,7 @@ ${day}, ${year}`; return formattedDate; } %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./icons/favicon.ico" rel="shortcut icon" />
     <link href="./icons/favicon.ico" rel="shortcut icon" />
-    <title>El-Nour Trading</title>
+    <title>El-Nour Trading s</title>
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -29,16 +29,16 @@ ${day}, ${year}`; return formattedDate; } %>
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
     <!-- Main Style -->
-    <link rel="stylesheet" href="../css/index.css" />
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="stylesheet" href="../css/article.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/navbar.css" />
+    <link rel="stylesheet" href="../../css/article.css" />
+    <link rel="stylesheet" href="../../css/footer.css" />
   </head>
   <body>
     <!-- navbar -->
     <div class="container">
       <!-- navbar -->
-      <%- include("./parts/navbar.ejs") %>
+      <%- include("./parts/navbar.ejs" , {base : "/"}) %>
     </div>
     <!-- Header -->
     <div class="container">
@@ -48,7 +48,7 @@ ${day}, ${year}`; return formattedDate; } %>
           src="<%= osType === 'Windows_NT' ? '../' : '' %><%= article.cover %>"
           alt=""
         />
-        <img class="grady" src="../imgs/grady_bg.png" alt="" />
+        <img class="grady" src="../../<%= images.HOME.gradient %>" alt="" />
         <div class="ele">
           <i class="fa-regular fa-calendar"></i>
           <span><%= formatDate(article.createdAt) %></span>
@@ -62,7 +62,7 @@ ${day}, ${year}`; return formattedDate; } %>
         <p><%= article.desc %></p>
       </article>
     </div>
-    <%- include("./parts/footer.ejs") %>
+    <%- include("./parts/footer.ejs",{base:"/"}) %>
     <script>
       window.onload = () => {
         document.querySelector("img.cover").style.transform = "scale(1)";

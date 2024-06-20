@@ -3,7 +3,7 @@ section#contact {
 }
 
 section#contact .container {
-  height: 100vh;
+  min-height: 100vh;
   padding: var(--section-padding);
   display: flex;
   flex-direction: column;
@@ -35,14 +35,15 @@ section#contact .container {
   color: transparent;
 }
 
-#contact .bottom {
+#contact .middle {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 60px;
   align-items: center;
-  height: 90%;
+  height: 65vh;
 }
 
-#contact .bottom .right {
+#contact .middle .right {
   height: 100%;
   width: 45%;
   border: none;
@@ -50,26 +51,64 @@ section#contact .container {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-#contact .bottom .left {
+#contact .middle .left {
   display: flex;
+  height: 100%;
   flex-direction: column;
   gap: 30px;
 }
-#contact .bottom .left ul {
+
+#contact form.contact {
+  width: 50%;
+}
+
+#contact form .form__field {
+  margin: 14px 0px;
+}
+
+#contact form.contact .btn {
+  font-weight: 400;
+  text-transform: capitalize;
+  padding: 14px;
+  font-size: 14pt;
+}
+
+#contact .bottom {
+  margin-top: 20px;
+}
+#contact .bottom > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 60px 90px;
+  grid-template-areas:
+    "location location phone phone"
+    "social social phone phone";
+}
+.location {
+  grid-area: location;
+}
+.social {
+  grid-area: social;
+}
+.phone {
+  grid-area: phone;
+}
+.phone ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-#contact .bottom .left > li .head {
+#contact .bottom ul > li .head {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-#contact .bottom .left > li .head h1 {
+#contact .bottom ul > li .head h1 {
   color: var(--white);
   font-size: 1.4rem;
 }
-#contact .bottom .left > li .icon {
+#contact .bottom ul > li .icon {
   width: 45px;
   height: 45px;
   border-radius: 10px;
@@ -84,16 +123,16 @@ section#contact .container {
   padding: 13px;
 }
 
-#contact .bottom .left > li .icon img {
+#contact .bottom ul > li .icon img {
   filter: invert(100%);
 }
 
-#contact .bottom .left > li li {
+#contact .bottom ul > li li {
   color: var(--gray);
   margin-left: 90px;
 }
 
-#contact .bottom .left > li li a {
+#contact .bottom ul > li li a {
   color: var(--gray);
 }
 
@@ -105,25 +144,19 @@ section#contact .container {
     height: auto;
     gap: 40px;
   }
-  #contact .bottom {
+  #contact .middle {
     flex-direction: column;
     height: 100%;
     gap: 40px;
   }
-  #contact .bottom .right {
+  #contact .middle .right {
     height: 400px;
     width: 100%;
   }
-  #contact .bottom .left {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 0.5fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 20px 70px;
-    grid-template-areas:
-      "location location social social"
-      "phone phone phone phone"
-      "phone phone phone phone";
+  #contact form.contact {
+    width: 100%;
   }
+
   .location {
     grid-area: location;
   }
@@ -143,39 +176,40 @@ section#contact .container {
   #contact .top h1.title {
     font-size: 1.8rem;
   }
-  #contact .bottom .left > li .icon {
+  #contact .middle .left > li .icon {
     width: 38px;
     height: 38px;
     border-radius: 7px;
     padding: 11px;
   }
-  #contact .bottom .left > li .head h1 {
+  #contact .middle .left > li .head h1 {
     font-size: 1.2rem;
   }
-  #contact .bottom .right {
+  #contact .middle .right {
     height: 300px;
+  }
+  #contact .bottom > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 }
 
 @media (max-width: 600px) {
-  #contact .bottom .left > li li {
+  #contact .bottom li li {
     font-size: 0.9rem;
     margin-left: 80px;
   }
-  #contact .bottom .left {
-    display: flex;
-    flex-direction: column;
-  }
-  #contact .top h1.title {
+  #contact .bottom ul > li h1.title {
     font-size: 1.6rem;
   }
-  #contact .bottom .left > li .icon {
+  #contact .bottom ul > li .icon {
     width: 35px;
     height: 35px;
     border-radius: 7px;
     padding: 10px;
   }
-  #contact .bottom .left > li .head h1 {
+  #contact .bottom ul > li .head h1 {
     font-size: 1.1rem;
   }
 }

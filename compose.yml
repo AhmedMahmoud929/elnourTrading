@@ -1,0 +1,6 @@
+version: '3'
+services:
+  elnour:
+    build: .
+    ports:
+      - 2502:2502

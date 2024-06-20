@@ -3,9 +3,10 @@ const Admin = require("../models/admin.model");
 const bcrypt = require("bcrypt");
 const requireAuth = require("../middlewares/requireAuth");
 const Visit = require("../models/visit.model");
-const New = require("../models/new.model");
+const New = require("../models/news.model");
 const Gallery = require("../models/gallery.model");
 const Brochure = require("../models/brochure.model");
+const path = require("path");
 
 // Get login-admin page
 router.get("/dashboard", requireAuth, async (req, res) => {
@@ -34,7 +35,15 @@ router.get("/login", (req, res) => {
   if (req.session.admin) {
     res.redirect("/dashboard");
   } else {
-    res.render("admin/login");
+    const imagesFilePath = path.join(
+      __dirname,
+      "..",
+      "assets",
+      "imgs",
+      "images.json"
+    );
+    const images = require(imagesFilePath);
+    res.render("admin/login", { images });
   }
 });
 

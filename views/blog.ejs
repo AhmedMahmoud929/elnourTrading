@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html
+  lang="<%= currentLocale %>"
+  dir="<%= currentLocale=='en' ? 'ltr' : 'rtl' %>"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="<%= images.FAVICON.icon %>" rel="shortcut icon" />
+    <title>El-Nour Trading - Profile</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/profile.css" />
+    <link rel="stylesheet" href="css/blog.css" />
+    <link rel="stylesheet" href="css/banner.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <% if (currentLocale === 'ar') { %>
+    <link rel="stylesheet" href="css/index-ar.css" />
+    <% } %>
+  </head>
+  <body>
+    <!-- HOME -->
+    <section id="profile">
+      <div class="container">
+        <!-- navbar -->
+        <%- include("./parts/navbar.ejs",{base:"/"}) %>
+
+        <!-- header -->
+        <header>
+          <h1
+            class="title"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            class="title"
+          >
+            <%= t("NEWS.h1") %> <span><%= t("NEWS.span") %></span>
+          </h1>
+
+          <div class="articles-cont">
+            <% for([ix,ele] of articles.entries()) { %>
+            <div class="article <%= Number.isInteger((ix+1)/4) ? "row" : "" %>">
+              <div class="cover">
+                <img src="<%= ele.cover %>" class="mask" />
+              </div>
+              <div class="content">
+                <div class="title <%= Number.isInteger((ix+1)/4) ? "" : "ellipsis" %>"><%= ele.title %></div>
+               
+                <% if(Number.isInteger((ix+1)/4)) { %>
+                  <div class="desc">
+                    <%= ele.desc.slice(0,500) %> ...
+                  </div>
+                <% } else {%>
+                  <div class="desc">
+                    <%= ele.desc.slice(0,100) %> ...
+                  </div>
+                <%}%>
+                <div style="align-self: end">
+                  <a class="button" href="/blog/article/<%= ele._id %>"
+                    >Read More
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <% } %>
+          </div>
+
+          <a data-aos="fade-up" data-aos-duration="600" href="/">
+            <button class="btn"><%= t("PROFILE.btn") %></button>
+          </a>
+        </header>
+      </div>
+    </section>
+
+    <!-- BANNER -->
+    <section id="banner">
+      <!-- grady bg -->
+      <img class="grady-bg" src=" <%= images.HOME.gradient %> " alt="" />
+      <!-- container -->
+      <div class="container">
+        <h1
+          class="title"
+          data-aos="zoom-out-down"
+          data-aos-duration="600"
+          class="title"
+        >
+          <%= t("CONTACT.h1") %> <span><%= t("CONTACT.span") %></span>
+        </h1>
+        <p
+          data-aos="zoom-out-down"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <%= t("CONTACT.sub_pages_contact_p") %>
+        </p>
+        <a
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="200"
+          href="/#contact"
+        >
+          <button class="btn"><%= t("CONTACT.sub_pages_contact_btn") %></button>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <%- include("./parts/footer.ejs",{base:"/"}) %>
+
+    <!-- Main Scripts -->
+    <script src="./js/phoneNavbar.js"></script>
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

@@ -43,10 +43,11 @@
             class="form login"
             enctype="multipart/form-data"
           >
+            <!-- Title en -->
             <div class="form__field">
               <label for="login__username">
                 <i class="bx bxs-pencil icon"></i>
-                <span class="hidden">Title</span></label
+                <span class="hidden">Title EN</span></label
               >
               <input
                 autocomplete="off"
@@ -54,14 +55,31 @@
                 type="text"
                 name="title"
                 class="form__input"
-                placeholder="Title"
+                placeholder="Title EN"
                 required
               />
             </div>
+            <!-- Title ar -->
             <div class="form__field">
               <label for="login__username">
                 <i class="bx bxs-pencil icon"></i>
-                <span class="hidden">Description</span></label
+                <span class="hidden">Title AR</span></label
+              >
+              <input
+                autocomplete="off"
+                id="login__username"
+                type="text"
+                name="titleAR"
+                class="form__input"
+                placeholder="Title AR"
+                required
+              />
+            </div>
+            <!-- Desc en -->
+            <div class="form__field">
+              <label for="login__username">
+                <i class="bx bxs-pencil icon"></i>
+                <span class="hidden">Description EN</span></label
               >
               <textarea
                 cols="30"
@@ -72,7 +90,26 @@
                 type="text"
                 name="desc"
                 class="form__input"
-                placeholder="Description"
+                placeholder="Description EN"
+                required
+              ></textarea>
+            </div>
+            <!-- Desc ar -->
+            <div class="form__field">
+              <label for="login__username">
+                <i class="bx bxs-pencil icon"></i>
+                <span class="hidden">Description AR</span></label
+              >
+              <textarea
+                cols="30"
+                rows="10"
+                style="padding: 10px; resize: none"
+                autocomplete="off"
+                id="login__username"
+                type="text"
+                name="descAR"
+                class="form__input"
+                placeholder="Description AR"
                 required
               ></textarea>
             </div>

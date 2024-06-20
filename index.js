@@ -25,6 +25,7 @@ const GalleryRouter = require("./routers/gallery.router");
 const BrochuresRouter = require("./routers/brochures.router");
 const contentRouter = require("./routers/content.router");
 const mediaRouter = require("./routers/media.router");
+const messagesRouter = require("./routers/messages.router");
 
 // Connect to MongoDB
 mongoose
@@ -102,6 +103,7 @@ app.use("/dashboard", requireAuth, GalleryRouter);
 app.use("/dashboard", requireAuth, BrochuresRouter);
 app.use("/dashboard", requireAuth, contentRouter);
 app.use("/dashboard", requireAuth, mediaRouter);
+app.use("/dashboard", requireAuth, messagesRouter);
 
 // Server Listening
 app.listen(port, () => {

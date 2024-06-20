@@ -16,6 +16,8 @@
     <body class="align">
       <div class="grid">
         <form action="/login" method="POST" class="form login">
+          <img class="logo" src="../../<%= images.NAVBAR.logo %>" alt="" />
+
           <div class="form__field">
             <label for="login__username"
               ><svg class="icon">
@@ -79,5 +81,11 @@
       </svg>
     </body>
     <!-- partial -->
+    <script>
+      window.onload = () => {
+        document.querySelector("form .logo").style.transform =
+          "scale(1) translateX(-5px)";
+      };
+    </script>
   </body>
 </html>

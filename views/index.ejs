@@ -22,7 +22,13 @@ ${day}, ${year}`; return formattedDate; } %>
     />
     <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <!-- Swiper's CSS -->
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Swiper's CSS --> 
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
@@ -30,6 +36,7 @@ ${day}, ${year}`; return formattedDate; } %>
     <!-- Main Style -->
    
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/dashboard/login.css" />
     <link rel="stylesheet" href="./css/navbar.css" />
     <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="./css/about.css" />
@@ -573,76 +580,140 @@ ${day}, ${year}`; return formattedDate; } %>
           <%= t("CONTACT.h1") %> <span><%= t("CONTACT.span") %></span>
           </h1>
         </div>
-        <div class="bottom">
+        <div class="middle">
           <!-- LIST -->
-          <ul
-            class="left"
-            data-aos="fade-right"
-            data-aos-duration="600"
-            data-aos-delay="100"
-          >
-            <!-- location -->
-            <li class="location">
-              <div class="head">
-                <div class="icon">
-                  <img src="./icons/location-dot-solid.svg" />
-                </div>
-                <h1><%= t("CONTACT.location.title") %></h1>
-              </div>
-              <ul>
-                <li><%= t("CONTACT.location.content") %></li>
-              </ul>
-            </li>
-            <!-- phone -->
-            <li class="phone">
-              <div class="head">
-                <div class="icon">
-                  <img src="./icons/phone-solid.svg" />
-                </div>
-                <h1><%= t("CONTACT.phone.title") %></h1>
-              </div>
-              <ul>
-                <li>
-                  <%= t("CONTACT.phone.ele1_job") %> : <%= t("CONTACT.phone.ele1_name") %><br />Mob:
-                  <a href="tel:<%= t("CONTACT.phone.ele1_num") %>"> <%= t("CONTACT.phone.ele1_num") %> </a>
-                </li>
-                <li>
-                  <%= t("CONTACT.phone.ele2_job") %> : <%= t("CONTACT.phone.ele2_name") %><br />Mob:
-                  <a href="tel:<%= t("CONTACT.phone.ele2_num") %>"> <%= t("CONTACT.phone.ele2_num") %> </a>
-                </li>
-                <li>
-                  <%= t("CONTACT.phone.ele3_job") %> : <%= t("CONTACT.phone.ele3_name") %><br />Mob:
-                  <a href="tel:<%= t("CONTACT.phone.ele3_num") %>"> <%= t("CONTACT.phone.ele3_num") %> </a>
-                </li>
-              </ul>
-            </li>
-            <!-- social -->
-            <li class="social">
-              <div class="head">
-                <div class="icon">
-                  <img src="./icons/facebook-f.svg" />
-                </div>
-                <h1>
-                  <a
-                    style="color: var(--white)"
-                    target="_blank"
-                    href="<%= t("CONTACT.social.url") %>"
-                    ><%= t("CONTACT.social.title") %></a
-                  >
-                </h1>
-              </div>
-            </li>
-          </ul>
+          <form
+          data-aos="flip-left"
+          data-aos-duration="600"
+          action="/messages"
+          method="POST"
+          class="form login contact"
+        >
+          <!-- Title en -->
+          <div class="form__field">
+            <label for="login__username">
+              <i class='bx bxs-user-circle'></i>
+              </label
+            >
+            <input
+              autocomplete="off"
+              id="login__username"
+              type="text"
+              name="name"
+              class="form__input"
+              placeholder="Name"
+              required
+            />
+          </div>
+          <!-- Title ar -->
+          <div class="form__field">
+            <label for="login__username">
+              <i class='bx bxs-envelope' ></i></label
+            >
+            <input
+              autocomplete="off"
+              id="login__username"
+              type="email"
+              name="email"
+              class="form__input"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <!-- Desc en -->
+          <div class="form__field">
+            <label for="login__username">
+              <i class='bx bxs-message'></i>
+            </label >
+            <textarea
+              cols="30"
+              rows="10"
+              style="resize: none"
+              autocomplete="off"
+              id="login__username"
+              type="text"
+              name="msg"
+              class="form__input"
+              placeholder="Message"
+              required
+            ></textarea>
+          </div>
+
+
+
+          <div class="form__field">
+            <input class="btn" type="submit" value="Send" />
+          </div>
+        </form>
           <!-- MAP -->
           <iframe
             class="right"
             src="<%= t("CONTACT.map_location") %>"
             allowfullscreen=""
             referrerpolicy="no-referrer-when-downgrade"
-            data-aos="fade-left"
+            data-aos="flip-right"
             data-aos-duration="600"
-            data-aos-delay="100"
+      
           ></iframe>
+        </div>
+        <div class="bottom">
+          <ul
+          class="left"
+          data-aos="fade-up"
+          data-aos-duration="600"
+        >
+          <!-- location -->
+          <li class="location">
+            <div class="head">
+              <div class="icon">
+                <img src="./icons/location-dot-solid.svg" />
+              </div>
+              <h1><%= t("CONTACT.location.title") %></h1>
+            </div>
+            <ul>
+              <li><%= t("CONTACT.location.content") %></li>
+            </ul>
+          </li>
+          <!-- phone -->
+          <li class="phone">
+            <div class="head">
+              <div class="icon">
+                <img src="./icons/phone-solid.svg" />
+              </div>
+              <h1><%= t("CONTACT.phone.title") %></h1>
+            </div>
+            <ul>
+              <li>
+                <%= t("CONTACT.phone.ele1_job") %> : <%= t("CONTACT.phone.ele1_name") %><br />Mob:
+                <a href="tel:<%= t("CONTACT.phone.ele1_num") %>"> <%= t("CONTACT.phone.ele1_num") %> </a>
+              </li>
+              <li>
+                <%= t("CONTACT.phone.ele2_job") %> : <%= t("CONTACT.phone.ele2_name") %><br />Mob:
+                <a href="tel:<%= t("CONTACT.phone.ele2_num") %>"> <%= t("CONTACT.phone.ele2_num") %> </a>
+              </li>
+              <li>
+                <%= t("CONTACT.phone.ele3_job") %> : <%= t("CONTACT.phone.ele3_name") %><br />Mob:
+                <a href="tel:<%= t("CONTACT.phone.ele3_num") %>"> <%= t("CONTACT.phone.ele3_num") %> </a>
+              </li>
+            </ul>
+          </li>
+          <!-- social -->
+          <li class="social">
+            <div class="head">
+              <div class="icon">
+                <img src="./icons/facebook-f.svg" />
+              </div>
+              <h1>
+                <a
+                  style="color: var(--white)"
+                  target="_blank"
+                  href="<%= t("CONTACT.social.url") %>"
+                  ><%= t("CONTACT.social.title") %></a
+                >
+              </h1>
+            </div>
+          </li>
+        </ul>
         </div>
       </div>
     </section>

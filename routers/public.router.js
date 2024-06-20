@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const Gallery = require("../models/gallery.model");
 const Brochure = require("../models/brochure.model");
-const New = require("../models/new.model");
+const New = require("../models/news.model");
+const Message = require("../models/message.model");
 const os = require("os");
 const path = require("path");
 const fs = require("fs");
@@ -68,7 +69,6 @@ router.get("/profile", async (req, res) => {
 // GET article page
 router.get("/blog", async (req, res) => {
   let articles = (await New.find()).reverse();
-  console.log(articles);
   const { currentLocale, images } = getJsons(res);
   res.render("blog", { articles, images, currentLocale, t: res.__ });
 });
@@ -78,7 +78,24 @@ router.get("/blog/article/:id", async (req, res) => {
   // const galleryImgs = await Gallery.find({});
   const { id } = req.params;
   const article = await New.findById(id);
-  res.render("article", { article, osType });
+  const { currentLocale, images } = getJsons(res);
+  res.render("article", { currentLocale, images, article, osType, t: res.__ });
+});
+
+// POST new message
+router.post("/messages", async (req, res) => {
+  try {
+    const { name, email, msg } = req.body;
+    const newMsg = new Message({
+      name,
+      email,
+      msg,
+    });
+    await newMsg.save();
+    res.redirect("/#contact");
+  } catch (err) {
+    res.send("Internal server error.");
+  }
 });
 
 // GET test page

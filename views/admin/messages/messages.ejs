@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./icons/favicon.ico" rel="shortcut icon" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../css/dashboard/messages.css" />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"messages"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <header>
+        <div class="text">Messages</div>
+      </header>
+      <main style="position: relative">
+        <div class="view-msg hidden" onclick="closeMsg()">
+          <i class="fa-solid fa-xmark"></i>
+          <div class="msg-header">
+            <h1>Ahmed Mahmoud</h1>
+            <small>(Alrba2003@gmail.com)</small>
+          </div>
+          <div class="msg-body">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias
+            eveniet fugit similique minima veniam ullam vero nam animi vitae
+            dolor, ab, accusantium, facere optio!
+          </div>
+        </div>
+        <div class="cards-container">
+          <% for(msg of messages) {%>
+          <div class="card">
+            <div class="icons-cont">
+              <div
+                class="icon view"
+                onclick='viewMsg("<%= msg.name %>","<%= msg.email %>","<%= msg.msg %>")'
+              >
+                <i class="fa-solid fa-eye"></i>
+              </div>
+
+              <div
+                onclick="deleteMsg(this,'<%= msg._id %>')"
+                class="icon delete"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </div>
+            </div>
+            <div class="textBox">
+              <div class="textContent">
+                <p class="h1"><%= msg.name %></p>
+                <span class="date"><%= timeAgo(msg.createdAt) %></span>
+              </div>
+              <p class="p email"><%= msg.email %></p>
+              <p class="p">
+                <%= msg.msg.slice(0,50) %>
+                <!-- Add ... -->
+                <%= msg.msg.length > 50 ? "....." : "" %>
+              </p>
+            </div>
+          </div>
+          <%}%>
+        </div>
+      </main>
+    </section>
+  </body>
+
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script>
+    const deleteMsg = (ele, id) => {
+      ele.style.transitionDelay = "0s";
+      ele.style.opacity = 0.4;
+      ele.style.transform = "scale(0.9)";
+      fetch(`/dashboard/messages/delete/${id}`, { method: "delete" })
+        .then((res) => res.json())
+        .then((data) => location.reload())
+        .catch((err) => console.log(err));
+    };
+    const viewMsg = (name, email, msg) => {
+      const viewMsg = document.querySelector(".view-msg");
+      const viewMsgName = document.querySelector(".view-msg .msg-header h1");
+      const viewMsgEmail = document.querySelector(
+        ".view-msg .msg-header small"
+      );
+      const viewMsgBody = document.querySelector(".view-msg .msg-body");
+
+      viewMsgName.innerHTML = name;
+      viewMsgEmail.innerHTML = `(${email})`;
+      viewMsgBody.innerHTML = msg;
+
+      viewMsg.classList.remove("hidden");
+    };
+    const closeMsg = () => {
+      const viewMsg = document.querySelector(".view-msg");
+      viewMsg.classList.add("hidden");
+    };
+  </script>
+</html>

@@ -3,11 +3,11 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const os = require("os");
-const New = require("../models/new.model");
+const New = require("../models/news.model");
 const osType = os.type();
 
 const uploadPath = path.join(__dirname, "..", "assets", "imgs", "newsImgs");
-  
+
 // Create the destination directory if it doesn't exist
 if (!fs.existsSync(uploadPath)) {
   fs.mkdirSync(uploadPath);
@@ -48,15 +48,16 @@ router.get("/news/publish", (req, res) => {
 // POST a new
 router.post("/news/publish", upload.single("cover"), async (req, res) => {
   try {
-    const { title, desc } = req.body;
+    const { title, desc, titleAR, descAR } = req.body;
     const cover = req.file.filename;
-    console.log(cover);
 
-    const basePath = "../imgs/newsImgs/";
+    const basePath = path.join("..", "imgs", "newsImgs");
     const newNew = new New({
       title,
       desc,
-      cover: basePath + cover,
+      titleAR,
+      descAR,
+      cover: path.join(basePath, cover),
     });
     await newNew.save();
     res.redirect("/dashboard/news");
