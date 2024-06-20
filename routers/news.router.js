@@ -48,15 +48,15 @@ router.get("/news/publish", (req, res) => {
 // POST a new
 router.post("/news/publish", upload.single("cover"), async (req, res) => {
   try {
-    const { title, desc, titleAR, descAR } = req.body;
+    const { title, desc, titleAr, descAr } = req.body;
     const cover = req.file.filename;
 
     const basePath = path.join("..", "imgs", "newsImgs");
     const newNew = new New({
       title,
       desc,
-      titleAR,
-      descAR,
+      titleAr,
+      descAr,
       cover: path.join(basePath, cover),
     });
     await newNew.save();
