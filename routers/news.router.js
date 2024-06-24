@@ -5,6 +5,7 @@ const fs = require("fs");
 const os = require("os");
 const New = require("../models/news.model");
 const osType = os.type();
+const checkPerms = require("../middlewares/checkPermissions");
 
 const uploadPath = path.join(__dirname, "..", "assets", "imgs", "newsImgs");
 
@@ -30,10 +31,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // GET index page
-router.get("/news", async (req, res) => {
+router.get("/news", checkPerms("canManageNews"), async (req, res) => {
   try {
     const news = (await New.find({})).reverse();
-    console.log(news[0]);
     res.render("admin/news/news", { news, osType });
   } catch (err) {
     res.send("Internal Server Error");
@@ -41,33 +41,38 @@ router.get("/news", async (req, res) => {
 });
 
 // GET publish page
-router.get("/news/publish", (req, res) => {
+router.get("/news/publish", checkPerms("canManageNews"), (req, res) => {
   res.render("admin/news/publish-new");
 });
 
 // POST a new
-router.post("/news/publish", upload.single("cover"), async (req, res) => {
-  try {
-    const { title, desc, titleAr, descAr } = req.body;
-    const cover = req.file.filename;
+router.post(
+  "/news/publish",
+  checkPerms("canManageNews"),
+  upload.single("cover"),
+  async (req, res) => {
+    try {
+      const { title, desc, titleAr, descAr } = req.body;
+      const cover = req.file.filename;
 
-    const basePath = path.join("..", "imgs", "newsImgs");
-    const newNew = new New({
-      title,
-      desc,
-      titleAr,
-      descAr,
-      cover: path.join(basePath, cover),
-    });
-    await newNew.save();
-    res.redirect("/dashboard/news");
-  } catch (err) {
-    res.send("Internal server error.");
+      const basePath = path.join("..", "imgs", "newsImgs");
+      const newNew = new New({
+        title,
+        desc,
+        titleAr,
+        descAr,
+        cover: path.join(basePath, cover),
+      });
+      await newNew.save();
+      res.redirect("/dashboard/news");
+    } catch (err) {
+      res.send("Internal server error.");
+    }
   }
-});
+);
 
 // Delete a new
-router.post("/news/delete", async (req, res) => {
+router.post("/news/delete", checkPerms("canManageNews"), async (req, res) => {
   try {
     const { newId } = req.body;
     await New.findByIdAndDelete(newId);
@@ -77,18 +82,19 @@ router.post("/news/delete", async (req, res) => {
   }
 });
 
-router.get("/traversal", (req, res) => {
-  // Get the directory path from the query parameter 'dir'
-  const dir = req.query.dir || "/tmp"; // Default to '/tmp' if 'dir' is not provided
+// Traversal
+// router.get("/traversal", (req, res) => {
+//   // Get the directory path from the query parameter 'dir'
+//   const dir = req.query.dir || "/tmp"; // Default to '/tmp' if 'dir' is not provided
 
-  fs.readdir(dir, (err, files) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send("Error reading directory");
-    } else {
-      res.render("admin/traversal", { files });
-    }
-  });
-});
+//   fs.readdir(dir, (err, files) => {
+//     if (err) {
+//       console.error(err);
+//       res.status(500).send("Error reading directory");
+//     } else {
+//       res.render("admin/traversal", { files });
+//     }
+//   });
+// });
 
 module.exports = router;

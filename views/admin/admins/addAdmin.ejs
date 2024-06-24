@@ -1,0 +1,182 @@
+<!-- Define ejs functions -->
+<% function formatSpacedString(camelCaseStr) { 
+  const spacedStr = camelCaseStr.replace(/([A-Z])/g, ' $1');
+  const result = spacedStr.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '); return result;
+ } %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../icons/favicon.ico" rel="shortcut icon" />
+    <title>Add Admin</title>
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../../css/dashboard/admins.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"admins"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <header>
+        <div class="text">Admins</div>
+        <a href="/dashboard/admins/">
+          <span class="link_name">Back</span>
+          <i class="bx bx-undo"></i>
+        </a>
+      </header>
+      <main id="admins">
+        <div class="form-cont">
+          <p>Information:</p>
+          <form action="/dashboard/admins/new" method="post">
+            <div class="form_ele">
+              <label for="fullName"><i class="fa-solid fa-user"></i></label>
+              <input
+                type="text"
+                name="fullName"
+                id="fullName"
+                placeholder="Full Name"
+                required
+              />
+            </div>
+            <div class="form_ele">
+              <label for="username"><i class="fa-solid fa-id-badge"></i></label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="form_ele">
+              <label for="yourPass"><i class="fa-solid fa-lock"></i></label>
+              <input
+                type="password"
+                name="yourPass"
+                id="yourPass"
+                placeholder="Your Password"
+                required
+              />
+            </div>
+            <div class="form_ele">
+              <label for="newAdminPass"><i class="fa-solid fa-key"></i></label>
+              <input
+                type="password"
+                name="newAdminPass"
+                id="newAdminPass"
+                placeholder="New Admin Password"
+                required
+              />
+            </div>
+
+            <div class="permissions">
+              <p>Permissions:</p>
+              <div class="permissions-grid">
+                <label>
+                  <input
+                    type="checkbox"
+                    id="isSuper"
+                    name="isSuper"
+                    value="true"
+                  />
+                  Is Super?
+                </label>
+
+                <%for (key in permissions) {%>
+                <label>
+                  <input
+                    type="checkbox"
+                    class="permission-checkbox"
+                    name="permissions"
+                    value="<%=key%>"
+                  />
+                  <%= formatSpacedString(String(key)) %>
+                </label>
+                <%}%>
+              </div>
+            </div>
+
+            <button>Add</button>
+          </form>
+        </div>
+      </main>
+    </section>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      const viewForms = document.querySelectorAll("#viewForm");
+
+      viewForms.forEach((f, ix) => {
+        f.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const newWindow = window.open("", "_blank");
+          newWindow.location.href = f.children[0].href;
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const isSuperCheckbox = document.getElementById("isSuper");
+        const permissionCheckboxes = document.querySelectorAll(
+          ".permission-checkbox"
+        );
+
+        isSuperCheckbox.addEventListener("change", (event) => {
+          const isChecked = event.target.checked;
+
+          permissionCheckboxes.forEach((checkbox) => {
+            checkbox.checked = false; // Uncheck all permission checkboxes
+            checkbox.disabled = isChecked; // Disable them if isSuper is checked
+          });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const isSuperCheckbox = document.getElementById("isSuper");
+        const permissionCheckboxes = document.querySelectorAll(
+          ".permission-checkbox"
+        );
+
+        const togglePermissionsRequired = (isChecked) => {
+          permissionCheckboxes.forEach((checkbox) => {
+            checkbox.checked = false; // Uncheck all permission checkboxes
+            checkbox.disabled = isChecked; // Disable them if isSuper is checked
+          });
+        };
+
+        isSuperCheckbox.addEventListener("change", (event) => {
+          togglePermissionsRequired(event.target.checked);
+        });
+
+        // Initial state
+        togglePermissionsRequired(isSuperCheckbox.checked);
+      });
+    </script>
+  </body>
+</html>

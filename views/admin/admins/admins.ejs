@@ -12,10 +12,10 @@ ${day}, ${year}`; return formattedDate; } %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../../icons/favicon.ico" rel="shortcut icon" />
-    <title>News</title>
+    <title>Admins</title>
     <link rel="stylesheet" href="../../css/index.css" />
     <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
-    <link rel="stylesheet" href="../../css/dashboard/news.css" />
+    <link rel="stylesheet" href="../../css/dashboard/admins.css" />
 
     <!-- Boxicons CSS -->
     <link
@@ -34,61 +34,64 @@ ${day}, ${year}`; return formattedDate; } %>
     <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
+
   <body>
     <!-- ASIDE -->
-    <%- include("../../parts/aside.ejs",{active:"news"}) %>
+    <%- include("../../parts/aside.ejs",{active:"admins"}) %>
     <!-- SECTION -->
     <section class="home-section">
       <header>
-        <div class="text">News</div>
-        <a href="/dashboard/news/publish">
-          <span class="link_name">Add New</span>
+        <div class="text">Admins</div>
+        <a href="/dashboard/admins/add">
+          <span class="link_name">Admins List</span>
           <i class="bx bx-plus"></i>
+          <!-- <i class="bx bx-undo"></i> -->
         </a>
       </header>
-      <main id="news">
-        <table data-aos="zoom-out-up" data-aos-duration="700">
-          <caption>
-            Published News
-          </caption>
+      <main id="admins">
+        <table id="adminsTable">
           <thead>
             <tr>
-              <th scope="col">Img</th>
-              <th scope="col">Title</th>
-              <th scope="col">Date</th>
-              <th scope="col">Actions</th>
+              <th>Full Name</th>
+              <th>Username</th>
+              <th>Is Super?</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <!-- row -->
-            <% for(ele of news) { %>
+            <% for(ele of admins) {%>
             <tr>
-              <td data-label="Img">
-                <img
-                  src="<%= osType === 'Windows_NT' ? '../' : '' %><%= ele.cover %>"
-                />
-              </td>
-              <td data-label="Title"><%= ele.title %></td>
-              <td data-label="Date"><%= formatDate(ele.createdAt) %></td>
-              <td data-label="Actions">
-                <form id="viewForm">
-                  <a href="/article/<%= ele._id %>">
-                    <button>View</button>
-                  </a>
+              <td><%= ele.fullName %></td>
+              <td><%= ele.username %></td>
+              <td><%= String(ele.isSuper).toUpperCase() %></td>
+              <td>
+                <script>
+                  String().
+                </script>
+                <% if(!ele.isSuper) { %>
+                <form
+                  action="/dashboard/admins/permissions/<%= ele._id %>"
+                  method="get"
+                  style="display: inline"
+                >
+                  <button type="submit" class="btn-show">
+                    Show Permissions
+                  </button>
                 </form>
-
-                <form action="/dashboard/news/delete" method="POST">
-                  <input
-                    type="text"
-                    name="newId"
-                    value="<%= ele._id %>"
-                    hidden
-                  />
-                  <button class="danger">Delete</button>
+                <form
+                  action="/dashboard/admins/delete"
+                  method="post"
+                  style="display: inline"
+                >
+                  <input type="hidden" name="adminId" value="<%= ele._id %>" />
+                  <button type="submit" class="btn-delete">Delete</button>
                 </form>
+                <% } else {%>
+                <i class="true">Super admins managed via DB</i>
+                <% } %>
               </td>
             </tr>
-            <%} %>
+            <%}%>
           </tbody>
         </table>
       </main>

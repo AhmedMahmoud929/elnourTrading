@@ -2,6 +2,7 @@ const router = require("express").Router();
 const path = require("path");
 const fs = require("fs");
 const multer = require("multer");
+const checkPerms = require("../middlewares/checkPermissions");
 
 const imagesFilePath = path.join(
   __dirname,
@@ -41,7 +42,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // GET index page
-router.get("/media", async (req, res) => {
+router.get("/media", checkPerms("canManageImages"), async (req, res) => {
   try {
     const images = await require(imagesFilePath);
     res.render("admin/media/media", { images });
@@ -50,20 +51,26 @@ router.get("/media", async (req, res) => {
   }
 });
 
-router.post("/media", upload.single("file"), async (req, res) => {
-  try {
-    const images = require(imagesFilePath);
-    const keys = req.body.key.split("-");
-    if (req.body.type == "video/mp4")
-      images[keys[0]][keys[1]].src =
-        "/imgs/uploadedImages/" + req.file.filename;
-    else images[keys[0]][keys[1]] = "/imgs/uploadedImages/" + req.file.filename;
+router.post(
+  "/media",
+  checkPerms("canManageImages"),
+  upload.single("file"),
+  async (req, res) => {
+    try {
+      const images = require(imagesFilePath);
+      const keys = req.body.key.split("-");
+      if (req.body.type == "video/mp4")
+        images[keys[0]][keys[1]].src =
+          "/imgs/uploadedImages/" + req.file.filename;
+      else
+        images[keys[0]][keys[1]] = "/imgs/uploadedImages/" + req.file.filename;
 
-    fs.writeFileSync(imagesFilePath, JSON.stringify(images, null, 2));
-    res.status(200).json({ msg: "Image has been updated successfully" });
-  } catch (err) {
-    res.send("Internal Server Error");
+      fs.writeFileSync(imagesFilePath, JSON.stringify(images, null, 2));
+      res.status(200).json({ msg: "Image has been updated successfully" });
+    } catch (err) {
+      res.send("Internal Server Error");
+    }
   }
-});
+);
 
 module.exports = router;

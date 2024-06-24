@@ -9,6 +9,8 @@ const flash = require("express-flash");
 const Admin = require("./models/admin.model");
 const bcrypt = require("bcrypt");
 const requireAuth = require("./middlewares/requireAuth");
+const requireSuper = require("./middlewares/requireSuper");
+const checkPerms = require("./middlewares/checkPermissions");
 const countVisits = require("./middlewares/countVisits");
 const i18n = require("i18n");
 const cookieParser = require("cookie-parser");
@@ -28,6 +30,7 @@ const BrochuresRouter = require("./routers/brochures.router");
 const contentRouter = require("./routers/content.router");
 const mediaRouter = require("./routers/media.router");
 const messagesRouter = require("./routers/messages.router");
+const adminsRouter = require("./routers/admins.router");
 
 // Connect to MongoDB
 mongoose
@@ -106,6 +109,7 @@ app.use("/dashboard", requireAuth, BrochuresRouter);
 app.use("/dashboard", requireAuth, contentRouter);
 app.use("/dashboard", requireAuth, mediaRouter);
 app.use("/dashboard", requireAuth, messagesRouter);
+app.use("/dashboard", requireAuth, adminsRouter);
 
 // Server Listening
 app.listen(port, () => {
@@ -127,10 +131,12 @@ app.listen(port, () => {
 
 //     // Save the new user
 //     await newAdmin.save();
+//     console.log("New admin has been created");
 //     // res.send("Admin Created Successfully");
 //   } catch (err) {
+//     console.log("Creation failed");
 //     // res.status(500).send(err);
 //   }
 // }
 
-// CREATE_ADMIN("Ahmed Mahmoud", "admin", "admin");
+// CREATE_ADMIN("Ahmed Mahmoud", "admin2", "admin");

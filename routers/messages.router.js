@@ -3,10 +3,10 @@ const path = require("path");
 const fs = require("fs");
 const os = require("os");
 const Message = require("../models/message.model");
-const osType = os.type();
+const checkPerms = require("../middlewares/checkPermissions");
 
 // GET messages page
-router.get("/messages", async (req, res) => {
+router.get("/messages", checkPerms("canViewMessages"), async (req, res) => {
   try {
     const messages = await Message.find({});
     res.render("admin/messages/messages", { messages, timeAgo });
@@ -16,26 +16,34 @@ router.get("/messages", async (req, res) => {
 });
 
 // DELETE a message
-router.delete("/messages/delete/:id", async (req, res) => {
-  try {
-    const msgId = req.params.id;
-    await Message.findByIdAndDelete(msgId);
-    res.json({ msg: "done" });
-  } catch (err) {
-    res.send("Internal server error.");
+router.delete(
+  "/messages/delete/:id",
+  checkPerms("canViewMessages"),
+  async (req, res) => {
+    try {
+      const msgId = req.params.id;
+      await Message.findByIdAndDelete(msgId);
+      res.json({ msg: "done" });
+    } catch (err) {
+      res.send("Internal server error.");
+    }
   }
-});
+);
 
 // Delete a brochure
-router.post("/brochures/delete", async (req, res) => {
-  try {
-    const { brochureId } = req.body;
-    await Brochure.findByIdAndDelete(brochureId);
-    res.redirect("/dashboard/brochures");
-  } catch (err) {
-    res.send("Internal Server Error");
+router.post(
+  "/brochures/delete",
+  checkPerms("canViewMessages"),
+  async (req, res) => {
+    try {
+      const { brochureId } = req.body;
+      await Brochure.findByIdAndDelete(brochureId);
+      res.redirect("/dashboard/brochures");
+    } catch (err) {
+      res.send("Internal Server Error");
+    }
   }
-});
+);
 
 const timeAgo = (timestamp) => {
   const diff = Math.floor((Date.now() - new Date(timestamp)) / 1000);

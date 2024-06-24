@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const path = require("path");
 const fs = require("fs");
+const checkPerms = require("../middlewares/checkPermissions");
 
 // GET index page
 router.get("/content", async (req, res) => {
@@ -12,7 +13,7 @@ router.get("/content", async (req, res) => {
 });
 
 // API endpoint to get localization data
-router.get("/locales", (req, res) => {
+router.get("/locales", checkPerms("canManageText"), (req, res) => {
   const enFilePath = path.join(__dirname, "..", "locales", "en.json");
   const arFilePath = path.join(__dirname, "..", "locales", "ar.json");
 
@@ -38,7 +39,7 @@ router.get("/locales", (req, res) => {
   });
 });
 
-router.post("/locales", (req, res) => {
+router.post("/locales", checkPerms("canManageText"), (req, res) => {
   const enFilePath = path.join(__dirname, "..", "locales", "en.json");
   const arFilePath = path.join(__dirname, "..", "locales", "ar.json");
   const { key, en, ar } = req.body;
@@ -83,7 +84,7 @@ router.post("/locales", (req, res) => {
             (err) => {
               if (err) {
                 return res.status(500).json({
-                  error: "Could not write localization file"
+                  error: "Could not write localization file",
                 });
               }
 

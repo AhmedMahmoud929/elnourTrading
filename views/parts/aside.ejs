@@ -26,7 +26,7 @@
     <div class="sidebar open">
       <div class="logo-details">
         <a href="/dashboard" style="margin-top: 5px">
-          <img src="../../imgs/nav-logo.png" alt="" />
+          <img src="../../../imgs/nav-logo.png" alt="" />
         </a>
         <i class="bx bx-menu" id="btn"></i>
       </div>
@@ -41,6 +41,18 @@
           </a>
           <span class="tooltip">Dashboard</span>
         </li>
+        <% if(isSuper) {%>
+        <li>
+          <a
+            href="/dashboard/admins"
+            class="<%= active === 'admins' ? 'active' : '' %>"
+          >
+            <i class="fa-solid fa-lock"></i>
+            <span class="links_name">Admins</span>
+          </a>
+          <span class="tooltip">Admins</span>
+        </li>
+        <%}%> <% if(permissions.canManageNews) { %>
         <li>
           <a
             href="/dashboard/news"
@@ -51,6 +63,7 @@
           </a>
           <span class="tooltip">News</span>
         </li>
+        <% } %> <% if(permissions.canManageGallery) { %>
         <li>
           <a
             href="/dashboard/gallery"
@@ -61,6 +74,7 @@
           </a>
           <span class="tooltip">Gallery</span>
         </li>
+        <% } %> <% if(permissions.canManageBroshures) { %>
         <li>
           <a
             href="/dashboard/brochures"
@@ -71,6 +85,7 @@
           </a>
           <span class="tooltip">Brochures</span>
         </li>
+        <% } %> <% if(permissions.canManageText) { %>
         <li>
           <a
             href="/dashboard/content"
@@ -81,6 +96,7 @@
           </a>
           <span class="tooltip">Content</span>
         </li>
+        <% } %> <% if(permissions.canManageImages) { %>
         <li>
           <a
             href="/dashboard/media"
@@ -91,6 +107,7 @@
           </a>
           <span class="tooltip">Media</span>
         </li>
+        <% } %> <% if(permissions.canViewMessages) { %>
         <li>
           <a
             href="/dashboard/messages"
@@ -101,7 +118,18 @@
           </a>
           <span class="tooltip">Messages</span>
         </li>
-
+        <% } %> <% if(permissions.canManageCareers) { %>
+        <li>
+          <a
+            href="/dashboard/career"
+            class="<%= active === 'career' ? 'active' : '' %>"
+          >
+            <i class="fa-solid fa-briefcase"></i>
+            <span class="links_name">Career</span>
+          </a>
+          <span class="tooltip">Career</span>
+        </li>
+        <% } %>
         <li class="profile">
           <a href="/dashboard/logout">
             <i class="bx bx-log-out"></i>

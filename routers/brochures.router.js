@@ -5,8 +5,9 @@ const fs = require("fs");
 const os = require("os");
 const Brochure = require("../models/brochure.model");
 const osType = os.type();
+const checkPerms = require("../middlewares/checkPermissions");
 
-const uploadPath = path.join(__dirname, "..", "assets", "files")
+const uploadPath = path.join(__dirname, "..", "assets", "files");
 
 // Create the destination directory if it doesn't exist
 if (!fs.existsSync(uploadPath)) {
@@ -30,7 +31,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // GET index page
-router.get("/brochures", async (req, res) => {
+router.get("/brochures", checkPerms("canManageBroshures"), async (req, res) => {
   try {
     const brochures = await Brochure.find({});
     res.render("admin/brochures/brochures", { brochures, osType });
@@ -40,13 +41,18 @@ router.get("/brochures", async (req, res) => {
 });
 
 // GET gallery page
-router.get("/brochures/upload", (req, res) => {
-  res.render("admin/brochures/upload-brochure");
-});
+router.get(
+  "/brochures/upload",
+  checkPerms("canManageBroshures"),
+  (req, res) => {
+    res.render("admin/brochures/upload-brochure");
+  }
+);
 
 // POST uploaded file
 router.post(
   "/brochures/upload",
+  checkPerms("canManageBroshures"),
   upload.fields([{ name: "cover" }, { name: "file" }]),
   async (req, res) => {
     try {
@@ -69,14 +75,18 @@ router.post(
 );
 
 // Delete a brochure
-router.post("/brochures/delete", async (req, res) => {
-  try {
-    const { brochureId } = req.body;
-    await Brochure.findByIdAndDelete(brochureId);
-    res.redirect("/dashboard/brochures");
-  } catch (err) {
-    res.send("Internal Server Error");
+router.post(
+  "/brochures/delete",
+  checkPerms("canManageBroshures"),
+  async (req, res) => {
+    try {
+      const { brochureId } = req.body;
+      await Brochure.findByIdAndDelete(brochureId);
+      res.redirect("/dashboard/brochures");
+    } catch (err) {
+      res.send("Internal Server Error");
+    }
   }
-});
+);
 
 module.exports = router;
