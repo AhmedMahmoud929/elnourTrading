@@ -1,0 +1,96 @@
+<!-- Define ejs functions -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../icons/favicon.ico" rel="shortcut icon" />
+    <title>CVs</title>
+    <link rel="stylesheet" href="../../../css/index.css" />
+    <link rel="stylesheet" href="../../../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../../../css/dashboard/admins.css" />
+    <link rel="stylesheet" href="../../../css/dashboard/careers.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"careers"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <header>
+        <div class="text">CVs</div>
+        <a href="/dashboard/careers/">
+          <span class="link_name">Back</span>
+          <i class="bx bx-undo"></i>
+        </a>
+      </header>
+      <main id="admins" class="cvs">
+        <!-- FLASH Message (success) -->
+        <% if(messages.success) { %>
+        <!--  -->
+        <%- include("../../parts/flash-msg.ejs", {
+        title:messages.success[0].title, msg: messages.success[0].msg, done:true
+        }) %>
+        <!--  -->
+        <% } %>
+
+        <div class="header">
+          <p>Total CVs : <%= CVs.length %></p>
+          <div class="buttons">
+            <form action="/dashboard/careers/download-all/<%= id %>">
+              <button>Download All</button>
+            </form>
+            <form action="/dashboard/careers/delete-all/<%= id %>" method="POST">
+              <button class="danger">Delete All</button>
+            </form>
+          </div>
+        </div>
+        <div class="cvs-cont">
+          <% CVs.forEach((cv) => { %>
+          <div class="cv">
+            <div class="cover">
+              <i class="fa-solid fa-file-pdf"></i>
+            </div>
+            <div class="title"><%= cv.slice(14) %></div>
+            <div class="actions">
+              <button class="view" style="display: none">View</button>
+              <form action="/dashboard/careers/download-cv/<%=cv%>">
+                <button>Download</button>
+              </form>
+              <form action="/dashboard/careers/delete-cv/" method="POST">
+                <input type="hidden" name="jobId" value="<%= id %>" />
+                <input type="hidden" name="cvName" value="<%= cv %>" />
+                <button class="danger">Delete</button>
+              </form>
+            </div>
+          </div>
+          <%})%>
+        </div>
+      </main>
+    </section>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

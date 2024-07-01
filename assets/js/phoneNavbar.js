@@ -1,6 +1,6 @@
-let navIcon = document.querySelector("section .toggle-icon");
-let navMenu = document.querySelector("section .nav-phone");
-let navLinks = document.querySelectorAll("section .nav-phone li a");
+let navIcon = document.querySelector(".toggle-icon");
+let navMenu = document.querySelector(".nav-phone");
+let navLinks = document.querySelectorAll(".nav-phone li a");
 let navIsOpen = false;
 
 navIcon.addEventListener("click", () => {

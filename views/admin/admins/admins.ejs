@@ -55,6 +55,7 @@ ${day}, ${year}`; return formattedDate; } %>
               <th>Full Name</th>
               <th>Username</th>
               <th>Is Super?</th>
+              <th>Is Active?</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -63,20 +64,23 @@ ${day}, ${year}`; return formattedDate; } %>
             <tr>
               <td><%= ele.fullName %></td>
               <td><%= ele.username %></td>
-              <td><%= String(ele.isSuper).toUpperCase() %></td>
+              <td class="isSuper-<%= ele.isSuper%>">
+                <%= String(ele.isSuper).toUpperCase() %>
+              </td>
+              <td class="isActive-<%= ele.isActive%>">
+                <%= String(ele.isActive).toUpperCase() %>
+              </td>
               <td>
                 <script>
                   String().
                 </script>
                 <% if(!ele.isSuper) { %>
                 <form
-                  action="/dashboard/admins/permissions/<%= ele._id %>"
+                  action="/dashboard/admins/edit-admin/<%= ele._id %>"
                   method="get"
                   style="display: inline"
                 >
-                  <button type="submit" class="btn-show">
-                    Show Permissions
-                  </button>
+                  <button type="submit" class="btn-show">Edit Admin</button>
                 </form>
                 <form
                   action="/dashboard/admins/delete"

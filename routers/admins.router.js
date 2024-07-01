@@ -25,13 +25,14 @@ router.get("/admins/add", async (req, res) => {
 });
 
 // GET admins page
-router.get("/admins/permissions/:id", async (req, res) => {
+router.get("/admins/edit-admin/:id", async (req, res) => {
   try {
     const adminId = req.params.id;
     const admin = await Admin.findById(adminId);
-    res.render("admin/admins/permissions", {
+    res.render("admin/admins/edit-admin", {
       admin,
       formatSpacedString,
+      currentLocale: res.getLocale(),
     });
   } catch (err) {
     res.send("Internal Server Error");
@@ -44,7 +45,7 @@ router.post("/admins/new", async (req, res) => {
     const { fullName, username, yourPass, isSuper, newAdminPass, permissions } =
       req.body;
 
-    // Create a new Admin object
+    // Check super admin password
     const passwordIsValid = await bcrypt.compare(
       yourPass,
       req.session.admin.password
@@ -90,9 +91,61 @@ router.post("/admins/update-permissions/", async (req, res) => {
     const update = {};
     update[`permissions.${key}`] = value;
     await Admin.findByIdAndUpdate(id, { $set: update });
+    req.flash("success", {
+      title: "Success",
+      msg: "Permissions has been updated",
+    });
     res.status(200).send({ success: true });
   } catch (err) {
     res.status(400).send(err);
+  }
+});
+
+// TOGGLE isActive
+router.post("/admins/toggle-active/", async (req, res) => {
+  try {
+    const { id, isActive } = req.body;
+    console.log(req.body);
+    await Admin.findByIdAndUpdate(id, { $set: { isActive } });
+    req.flash("success", {
+      title: "Success",
+      msg: "IsActive has been updated",
+    });
+    res.status(200).send({ success: true });
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+// UPDATE admin password
+router.post("/admins/update-password/", async (req, res) => {
+  const { id, yourPass, newAdminPass } = req.body;
+  try {
+    // Check super admin password
+    const passwordIsValid = await bcrypt.compare(
+      yourPass,
+      req.session.admin.password
+    );
+
+    if (passwordIsValid) {
+      const hashedNewPassword = await bcrypt.hash(newAdminPass, 10);
+      const updatedAdmin = await Admin.findByIdAndUpdate(id, {
+        $set: { password: hashedNewPassword },
+      });
+      req.flash("success", {
+        title: "Success",
+        msg: "Password has been changed",
+      });
+      res.redirect(`/dashboard/admins/edit-admin/${id}`);
+    } else {
+      req.flash("failed", {
+        title: "Failed",
+        msg: "Super admin password isn't correct",
+      });
+      res.redirect(`/dashboard/admins/edit-admin/${id}`);
+    }
+  } catch (err) {
+    res.status(400).send(err); // Handle error if save fails
   }
 });
 

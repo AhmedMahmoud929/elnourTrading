@@ -1,7 +1,5 @@
 .form-cont {
   padding: 30px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 form {
@@ -11,24 +9,26 @@ form {
 
 .form_ele {
   display: flex;
-  height: 60px;
+  min-height: 60px;
   margin-bottom: 15px;
 }
 
 .form_ele label {
   display: block;
   width: 65px;
-  height: 100%;
+  min-height: 100%;
   background-color: #1f1f26;
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
   display: flex;
+  padding-top: 25px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   color: #fff;
 }
 
-.form_ele input {
+.form_ele input,
+.form_ele textarea {
   width: 100%;
   padding: 20px;
   border: 1px solid transparent;
@@ -39,14 +39,13 @@ form {
   background-color: #2e2d38;
 }
 
-.permissions {
-  margin-bottom: 15px;
+.form_ele textarea {
+  resize: none;
+  min-height: 200px;
 }
 
-p {
-  margin-bottom: 10px;
-  font-weight: 500;
-  color: #fff;
+.permissions {
+  margin-bottom: 15px;
 }
 
 .permissions-grid {
@@ -55,7 +54,7 @@ p {
   gap: 10px;
 }
 
-.permissions-grid label {
+label.checkbox-label {
   display: flex;
   align-items: center;
   background: #2e2d38;
@@ -67,7 +66,7 @@ p {
   font-weight: 300;
 }
 
-.permissions-grid input {
+input.checkbox-inp {
   margin-right: 15px;
   width: 20px;
   height: 20px;
@@ -89,7 +88,8 @@ button:hover {
 }
 
 button:focus,
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
   background-color: #434a52;
 }
@@ -116,8 +116,12 @@ table#adminsTable {
   color: gold;
 }
 
-#adminsTable td.false {
-  /* color: #dc3545; */
+.isSuper-true {
+  color: gold !important;
+}
+
+.isActive-false {
+  color: orangered !important;
 }
 
 #adminsTable th {
@@ -126,7 +130,8 @@ table#adminsTable {
 }
 
 #adminsTable button {
-  padding: 10px 20px;
+  padding: 10px;
+  width: 150px;
   margin: 5px;
   cursor: pointer;
   border: none;
@@ -135,8 +140,8 @@ table#adminsTable {
 }
 
 #adminsTable .btn-show {
-  background-color: #00c3ff;
-  color: white;
+  background-color: #fff;
+  color: black;
 }
 
 #adminsTable .btn-delete {
@@ -154,17 +159,61 @@ table#adminsTable {
 }
 
 .full-name,
-.username {
-  color: #fff;
-  font-weight: 300;
+.username,
+p {
+  font-size: 1.2rem;
   margin-bottom: 10px;
+  font-weight: 500;
+  color: #fff;
 }
 
 .full-name i,
 .username i {
-  font-weight: 600;
+  font-weight: 400;
+  background-color: #2e2d38;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  font-size: 1rem;
+  display: block;
 }
 
-.username {
-  margin-bottom: 40px;
+.isActive {
+  margin-bottom: 20px;
+}
+
+.isActive label {
+  color: greenyellow;
+  font-weight: 400;
+}
+
+.isActive.danger label {
+  color: #fb0000;
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: greenyellow;
+  box-shadow: 0px 0px 8px 4px rgba(172, 255, 47, 0.2);
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.isActive.danger .circle {
+  background-color: #fb0000;
+  box-shadow: 0px 0px 8px 4px rgb(255 47 47 / 31%);
+}
+
+.password-reset {
+  border-top: 3px solid #2e2d38;
+  margin-top: 30px;
+  padding-top: 20px;
+}
+
+.password-reset .form-ele {
+  margin-bottom: 10px;
+}
+.password-reset button {
+  margin-top: 5px;
 }

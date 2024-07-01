@@ -31,6 +31,7 @@ const contentRouter = require("./routers/content.router");
 const mediaRouter = require("./routers/media.router");
 const messagesRouter = require("./routers/messages.router");
 const adminsRouter = require("./routers/admins.router");
+const careersRouter = require("./routers/careers.router");
 
 // Connect to MongoDB
 mongoose
@@ -110,33 +111,9 @@ app.use("/dashboard", requireAuth, contentRouter);
 app.use("/dashboard", requireAuth, mediaRouter);
 app.use("/dashboard", requireAuth, messagesRouter);
 app.use("/dashboard", requireAuth, adminsRouter);
+app.use("/dashboard", requireAuth, careersRouter);
 
 // Server Listening
 app.listen(port, () => {
   console.log(`http://127.0.0.1:${port}`);
 });
-
-// // Code to create admin
-// async function CREATE_ADMIN(fullName, username, password) {
-//   try {
-//     // Hash the password
-//     const hashedPassword = await bcrypt.hash(password, 10); // 10 is the number of salt rounds
-
-//     // Create new user with hashed password
-//     const newAdmin = new Admin({
-//       fullName,
-//       username,
-//       password: hashedPassword,
-//     });
-
-//     // Save the new user
-//     await newAdmin.save();
-//     console.log("New admin has been created");
-//     // res.send("Admin Created Successfully");
-//   } catch (err) {
-//     console.log("Creation failed");
-//     // res.status(500).send(err);
-//   }
-// }
-
-// CREATE_ADMIN("Ahmed Mahmoud", "admin2", "admin");

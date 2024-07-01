@@ -52,3 +52,29 @@ nav .image-li {
     width: 700px;
   }
 }
+
+section.container .apply-section {
+  border-right: none;
+  padding-right: 0px;
+  border-left: 2px solid #092634;
+  padding-left: 30px;
+}
+
+section.container .job-section .job-desc p,
+section.container .job-section .requirements li {
+  margin-left: 0px;
+  margin-right: 30px;
+}
+
+section.container .job-section .requirements li {
+  margin-left: 0px;
+  margin-right: 40px;
+}
+
+@media (max-width: 1100px) {
+  #questions .right .job-model {
+    right: 50%;
+    transform: translateX(50%);
+    margin-right: -30px;
+  }
+}

@@ -1,0 +1,193 @@
+.info {
+  padding: 15px;
+  border: 1px solid #f0ad4e;
+  border-radius: 4px;
+  background-color: #f8e3d3;
+  color: #8a6d3b;
+  font-weight: 500;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.info .fa-circle-info {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+.info span {
+  font-weight: bold;
+}
+
+.info .fa-copy {
+  cursor: pointer;
+  opacity: 0.5;
+  font-size: 1.4rem;
+  transition: 0.3s;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.info .fa-copy:hover {
+  opacity: 1;
+  transform: scale(1.1) translateY(-50%);
+}
+
+.jobs-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 30px;
+}
+.jobs-cont .job-card {
+  background-color: #222039;
+  padding: 20px;
+  border: 10px;
+  display: flex;
+  border-radius: 10px;
+  border: 2px solid #1b1932;
+}
+.jobs-cont .job-card .details {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.jobs-cont .job-card .details .top h1 {
+  color: #fff;
+}
+
+.jobs-cont .job-card .details .top h2 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.jobs-cont .job-card .details .bottom > div {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+}
+.jobs-cont .job-card .details .bottom > div i {
+  margin-right: 5px;
+}
+
+.jobs-cont .job-card .actions {
+  width: 25%;
+}
+
+.jobs-cont .job-card .actions > div a:last-child {
+  display: inline-block;
+  width: 100%;
+}
+
+.jobs-cont .job-card .actions > div a:first-child button {
+  background-color: #00c3ff;
+}
+.jobs-cont .job-card .actions > div a:last-child button {
+  width: 100%;
+  color: #000;
+  background-color: #fff;
+}
+.jobs-cont .job-card .actions button.danger {
+  background-color: rgb(202, 26, 26);
+  color: var(--white);
+}
+
+.jobs-cont .job-card .actions button {
+  transition: 0.3s;
+}
+
+.jobs-cont .job-card .actions button:hover {
+  transform: scale(0.9);
+}
+
+main .header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+}
+
+main .header p {
+  font-size: 1.5rem;
+}
+
+main .header button {
+  padding: 10px 15px;
+  background-color: #00c3ff;
+  margin-top: 0px;
+}
+main .header button.danger {
+  background-color: #dc3545;
+}
+
+main .header .buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+main .cvs-cont {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+main .cvs-cont .cv {
+  background-color: #131128;
+  width: 3650px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 2px solid #0a081a;
+}
+
+main .cvs-cont .cv .cover {
+  height: 150px;
+  width: 100%;
+  background-color: #222039;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 5rem;
+}
+
+main .cvs-cont .cv .title {
+  color: #fff;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0px 30px;
+  text-overflow: ellipsis;
+}
+
+main .cvs-cont .cv .actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+main .cvs-cont .cv .actions button {
+  background-color: #00c3ff;
+}
+main .cvs-cont .cv .actions button.view {
+  background-color: #fff;
+  color: #000;
+}
+main .cvs-cont .cv .actions button.danger {
+  background-color: #dc3545;
+}
+
+main.cvs button {
+  transition: 0.4s;
+}
+main.cvs button:hover {
+  transform: scale(0.9);
+}

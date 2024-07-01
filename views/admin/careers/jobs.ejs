@@ -1,0 +1,102 @@
+<!-- Define ejs functions -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../icons/favicon.ico" rel="shortcut icon" />
+    <title>Add Job</title>
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../../css/dashboard/admins.css" />
+    <link rel="stylesheet" href="../../css/dashboard/careers.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"careers"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <header>
+        <div class="text">Careers</div>
+        <a href="/dashboard/careers/add-job">
+          <span class="link_name">Add new job</span>
+          <i class="bx bx-plus"></i>
+        </a>
+      </header>
+      <main id="admins">
+        <!-- FLASH Message (success) -->
+        <% if(messages.success) { %>
+        <!--  -->
+        <%- include("../../parts/flash-msg.ejs", {
+        title:messages.success[0].title, msg: messages.success[0].msg, done:true
+        }) %>
+        <!--  -->
+        <% } %>
+        <div class="jobs-cont">
+          <% for (let job of jobs) { %>
+          <div
+            class="job-card"
+            data-aos="flip-up"
+            data-aos-duration="500"
+            data-aos-anchor=".job-card"
+          >
+            <div class="details">
+              <div class="top">
+                <h1><%= job.title %></h1>
+                <h2>Uploaded CVs : <%= job.uploadedCVs.length %></h2>
+              </div>
+              <div class="bottom">
+                <div>
+                  <i class="fa-solid fa-calendar-days"></i> <%=
+                  formatCreatedAt(job.createdAt) %>
+                </div>
+
+                <div><i class="fa-solid fa-eye"></i> <%= job.viewsCount %></div>
+              </div>
+            </div>
+            <div class="actions">
+              <div style="display: flex; gap: 10px">
+                <a href="/careers/job-profile/<%= job._id %>">
+                  <button>Visit</button>
+                </a>
+                <a href="/dashboard/careers/cvs/<%= job._id%>">
+                  <button>View CVs</button>
+                </a>
+              </div>
+              <form action="/dashboard/careers/delete" method="POST">
+                <input type="hidden" name="id" value="<%= job._id %>" />
+                <button class="danger">Delete</button>
+              </form>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </main>
+    </section>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

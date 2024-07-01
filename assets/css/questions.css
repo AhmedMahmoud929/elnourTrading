@@ -3,7 +3,7 @@ section#questions {
 }
 
 section#questions .container {
-  min-height: 42vh;
+  min-height: 70vh;
   padding: var(--section-padding);
   display: flex;
   justify-content: space-between;
@@ -40,102 +40,128 @@ section#questions .container {
 #questions .left,
 #questions .right {
   width: 50%;
+  position: relative;
 }
-#questions .right form {
+#questions .right .job-model {
+  width: 375px;
+  position: absolute;
+  bottom: -246px;
+  right: 35px;
+  z-index: 2;
+}
+
+#questions .right .cube-bg {
+  --size: 600px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 60px;
+  background-image: linear-gradient(
+    to right,
+    var(--dark-blue),
+    var(--light-blue)
+  );
+  position: absolute;
+  top: 0;
+  right: -125px;
+  transform: rotate(150deg);
+  z-index: 1;
+}
+
+#questions .right .label {
+  position: absolute;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  padding: 10px 20px;
+  z-index: 3;
+  text-transform: capitalize;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
-  height: 50px;
 }
-#questions .right form input {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.02);
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 4px 10px 4px 25px;
-  font-size: 1.1rem;
-  color: var(--dark-bg);
-  font-weight: 500;
+#questions .right .label.orange {
+  top: -30px;
+  left: 10px;
+  background-color: #ff904b;
+  animation: purpleItem 3s ease-in-out infinite;
 }
 
-#questions .right form input::placeholder {
-  color: rgba(0, 0, 0, 0.4);
+#questions .right .label.purple {
+  background-color: #a799f3;
+  right: -40px;
+  top: 100px;
+  animation: purpleItem 4s ease-in-out infinite;
 }
 
-#questions .right form a,
-#questions .right form a button {
-  height: 100%;
+@keyframes purpleItem {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
 }
 
-#questions .right p {
-  /* color: var(--gray); */
-  margin-top: 5px;
-  margin-left: 10px;
-  font-size: 0.8rem;
-  font-weight: 600;
+#questions .right .label i {
+  font-size: 1.5rem;
 }
 
-#questions .right p span {
-  color: var(--light-blue);
-}
-
-@media (max-width: 950px) {
+@media (max-width: 1100px) {
   section#questions .container {
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    gap: 0px;
+  }
+  #questions .left,
+  #questions .right {
+    min-width: 70%;
     text-align: center;
-    gap: 50px;
   }
-  section#questions .right,
-  section#questions .left {
-    width: 80%;
+  #questions .right .job-model {
+    width: 375px;
+    position: relative;
+    bottom: -72px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
   }
-}
-
-@media (max-width: 580px) {
-  section#questions .container {
-    gap: 30px;
+  #questions .right .cube-bg {
+    --size: 500px;
+    top: 250px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%) rotate(150deg);
   }
-  section#questions .right,
-  section#questions .left {
-    width: 100%;
+  #questions .right .label.purple {
+    top: auto;
+    bottom: 60px;
   }
-  #questions .left h1.title {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-
-  #questions .left p {
-    margin-top: 5px;
-    font-size: 1rem;
-  }
-  #questions .right form {
-    height: 45px;
-  }
-  #questions .right form input {
-    padding: 3px 10px 3px 20px;
-    font-size: 0.9rem;
-  }
-
-  #questions .right p {
-    margin-top: 4px;
-    font-size: 0.7rem;
+  #questions .right .label.orange {
+    top: auto;
+    bottom: 150px;
+    left: -50px;
   }
 }
 
-@media (max-width: 440px) {
-  #questions .right form {
-    flex-direction: column;
-    height: auto;
+@media (max-width: 700px) {
+  section#questions .right,
+  section#questions .left {
+    width: 90%;
   }
-  #questions .right form input {
-    height: 45px;
-  }
-  #questions .left h1.title {
-    font-size: 1.8rem;
-  }
+}
 
-  #questions .left p {
-    font-size: 0.8rem;
+@media (max-width: 500px) {
+  #questions .right .label {
+    display: none;
+  }
+}
+
+@media (max-width: 375px) {
+  #questions .right .job-model {
+    margin-left: 10px;
   }
 }

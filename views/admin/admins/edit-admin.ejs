@@ -1,0 +1,201 @@
+<!-- Define ejs functions -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../icons/favicon.ico" rel="shortcut icon" />
+    <title>Admin Permissions</title>
+    <link rel="stylesheet" href="../../../css/index.css" />
+    <link rel="stylesheet" href="../../../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../../../css/dashboard/admins.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"admins"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <header>
+        <div class="text">Admin Information</div>
+        <a href="/dashboard/admins/">
+          <span class="link_name">Back</span>
+          <i class="bx bx-undo"></i>
+        </a>
+      </header>
+      <main id="admins">
+        <!-- FLASH Message (success) -->
+        <% if(messages.success) { %>
+        <!--  -->
+        <%- include("../../parts/flash-msg.ejs", {
+        title:messages.success[0].title, msg: messages.success[0].msg, done:true
+        }) %>
+        <!--  -->
+        <% } %>
+
+        <!-- FLASH Message (failed) -->
+        <% if(messages.failed) { %>
+        <!-- Include -->
+        <%- include("../../parts/flash-msg.ejs", {
+        title:messages.failed[0].title, msg: messages.failed[0].msg, done:false
+        }) %>
+        <!--  -->
+        <% } %>
+        <div class="form-cont">
+          <h1 class="full-name">Full name <i><%= admin.fullName %></i></h1>
+          <h2 class="username">Username <i><%= admin.username %> </i></h2>
+          <!-- Is Active -->
+          <p>Is Active?</p>
+          <div class="isActive <%= admin.isActive ? '' : 'danger' %>">
+            <label class="checkbox-label">
+              <input type="checkbox" id="<%= admin._id%>" class="checkbox-inp"
+              name="isActive" value="<%=admin.isActive%>" <%
+              if(admin.isActive==true) { %> checked <%}%> /> <%= admin.isActive
+              ? "Activated" : "Not Activated" %>
+              <span class="circle"></span>
+            </label>
+          </div>
+
+          <div class="permissions">
+            <p>Permissions:</p>
+            <div class="permissions-grid">
+              <% for (let [key,value] of Object.entries(admin.permissions) ) {%>
+              <label class="checkbox-label">
+                <input type="checkbox" id="<%= admin._id%>" class="checkbox-inp
+                permission-checkbox" name="<%=key%>" value="<%=value%>" <%
+                if(value==true) { %> checked <%}%> /> <%=
+                formatSpacedString(key) %>
+              </label>
+              <%}%>
+            </div>
+          </div>
+
+          <div class="password-reset">
+            <p>Password reset</p>
+            <form action="/dashboard/admins/update-password" method="post">
+              <input type="hidden" name="id" value="<%= admin._id %>" />
+              <div class="form_ele">
+                <label for="yourPass"><i class="fa-solid fa-lock"></i></label>
+                <input
+                  type="password"
+                  name="yourPass"
+                  id="yourPass"
+                  placeholder="Your Password"
+                  required
+                />
+              </div>
+              <div class="form_ele">
+                <label for="newAdminPass"
+                  ><i class="fa-solid fa-key"></i
+                ></label>
+                <input
+                  type="password"
+                  name="newAdminPass"
+                  id="newAdminPass"
+                  placeholder="New Admin Password"
+                  required
+                />
+              </div>
+              <button>Update</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      const viewForms = document.querySelectorAll("#viewForm");
+
+      viewForms.forEach((f, ix) => {
+        f.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const newWindow = window.open("", "_blank");
+          newWindow.location.href = f.children[0].href;
+        });
+      });
+    </script>
+    <script>
+      function updatePermission(id, key, value) {
+        fetch("/dashboard/admins/update-permissions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id, key, value }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              location.reload();
+            } else {
+              console.error("Failed to update permission:", data.message);
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelectorAll(".permission-checkbox")
+          .forEach((checkbox) => {
+            checkbox.addEventListener("change", function () {
+              const id = this.id;
+              const key = this.name;
+              const value = this.checked;
+              updatePermission(id, key, value);
+            });
+          });
+      });
+
+      function toggleActive(id, isActive) {
+        fetch("/dashboard/admins/toggle-active", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id, isActive }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              location.reload();
+            } else {
+              console.error("Failed to update permission:", data.message);
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelector(".isActive .checkbox-label input")
+          .addEventListener("change", function () {
+            const id = this.id;
+            const isActive = this.checked;
+            toggleActive(id, isActive);
+          });
+      });
+    </script>
+  </body>
+</html>

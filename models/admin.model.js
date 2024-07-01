@@ -6,6 +6,7 @@ const adminSchema = new mongoose.Schema(
     fullName: { type: String, required: true },
     password: { type: String, required: true },
     isSuper: { type: Boolean, default: false },
+    isActive: { type: Boolean, default: true },
     permissions: {
       canManageText: { type: Boolean, default: false },
       canManageImages: { type: Boolean, default: false },

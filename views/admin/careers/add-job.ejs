@@ -1,0 +1,183 @@
+<!-- Define ejs functions -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../icons/favicon.ico" rel="shortcut icon" />
+    <title>Add Job</title>
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../../css/dashboard/admins.css" />
+    <link rel="stylesheet" href="../../css/dashboard/careers.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"careers"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <header>
+        <div class="text">Add job</div>
+        <a href="/dashboard/careers">
+          <span class="link_name">Back</span>
+          <i class="bx bx-undo"></i>
+        </a>
+      </header>
+      <main id="admins">
+        <div class="form-cont">
+          <!-- <p>Information:</p> -->
+          <form action="/dashboard/careers/add-job" method="post">
+            <!-- INPUTs -->
+            <div class="form_ele">
+              <label for="title">
+                <i class="fa-solid fa-font"></i>
+              </label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Title"
+                required
+              />
+            </div>
+            <div class="form_ele">
+              <label for="location"
+                ><i class="fa-solid fa-location-dot"></i
+              ></label>
+              <input
+                type="text"
+                name="location"
+                id="location"
+                placeholder="Location (e.g. sadat city)"
+                required
+              />
+            </div>
+            <div class="form_ele">
+              <label for="type">
+                <i class="fa-solid fa-briefcase"></i>
+              </label>
+              <input
+                type="text"
+                name="type"
+                id="type"
+                placeholder="Type (e.g. full-time)"
+                required
+              />
+            </div>
+            <div class="form_ele">
+              <label for="department">
+                <i class="fa-solid fa-building"></i>
+              </label>
+              <input
+                type="text"
+                name="department"
+                id="department"
+                placeholder="Dapartment (e.g. Sales)"
+                required
+              />
+            </div>
+            <div class="form_ele">
+              <label for="salary">
+                <i class="fa-solid fa-dollar-sign"></i>
+              </label>
+              <input
+                type="text"
+                name="salary"
+                id="salary"
+                placeholder="Salary (e.g. confidential)"
+                required
+              />
+            </div>
+
+            <!-- TEXTAREAs -->
+            <div class="form_ele">
+              <label for="jobDesc">
+                <i class="fa-solid fa-paragraph fa-flip-horizontal"></i>
+              </label>
+              <textarea
+                type="text"
+                name="jobDesc"
+                id="jobDesc"
+                placeholder="Job Description"
+                required
+              ></textarea>
+            </div>
+            <div class="info">
+              <i class="fa-solid fa-circle-info"></i>
+              Note that : Job requirements must to be seperated by
+              '<span>__SEP__</span>'
+
+              <i
+                class="fa-solid fa-copy"
+                onclick="copyText('__SEP__','Requirements')"
+              ></i>
+            </div>
+            <div class="form_ele">
+              <label for="jobReqs">
+                <i class="fa-solid fa-align-left"></i>
+              </label>
+              <textarea
+                type="text"
+                name="jobReqs"
+                id="jobReqs"
+                placeholder="Job Requirements (e.g. CCNA is must__SEP__CCNP is plus__SEP__Strong knowladge at SDLC ..etc) "
+                required
+              ></textarea>
+            </div>
+            <div class="info">
+              <i class="fa-solid fa-circle-info"></i>
+              Note that : Job tags must to be seperated by '<span>,</span>'
+
+              <i class="fa-solid fa-copy" onclick="copyText(',','Tags')"></i>
+            </div>
+            <div class="form_ele">
+              <label for="tags">
+                <i class="fa-solid fa-align-left"></i>
+              </label>
+              <textarea
+                type="text"
+                name="tags"
+                id="tags"
+                placeholder="Tags (e.g. NodeJs,Jenkins,Docker,SDLC ..etc)"
+                required
+              ></textarea>
+            </div>
+            <!-- BUTTON -->
+            <button>Add</button>
+          </form>
+        </div>
+      </main>
+    </section>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      function copyText(text = "", type = "") {
+        navigator.clipboard.writeText(text);
+        alert(`${type} seperator has been coppied successfully`);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+h1.no-jobs {
+  text-align: center;
+  color: #376780;
+  font-weight: 600;
+  font-size: 3rem;
+  max-width: 400px;
+  margin-top: 60px;
+}
+
+section.container {
+  /* min-height: fit-content; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+
+section.container .job-card {
+  background-color: #10334c;
+  border: 2px solid #1e4d6f;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 95%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+section.container .title {
+  font-size: 28px;
+  color: #00d2ff;
+  margin: 0 0 5px;
+}
+
+section.container .location {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 5px;
+  margin-top: -5px;
+}
+
+section.container .date {
+  font-size: 14px;
+  color: #999;
+  margin: 10px 0px;
+}
+
+section.container .job-tags {
+  margin-bottom: 20px;
+}
+
+section.container .tag {
+  display: inline-block;
+  background-color: #00baff;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+section.container .tag.hybrid {
+  background-color: #ff9800;
+}
+
+section.container .details {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  width: 90%;
+}
+
+section.container button.btn {
+  padding: 12px 60px;
+  font-size: 11pt;
+  margin-top: 10px;
+  align-self: end;
+  display: none;
+}
+
+@media (max-width: 500px) {
+  section.container .title {
+    font-size: 24px;
+  }
+  section.container .location {
+    font-size: 14px;
+  }
+  section.container .date {
+    font-size: 12px;
+    margin: 5px 0px;
+  }
+  section.container .tag {
+    padding: 5px 12px;
+    font-size: 13px;
+    margin-right: 5px;
+  }
+  section.container .details {
+    font-size: 11.5px;
+  }
+  section.container .job-card {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 350px) {
+  section.container .title {
+    font-size: 20px;
+  }
+  section.container .location {
+    font-size: 12px;
+  }
+  section.container .date {
+    font-size: 10px;
+    margin: 5px 0px;
+  }
+  section.container .tag {
+    padding: 4px 11px;
+    font-size: 12px;
+    margin-right: 5px;
+  }
+  section.container .details {
+    font-size: 10px;
+  }
+  section.container .job-card {
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,72 @@
+<!-- Define ejs functions -->
+
+<!DOCTYPE html>
+<html
+  lang="<%= currentLocale %>"
+  dir="<%= currentLocale=='en' ? 'ltr' : 'rtl' %>"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="<%= images.FAVICON.icon %>" rel="shortcut icon" />
+
+    <title>El-Nour Trading</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/navbar.css" />
+    <link rel="stylesheet" href="../../css/job-profile.css" />
+    <link rel="stylesheet" href="../../css/careers.css" />
+    <link rel="stylesheet" href="../../css/footer.css" />
+    <% if(currentLocale=="ar") {%>
+    <link rel="stylesheet" href="../../css/index-ar.css" />
+    <% } %>
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="container">
+      <!-- navbar -->
+      <%- include("./parts/navbar.ejs" , {base : "/"}) %>
+    </div>
+    <!-- Header -->
+    <section class="container">
+      <% if (!jobs.length) {%>
+      <h1 class="no-jobs" data-aos="zoom-up" data-aos-duration="600">There is no jobs currently.</h1>
+      <%}%> <% for(let job of jobs) {%>
+      <div class="job-card" data-aos="fade-up" data-aos-duration="600">
+        <a href="/careers/job-profile/<%= job._id %>?lang=<%= currentLocale %>">
+          <h2 class="title"><%= job.title %></h2>
+        </a>
+        <p class="location"><%= job.location %></p>
+        <p class="date"><%= timeAgo(job.createdAt) %></p>
+        <div class="job-tags">
+          <span class="tag full-time"><%= job.type %></span>
+          <span class="tag hybrid"><%= job.salary %></span>
+        </div>
+        <p class="details"><%= job.tags.replace(/,/g, " · ") %></p>
+        <button class="btn">More details</button>
+      </div>
+      <%}%>
+    </section>
+    <%- include("./parts/footer.ejs",{base:"/"}) %>
+    <script src="../../js/phoneNavbar.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

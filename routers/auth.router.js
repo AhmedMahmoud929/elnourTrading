@@ -66,6 +66,11 @@ router.post("/login", async (req, res) => {
       return;
     }
 
+    if (!admin.isActive) {
+      res.send("This account is not active");
+      return;
+    }
+
     // Store user information in session
     req.session.admin = admin;
     res.redirect("/dashboard");

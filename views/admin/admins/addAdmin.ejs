@@ -93,21 +93,22 @@
             <div class="permissions">
               <p>Permissions:</p>
               <div class="permissions-grid">
-                <label>
+                <label class="checkbox-label">
                   <input
                     type="checkbox"
                     id="isSuper"
                     name="isSuper"
                     value="true"
+                    class="checkbox-inp"
                   />
                   Is Super?
                 </label>
 
                 <%for (key in permissions) {%>
-                <label>
+                <label class="checkbox-label">
                   <input
                     type="checkbox"
-                    class="permission-checkbox"
+                    class="permission-checkbox checkbox-inp"
                     name="permissions"
                     value="<%=key%>"
                   />

@@ -1,0 +1,188 @@
+<!-- Define ejs functions -->
+
+
+<!DOCTYPE html>
+<html
+  lang="<%= currentLocale %>"
+  dir="<%= currentLocale=='en' ? 'ltr' : 'rtl' %>"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="<%= images.FAVICON.icon %>" rel="shortcut icon" />
+    <title>El-Nour Trading</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/navbar.css" />
+    <link rel="stylesheet" href="../../css/job-profile.css" />
+    <link rel="stylesheet" href="../../css/footer.css" />
+    <% if(currentLocale=="ar") {%>
+    <link rel="stylesheet" href="../../css/index-ar.css" />
+    <% } %>
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="container">
+      <!-- navbar -->
+      <%- include("./parts/navbar.ejs" , {base : "/"}) %>
+    </div>
+    <!-- Header -->
+    <section class="container">
+          <!-- FLASH Message (success) -->
+          <% if(messages.success) { %>
+            <!--  -->
+            <%- include("./parts/flash-msg.ejs", {
+            title:messages.success[0][currentLocale].title, msg: messages.success[0][currentLocale].msg, done:true
+            }) %>
+            <!--  -->
+            <% } %>    
+      <div class="apply-section">
+        <div data-aos="fade-right" data-aos-duration="600">
+          <i class="icon fa-solid fa-circle-check"></i>
+          <h1><%= t("CAREERS.apply_h1") %></h1>
+          <p>
+            <%= t("CAREERS.apply_p") %>
+          </p>
+          <form action="/careers/job-profile/<%= job._id %>" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="lang" value="<%= currentLocale %>">
+            <input id="cvInput" type="file" name="cv" accept=".pdf">
+            <button id="uploadBtn"><%= t("CAREERS.upload_btn") %></button>
+            <button style="display: none;" id="sendBtn"><%= t("CAREERS.send_btn") %></button>
+          </form>
+        </div>
+      </div>
+      <div class="job-section">
+        <h1 class="job-name" data-aos="fade-up" data-aos-duration="600">
+          <%= job.title %>
+        </h1>
+        <h2
+          class="job-date"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          Posted on : <%= formatCreatedAt(job.createdAt) %>
+        </h2>
+        <div class="cards-cont">
+          <div
+            class="card"
+            data-aos="flip-up"
+            data-aos-duration="600"
+            data-aos-delay="200"
+          >
+            <div class="label">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Location</span>
+            </div>
+            <div class="value"><%= job.location %></div>
+          </div>
+          <div
+            class="card"
+            data-aos="flip-up"
+            data-aos-duration="600"
+            data-aos-delay="300"
+          >
+            <div class="label">
+              <i class="fa-solid fa-table-cells-large"></i>
+              <span>Department</span>
+            </div>
+            <div class="value"><%= job.department %></div>
+          </div>
+          <div
+            class="card"
+            data-aos="flip-up"
+            data-aos-duration="600"
+            data-aos-delay="400"
+          >
+            <div class="label">
+              <i class="fa-solid fa-briefcase"></i>
+              <span>Type</span>
+            </div>
+            <div class="value"><%= job.type %></div>
+          </div>
+          <div
+            class="card"
+            data-aos="flip-up"
+            data-aos-duration="600"
+            data-aos-delay="500"
+          >
+            <div class="label">
+              <i class="fa-solid fa-dollar-sign"></i>
+              <span>Salary</span>
+            </div>
+            <div class="value"><%= job.salary %></div>
+          </div>
+        </div>
+
+        <div
+          class="job-desc"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="500"
+          data-aos-anchor=".job-name"
+        >
+          <h1 class="details-title"><%= t("CAREERS.description_header") %></h1>
+          <p>
+           <%= job.jobDesc %>
+          </p>
+        </div>
+        <div class="requirements" data-aos="fade-up" data-aos-duration="600">
+          <h1 class="details-title"><%= t("CAREERS.requirements_header") %></h1>
+          <ul>
+            <% for(ele of job.jobReqs.split("__SEP__")) { %>
+              <li><%= ele %></li>
+            <%}%>
+          </ul>
+        </div>
+        <div class="job-desc">
+          <h1 class="details-title" data-aos="fade-up" data-aos-duration="600">
+            <%= t("CAREERS.tags_header") %>
+          </h1>
+          <div class="tags-cont">
+            <% let tags = job.tags.split(",")%>
+            <% for(let i=0;i<tags.length;i++ ) {%>
+            <div
+              data-aos="zoom-out"
+              data-aos-duration="300"
+              data-aos-delay="<%= 100+ i*100%>"
+              class="tag"
+            >
+              <%= tags[i] %>
+            </div>
+            <% }%>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include("./parts/footer.ejs",{base:"/"}) %>
+    <script src="../../js/phoneNavbar.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      const cvInput =  document.getElementById('cvInput');
+      
+      cvInput.addEventListener('change', function() {
+        document.getElementById('uploadBtn').style.display = 'none';
+        document.getElementById('sendBtn').style.display = 'block';
+        document.getElementById('sendBtn').style.zIndex = '5';
+      });
+    </script>
+  </body>
+</html>
