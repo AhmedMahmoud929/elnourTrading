@@ -72,7 +72,8 @@
   height: 100%;
   width: 78px;
   background: #11101d;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -120,12 +121,20 @@
   line-height: 60px;
 }
 .sidebar .nav-list {
-  margin-top: 20px;
+  padding-top: 20px;
   height: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar .nav-list li:last-child {
+  justify-self: flex-end;
+  margin-top: 25px;
 }
 .sidebar li {
   position: relative;
-  margin: 8px 0;
   list-style: none;
 }
 .sidebar li .tooltip {
