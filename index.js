@@ -1,27 +1,87 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const app = express();
-const port = process.env.PORT || 2502;
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const flash = require("express-flash");
-const Admin = require("./models/admin.model");
-const bcrypt = require("bcrypt");
-const requireAuth = require("./middlewares/requireAuth");
-const requireSuper = require("./middlewares/requireSuper");
-const checkPerms = require("./middlewares/checkPermissions");
-const countVisits = require("./middlewares/countVisits");
-const i18n = require("i18n");
 const cookieParser = require("cookie-parser");
+const i18n = require("i18n");
+const dotenv = require("dotenv");
 const SessionStore = require("connect-mongodb-session")(session);
 
-// const DB_URL =
-//   "mongodb+srv://ahmedMahmoud:ahmedMahmoud@cluster0.u22xrj7.mongodb.net/elnourTrading?retryWrites=true&w=majority";
+// Load environment variables
+dotenv.config();
 
-const DB_URL = "mongodb://127.0.0.1:27017/elnourTrading";
+const app = express();
+const port = process.env.PORT || 2502;
 
-// Routers
+// MongoDB URI and options
+const DB_URL = process.env.MONGO_URI || "mongodb://mongo:27017/elnourTrading";
+
+// Connect to MongoDB
+mongoose.connect(DB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  auth: {
+    username: process.env.MONGO_USER || "",
+    password: process.env.MONGO_PASS || "",
+  },
+})
+.then(() => console.log("Connected to MongoDB"))
+.catch((error) => console.error("Error connecting to MongoDB:", error));
+
+// Store sessions in MongoDB
+const STORE = new SessionStore({
+  uri: DB_URL,
+  collection: "loginSessions",
+});
+
+// Middleware setup
+app.use(session({
+  secret: process.env.SESSION_SECRET || "3MyS#ecr$2xtDLa01DwqT",
+  saveUninitialized: false,
+  resave: false, // Ensure to set resave to false or true as per your requirement
+  store: STORE,
+  cookie: {
+    maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days
+  },
+}));
+app.use(flash());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+// Configure i18n
+i18n.configure({
+  locales: ["en", "ar"],
+  directory: path.join(__dirname, "locales"),
+  defaultLocale: "en",
+  cookie: "locale",
+  autoReload: true,
+  updateFiles: true,
+  syncFiles: true,
+  objectNotation: true,
+  register: global,
+});
+app.use(i18n.init);
+
+// Middleware to set locale based on query parameter or cookie
+app.use((req, res, next) => {
+  let locale = req.query.lang || req.cookies.locale;
+  if (locale) {
+    res.setLocale(locale);
+  }
+  next();
+});
+
+// Set up EJS as the view engine
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+// Serve static assets
+app.use(express.static(path.join(__dirname, "assets")));
+
+// Routes
 const AuthRouter = require("./routers/auth.router");
 const publicRouter = require("./routers/public.router");
 const NewsRouter = require("./routers/news.router");
@@ -33,87 +93,24 @@ const messagesRouter = require("./routers/messages.router");
 const adminsRouter = require("./routers/admins.router");
 const careersRouter = require("./routers/careers.router");
 
-// Connect to MongoDB
-mongoose
-  .connect(DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((error) => console.error("Error connecting to MongoDB:", error));
-
-// Store sessions
-const STORE = new SessionStore({
-  uri: DB_URL,
-  collection: "loginSessions",
-});
-
-app.use(
-  session({
-    secret: "3MyS#ecr$2xtDLa01DwqT",
-    saveUninitialized: false,
-    store: STORE,
-    cookie: {
-      maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days
-    },
-  })
-);
-
-// Configure i18n
-i18n.configure({
-  locales: ["en", "ar"],
-  directory: path.join(__dirname, "locales"),
-  defaultLocale: "en",
-  cookie: "locale",
-  autoReload: true, // This enables auto-reloading
-  updateFiles: true,
-  syncFiles: true,
-  objectNotation: true,
-  register: global,
-});
-
-// i18n middlewares
-app.use(i18n.init);
-app.use(cookieParser());
-
-// Middleware to set locale based on query parameter or cookie
-app.use((req, res, next) => {
-  let locale = req.query.lang || req.cookies.locale;
-  if (locale) {
-    res.setLocale(locale);
-  }
-  next();
-});
-
-// Flash Sessions
-app.use(flash());
-
-// create application/json parser
-app.use(bodyParser.json());
-
-// create application/x-www-form-urlencoded parser
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// Set up EJS as the view engine
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-
-// Set static path
-app.use(express.static(path.join(__dirname, "assets")));
-
-// Routes
-app.use("/", countVisits, publicRouter);
+app.use("/", publicRouter);
 app.use("/", AuthRouter);
-app.use("/dashboard", requireAuth, NewsRouter);
-app.use("/dashboard", requireAuth, GalleryRouter);
-app.use("/dashboard", requireAuth, BrochuresRouter);
-app.use("/dashboard", requireAuth, contentRouter);
-app.use("/dashboard", requireAuth, mediaRouter);
-app.use("/dashboard", requireAuth, messagesRouter);
-app.use("/dashboard", requireAuth, adminsRouter);
-app.use("/dashboard", requireAuth, careersRouter);
+app.use("/dashboard", require("./middlewares/requireAuth"), NewsRouter);
+app.use("/dashboard", require("./middlewares/requireAuth"), GalleryRouter);
+app.use("/dashboard", require("./middlewares/requireAuth"), BrochuresRouter);
+app.use("/dashboard", require("./middlewares/requireAuth"), contentRouter);
+app.use("/dashboard", require("./middlewares/requireAuth"), mediaRouter);
+app.use("/dashboard", require("./middlewares/requireAuth"), messagesRouter);
+app.use("/dashboard", require("./middlewares/requireAuth"), adminsRouter);
+app.use("/dashboard", require("./middlewares/requireAuth"), careersRouter);
 
-// Server Listening
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something went wrong!");
+});
+
+// Server listening
 app.listen(port, () => {
-  console.log(`http://127.0.0.1:${port}`);
+  console.log(`Server running at http://127.0.0.1:${port}`);
 });

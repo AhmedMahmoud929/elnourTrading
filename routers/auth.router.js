@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Admin = require("../models/admin.model");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const requireAuth = require("../middlewares/requireAuth");
 const Visit = require("../models/visit.model");
 const New = require("../models/news.model");

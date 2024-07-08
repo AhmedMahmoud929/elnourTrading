@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const path = require("path");
 const Admin = require("../models/admin.model");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 // GET admins page
 router.get("/admins", async (req, res) => {

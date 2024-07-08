@@ -1,6 +1,10 @@
 FROM node:18
 
-WORKDIR /elnour
+WORKDIR /usr/www/elnour
+
+COPY package*.json .
+
+RUN npm install
 
 COPY . .
 

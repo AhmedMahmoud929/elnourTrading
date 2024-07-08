@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Admin = require("./models/admin.model");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const readline = require("readline");
 const DB_URL = "mongodb://127.0.0.1:27017/elnourTrading";
 let connected = false;
