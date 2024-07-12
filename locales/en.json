@@ -21,7 +21,7 @@
     "span": "Partner",
     "post-span": "Of Your Innovations",
     "p": "Founded in 1995, EL-NOUR TRADING CO is a prominent player in Egypt's grain market. specializing in wheat trading and land transportation. Our fleet of 30 trucks supports top-notch logistics.while our team of 250+ experienced employees ensures customer satisfaction and contract fulfillment.",
-    "btn": "Our Vision"
+    "btn": "Back to home"
   },
   "VALUES": {
     "mission-card": {
@@ -190,12 +190,18 @@
     "p": "© 2024 El-Nour, All rights reserved"
   },
   "CAREERS": {
+    "pre_main_span": "Build Your",
+    "main_span": "Career",
+    "post_main_span": "with Us",
+    "main_p": "We are looking for passionate, innovative, and driven individuals to join our team. At El-Nour, you'll have the opportunity to work on exciting projects, collaborate with a talented team, and make a real impact.",
+    "main_btn": "Explore jobs",
     "apply_h1": "Apply now",
     "apply_p": "We're hiring! If you're passionate, creative, and ready to make an impact, we'd love to hear from you. Join our innovative team at El-Nour and take your career to the next level. Apply now!",
     "send_btn": "Send CV",
     "upload_btn": "Upload CV",
     "description_header": "Job description",
     "requirements_header": "Job requirements",
-    "tags_header": "Tags"
+    "tags_header": "Tags",
+    "no_jobs_msg": "There is no jobs currently."
   }
 }

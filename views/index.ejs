@@ -335,7 +335,7 @@
             data-aos-duration="600"
             class="title"
           >
-          Build Your <span>Career</span> with Us
+          <%= t("CAREERS.pre_main_span") %> <span><%= t("CAREERS.main_span") %></span> <%= t("CAREERS.post_main_span") %>
           </h1>
           <p
             class="title"
@@ -343,13 +343,13 @@
             data-aos-duration="600"
             data-aos-delay="200"
           >
-          We are looking for passionate, innovative, and driven individuals to join our team. At El-Nour, you'll have the opportunity to work on exciting projects, collaborate with a talented team, and make a real impact.
+          <%= t("CAREERS.main_p") %>
           </p>
           <a style="display: block;" class="title"
           data-aos="fade-right"
           data-aos-duration="600"
           data-aos-delay="400" href="/careers?lang=<%= currentLocale%>">
-            <button class="btn">Explore jobs</button>
+            <button class="btn"><%= t("CAREERS.main_btn") %></button>
           </a>
         </div>
         <div class="right">

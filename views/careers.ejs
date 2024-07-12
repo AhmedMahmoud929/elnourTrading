@@ -46,7 +46,7 @@
     <section class="container">
       <% if (!jobs.length) {%>
       <h1 class="no-jobs" data-aos="zoom-up" data-aos-duration="600">
-        There is no jobs currently.
+        <%= t("CAREERS.no_jobs_msg") %>
       </h1>
       <%}%> <% for(let job of jobs) {%>
       <div class="job-card" data-aos="fade-up" data-aos-duration="600">
