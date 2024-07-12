@@ -32,6 +32,7 @@ const mediaRouter = require("./routers/media.router");
 const messagesRouter = require("./routers/messages.router");
 const adminsRouter = require("./routers/admins.router");
 const careersRouter = require("./routers/careers.router");
+const commodityRouter = require("./routers/commodity.router");
 
 // Connect to MongoDB
 mongoose
@@ -112,6 +113,7 @@ app.use("/dashboard", requireAuth, mediaRouter);
 app.use("/dashboard", requireAuth, messagesRouter);
 app.use("/dashboard", requireAuth, adminsRouter);
 app.use("/dashboard", requireAuth, careersRouter);
+app.use("/dashboard", requireAuth, commodityRouter);
 
 // Server Listening
 app.listen(port, () => {

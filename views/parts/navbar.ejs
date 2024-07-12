@@ -1,6 +1,6 @@
 <% function lang(){ return `?lang=${currentLocale}` } %>
 <!-- navbar -->
-<nav>
+<nav dir="ltr">
   <!-- logo -->
   <div
     style="display: flex; justify-items: center; align-items: center; gap: 14px"
@@ -12,29 +12,48 @@
   <!-- list -->
   <ul class="main-ul">
     <li>
-      <a href="<%= base %><%=lang()%>#home" class="active"
+      <a
+        href="/<%=lang()%>"
+        class="<%= active=='home' ? 'active' : 'inactive' %>"
         ><%= t("NAVBAR.nav_elements.a1") %></a
       >
     </li>
+
     <li>
-      <a href="<%= base %><%=lang()%>#about"
+      <a
+        href="/vision<%=lang()%>"
+        class="<%= active=='co-profile' ? 'active' : 'inactive' %>"
         ><%= t("NAVBAR.nav_elements.a2") %></a
       >
     </li>
     <li>
-      <a href="/profile<%=lang()%>"><%= t("NAVBAR.nav_elements.a3") %></a>
+      <a
+        href="/commodity<%=lang()%>"
+        class="<%= active=='commodity' ? 'active' : 'inactive' %>"
+        ><%= t("NAVBAR.nav_elements.a3") %></a
+      >
     </li>
     <li>
-      <a href="<%= base %><%=lang()%>#services"
+      <a
+        href="/gallery<%=lang()%>"
+        class="<%= active=='gallery' ? 'active' : 'inactive' %>"
         ><%= t("NAVBAR.nav_elements.a4") %></a
       >
     </li>
     <li>
-      <a href="<%= base %><%=lang()%>#gallery"
+      <a
+        href="/blog<%=lang()%>"
+        class="<%= active=='news' ? 'active' : 'inactive' %>"
         ><%= t("NAVBAR.nav_elements.a5") %></a
       >
     </li>
-    <li><a href="#contact"><%= t("NAVBAR.nav_elements.a6") %></a></li>
+    <li>
+      <a
+        href="/contact<%=lang()%>"
+        class="<%= active=='contact' ? 'active' : 'inactive' %>"
+        ><%= t("NAVBAR.nav_elements.a6") %></a
+      >
+    </li>
     <li class="image-li">
       <% if(currentLocale=="en"){%>
       <a lang="<%= currentLocale %>">

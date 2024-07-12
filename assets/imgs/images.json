@@ -45,5 +45,12 @@
   },
   "FOOTER": {
     "logo": "imgs/footer-logo.png"
+  },
+  "SOCIAL": {
+    "url_1": "",
+    "url_2": "",
+    "url_3": "",
+    "url_4": "",
+    "url_5": ""
   }
 }

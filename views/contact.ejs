@@ -1,0 +1,241 @@
+<% function lang(){ return `?lang=${currentLocale}` } %>
+<!DOCTYPE html>
+<html
+  lang="<%= currentLocale %>"
+  dir="<%= currentLocale=='en' ? 'ltr' : 'rtl' %>"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="<%= images.FAVICON.icon %>" rel="shortcut icon" />
+    <title>El-Nour Trading - Contact</title>
+   <!-- Font Awesome -->
+   <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+   integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+   crossorigin="anonymous"
+   referrerpolicy="no-referrer"
+ />
+ <!-- AOS Library -->
+ <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+ <!-- Boxicons CSS -->
+ <link
+   flex
+   href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+   rel="stylesheet"
+ />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/vision.css" />
+    <link rel="stylesheet" href="./css/transportation.css" />
+    <link rel="stylesheet" href="./css/services.css" />
+    <link rel="stylesheet" href="./css/dashboard/login.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+    <link rel="stylesheet" href="./css/banner.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <% if (currentLocale === 'ar') { %>
+    <link rel="stylesheet" href="./css/index-ar.css" />
+    <% } %>
+  </head>
+  <body>
+    
+    <!-- CONTACT -->
+    <section id="contact">
+      <%- include("./parts/navbar.ejs",{active:'contact', base:"/"}) %>
+      <div class="container">
+        <%- include("./parts/notification.ejs") %>
+        <div class="top">
+          <!-- section-title -->
+          <h1
+            class="section-title"
+            class="section-title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          >
+          <%= t("CONTACT.name") %>
+          </h1>
+          <!-- main-title -->
+          <h1
+            class="title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+            class="title"
+          >
+          <%= t("CONTACT.h1") %> <span><%= t("CONTACT.span") %></span>
+          </h1>
+        </div>
+        <div class="middle">
+          <!-- LIST -->
+          <form
+          data-aos="flip-left"
+          data-aos-duration="600"
+          class="form login contact"
+          lang="<%=currentLocale%>"
+        >
+          <!-- Title en -->
+          <div class="form__field">
+            <label for="login__username">
+              <i class='bx bxs-user-circle'></i>
+              </label
+            >
+            <input
+              autocomplete="off"
+              id="login__username"
+              type="text"
+              name="name"
+              class="form__input"
+              placeholder="<%= t("CONTACT.form.name_placeholder")%>"
+              required
+            />
+          </div>
+          <!-- Title ar -->
+          <div class="form__field">
+            <label for="login__username">
+              <i class='bx bxs-envelope' ></i></label
+            >
+            <input
+              autocomplete="off"
+              id="login__username"
+              type="email"
+              name="email"
+              class="form__input"
+              placeholder="<%= t("CONTACT.form.email_placeholder")%>"
+              required
+            />
+          </div>
+          <!-- Desc en -->
+          <div class="form__field">
+            <label for="login__username">
+              <i class='bx bxs-message'></i>
+            </label >
+            <textarea
+              cols="30"
+              rows="10"
+              style="resize: none"
+              autocomplete="off"
+              id="login__username"
+              type="text"
+              name="msg"
+              class="form__input"
+              placeholder="<%= t("CONTACT.form.msg_placeholder")%>"
+              required
+            ></textarea>
+          </div>
+
+
+
+          <div class="form__field">
+            <input class="btn" type="submit" value="<%= t("CONTACT.form.btn")%>" />
+          </div>
+        </form>
+          <!-- MAP -->
+          <iframe
+            class="right"
+            src="<%= t("CONTACT.map_location") %>"
+            allowfullscreen=""
+            referrerpolicy="no-referrer-when-downgrade"
+            data-aos="flip-right"
+            data-aos-duration="600"
+      
+          ></iframe>
+        </div>
+        <div class="bottom">
+          <ul
+          class="left"
+          data-aos="fade-up"
+          data-aos-duration="600"
+        >
+          <!-- location -->
+          <li class="location">
+            <div class="head">
+              <div class="icon">
+                <img src="./icons/location-dot-solid.svg" />
+              </div>
+              <h1><%= t("CONTACT.location.title") %></h1>
+            </div>
+            <ul>
+              <li><%= t("CONTACT.location.content") %></li>
+            </ul>
+          </li>
+          <!-- phone -->
+          <li class="phone">
+            <div class="head">
+              <div class="icon">
+                <img src="./icons/phone-solid.svg" />
+              </div>
+              <h1><%= t("CONTACT.phone.title") %></h1>
+            </div>
+            <ul>
+              <li>
+                <%= t("CONTACT.phone.ele1_job") %> : <%= t("CONTACT.phone.ele1_name") %><br />Mob:
+                <a href="tel:<%= t("CONTACT.phone.ele1_num") %>"> <%= t("CONTACT.phone.ele1_num") %> </a>
+              </li>
+              <li>
+                <%= t("CONTACT.phone.ele2_job") %> : <%= t("CONTACT.phone.ele2_name") %><br />Mob:
+                <a href="tel:<%= t("CONTACT.phone.ele2_num") %>"> <%= t("CONTACT.phone.ele2_num") %> </a>
+              </li>
+              <li>
+                <%= t("CONTACT.phone.ele3_job") %> : <%= t("CONTACT.phone.ele3_name") %><br />Mob:
+                <a href="tel:<%= t("CONTACT.phone.ele3_num") %>"> <%= t("CONTACT.phone.ele3_num") %> </a>
+              </li>
+            </ul>
+          </li>
+          <!-- social -->
+          <li class="social">
+            <div class="head">
+              <div class="icon">
+                <img src="./icons/facebook-f.svg" />
+              </div>
+              <h1>
+                  <%= t("CONTACT.social.title") %>
+              </h1>
+            </div>
+            <ul class="social-links">
+              <li>
+                <a href="<%= t("CONTACT.social.url_1") %>" target="_blanked">
+                  - <%= t("CONTACT.social.url_name_1") %>
+                </a>
+              </li>
+              <li>
+                <a href="<%= t("CONTACT.social.url_2") %>" target="_blanked">
+                  - <%= t("CONTACT.social.url_name_2") %>
+                </a>
+              </li>
+              <li>
+                <a href="<%= t("CONTACT.social.url_3") %>" target="_blanked">
+                  - <%= t("CONTACT.social.url_name_3") %>
+                </a>
+              </li>
+              <li>
+                <a href="<%= t("CONTACT.social.url_4") %>" target="_blanked">
+                  - <%= t("CONTACT.social.url_name_4") %>
+                </a>
+              </li>
+              <li>
+                <a href="<%= t("CONTACT.social.url_5") %>" target="_blanked">
+                  - <%= t("CONTACT.social.url_name_5") %>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <%- include("./parts/footer.ejs",{active:"contact"}) %>
+
+    <!-- Main Scripts -->
+    <script src="./js/phoneNavbar.js"></script>
+    <script src="./js/contactForm.js"></script>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

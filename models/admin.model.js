@@ -15,6 +15,7 @@ const adminSchema = new mongoose.Schema(
       canManageCareers: { type: Boolean, default: false },
       canManageBroshures: { type: Boolean, default: false },
       canViewMessages: { type: Boolean, default: false },
+      canManageCommodity: { type: Boolean, default: false },
     },
   },
   { timestamps: true }

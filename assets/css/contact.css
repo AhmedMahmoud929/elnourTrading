@@ -136,6 +136,17 @@ section#contact .container {
   color: var(--gray);
 }
 
+.social-links {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px 0px;
+  grid-template-areas:
+    ". ."
+    ". ."
+    ". .";
+}
+
 /* =============== [ MEDIA QUERIES ] =============== */
 
 @media (max-width: 1024px) {

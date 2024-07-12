@@ -107,6 +107,17 @@
           </a>
           <span class="tooltip">Media</span>
         </li>
+        <% } %> <% if(permissions.canManageCommodity) { %>
+        <li>
+          <a
+            href="/dashboard/commodity"
+            class="<%= active === 'commodity' ? 'active' : '' %>"
+          >
+            <i class="fa-solid fa-wheat-awn"></i>
+            <span class="links_name">Commodity</span>
+          </a>
+          <span class="tooltip">Commodity</span>
+        </li>
         <% } %> <% if(permissions.canViewMessages) { %>
         <li>
           <a
@@ -130,7 +141,7 @@
           <span class="tooltip">Career</span>
         </li>
         <% } %>
-        <li >
+        <li>
           <a href="/dashboard/logout">
             <i class="bx bx-log-out"></i>
             <span class="links_name">Logout</span>

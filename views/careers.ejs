@@ -40,12 +40,14 @@
     <!-- navbar -->
     <div class="container">
       <!-- navbar -->
-      <%- include("./parts/navbar.ejs" , {base : "/"}) %>
+      <%- include("./parts/navbar.ejs" , {base:"/",active : "careers"}) %>
     </div>
     <!-- Header -->
     <section class="container">
       <% if (!jobs.length) {%>
-      <h1 class="no-jobs" data-aos="zoom-up" data-aos-duration="600">There is no jobs currently.</h1>
+      <h1 class="no-jobs" data-aos="zoom-up" data-aos-duration="600">
+        There is no jobs currently.
+      </h1>
       <%}%> <% for(let job of jobs) {%>
       <div class="job-card" data-aos="fade-up" data-aos-duration="600">
         <a href="/careers/job-profile/<%= job._id %>?lang=<%= currentLocale %>">
@@ -62,7 +64,7 @@
       </div>
       <%}%>
     </section>
-    <%- include("./parts/footer.ejs",{base:"/"}) %>
+    <%- include("./parts/footer.ejs",{active:"careers"}) %>
     <script src="../../js/phoneNavbar.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

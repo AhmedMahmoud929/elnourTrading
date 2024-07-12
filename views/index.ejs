@@ -40,8 +40,6 @@
     <link rel="stylesheet" href="./css/news.css" />
     <link rel="stylesheet" href="./css/history.css" />
     <link rel="stylesheet" href="./css/transportation.css" />
-    <link rel="stylesheet" href="./css/services.css" />
-    <link rel="stylesheet" href="./css/gallery.css" />
     <link rel="stylesheet" href="./css/contact.css" />
     <link rel="stylesheet" href="./css/questions.css" />
     <link rel="stylesheet" href="./css/footer.css" />
@@ -70,7 +68,7 @@
         <div class="circle left"></div>
 
         <!-- navbar -->
-       <%- include("./parts/navbar.ejs",{base:""}) %>
+       <%- include("./parts/navbar.ejs",{active:'home',base:""}) %>
 
         <!-- header -->
         <header>
@@ -98,98 +96,6 @@
           <i class="fa-solid fa-circle-pause video-btn-controller "></i>
         
         </header>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container">
-        <div
-          class="left"
-          data-aos="fade-right"
-          data-aos-duration="600"
-          data-aos-delay="100"
-        >
-          <img class="horiz" src="<%= images.ABOUT.horiz_img %>" alt="trucks" />
-          <img class="vert" src="<%= images.ABOUT.vert_img %>" alt="elnour-trading" />
-        </div>
-
-        <div class="right">
-          <h1
-            class="section-title"
-            class="section-title"
-            data-aos="fade-right"
-            data-aos-duration="600"
-          >
-          <%= t("ABOUT.name") %>
-          </h1>
-          <h1
-            class="title"
-            data-aos="fade-right"
-            data-aos-duration="600"
-            class="title"
-          >
-          <%= t("ABOUT.pre-span") %><span> <%= t("ABOUT.span") %> </span><%= t("ABOUT.post-span") %>
-          </h1>
-          <p data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">
-            <%= t("ABOUT.p") %>
-          </p>
-          <a
-            data-aos="fade-right"
-            data-aos-duration="600"
-            data-aos-delay="100"
-            href="/vision<%=lang()%>"
-          >
-            <button class="btn"><%= t("ABOUT.btn") %></button>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- VALUES -->
-    <section id="values">
-      <div class="container">
-        <!-- values -->
-        <div class="card-cont" data-aos="fade-up" data-aos-duration="600">
-          <div class="icon">
-            <img class="icon-img" src="./icons/diamond.svg" alt="our values" />
-          </div>
-          <div class="card">
-            <div class="card-face front">
-              <h1 class="title"><%= t("VALUES.values-card.h1") %> <span><%= t("VALUES.values-card.span") %></span></h1>
-              <p class="view-btn view-more"><%= t("VALUES.values-card.more-btn") %></p>
-            </div>
-            <div class="card-face back">
-              <p>
-                <%= t("VALUES.values-card.p") %>
-              </p>
-              <p class="view-btn view-less"><%= t("VALUES.values-card.less-btn") %></p>
-            </div>
-          </div>
-        </div>
-        <!-- mission -->
-        <div
-          class="card-cont"
-          data-aos="fade-up"
-          data-aos-duration="600"
-          data-aos-delay="100"
-        >
-          <div class="icon">
-            <img class="icon-img" src="./icons/mission.svg" alt="our mission" />
-          </div>
-          <div class="card">
-            <div class="card-face front">
-              <h1 class="title"><%= t("VALUES.mission-card.h1") %> <span><%= t("VALUES.mission-card.span") %></span></h1>
-              <p class="view-btn view-more"><%= t("VALUES.mission-card.more-btn") %></p>
-            </div>
-            <div class="card-face back">
-              <p>
-                <%= t("VALUES.mission-card.p") %>
-              </p>
-              <p class="view-btn view-less"><%= t("VALUES.mission-card.less-btn") %></p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -233,323 +139,6 @@
        <img src="<%= images.NEWS.main %>" alt="">
         </div>
 
-      </div>
-    </section>
-
-    <!-- HISTORY -->
-    <section id="history">
-      <!-- Swiper -->
-      <div class="swiper-container mySwiper-history">
-        <div class="swiper-wrapper">
-          <!-- slide 1 -->
-          <div
-            class="swiper-slide"
-            style="background-image: url('<%= images.HISTORY.slide1 %>')"
-          >
-            <div class="container">
-              <h1 data-aos="zoom-out-down" data-aos-duration="500">
-                <%= t("HISTORY.slide1.date") %>
-              </h1>
-              <h2 data-aos="zoom-out-down" data-aos-duration="700">
-                <%= t("HISTORY.slide1.h1") %>
-              </h2>
-              <p
-                data-aos="zoom-out-down"
-                data-aos-duration="700"
-                data-aos-delay="100"
-              >
-              <%= t("HISTORY.slide1.p") %>
-              </p>
-            </div>
-          </div>
-          <!-- slide 2 -->
-          <div
-            class="swiper-slide"
-            style="background-image: url('<%= images.HISTORY.slide2 %>')"
-          >
-          <div class="container">
-            <h1>
-              <%= t("HISTORY.slide2.date") %>
-            </h1>
-            <h2>
-              <%= t("HISTORY.slide2.h1") %>
-            </h2>
-            <p>
-            <%= t("HISTORY.slide2.p") %>
-            </p>
-          </div>
-          </div>
-          <!-- slide 3 -->
-          <div
-            class="swiper-slide"
-            style="background-image: url('<%= images.HISTORY.slide3 %>')"
-          >
-          <div class="container">
-            <h1>
-              <%= t("HISTORY.slide2.date") %>
-            </h1>
-            <h2>
-              <%= t("HISTORY.slide2.h1") %>
-            </h2>
-            <p
-            >
-            <%= t("HISTORY.slide2.p") %>
-            </p>
-          </div>
-          </div>
-          <!-- slide 4 -->
-          <div
-            class="swiper-slide"
-            style="background-image: url('<%= images.HISTORY.slide4 %>')"
-          >
-          <div class="container">
-            <h1>
-              <%= t("HISTORY.slide4.date") %>
-            </h1>
-            <h2>
-              <%= t("HISTORY.slide4.h1") %>
-            </h2>
-            <p>
-            <%= t("HISTORY.slide4.p") %>
-            </p>
-          </div>
-          </div>
-          <!-- slide 5 -->
-          <div
-            class="swiper-slide"
-            style="background-image: url('<%= images.HISTORY.slide5 %>')"
-          >
-          <div class="container">
-            <h1>
-              <%= t("HISTORY.slide5.date") %>
-            </h1>
-            <h2>
-              <%= t("HISTORY.slide5.h1") %>
-            </h2>
-            <p
-            >
-            <%= t("HISTORY.slide5.p") %>
-            </p>
-          </div>
-          </div>
-        </div>
-        <div
-          data-aos="fade-left"
-          data-aos-duration="500"
-          class="swiper-pagination-history"
-        ></div>
-      </div>
-    </section>
-
-    <!-- TRANSPORTATION -->
-    <section id="transportation">
-      <div class="container">
-        <img class="transport-bg" src="<%= images.TRANSPORTATION.bg %>" alt="" />
-        <img
-          class="transport-bg"
-          src="<%= images.TRANSPORTATION.gradient %>"
-          alt=""
-          style="opacity: 0.8"
-        />
-        <div class="main">
-          <h1
-            class="section-title"
-            class="section-title"
-            data-aos="fade-right"
-            data-aos-duration="600"
-          >
-          <%= t("TRANSPORTATION.name") %>
-          </h1>
-          <h1
-            class="title"
-            data-aos="fade-right"
-            data-aos-duration="600"
-            class="title"
-          >
-          <%= t("TRANSPORTATION.h1_first") %>
-          <span><%= t("TRANSPORTATION.span_first") %></span>
-          <br />
-          <%= t("TRANSPORTATION.h1_second") %>  
-          <span><%= t("TRANSPORTATION.span_second") %></span>
-          </h1>
-          <p data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">
-            <%= t("TRANSPORTATION.p") %>
-          </p>
-          <a
-            data-aos="fade-right"
-            data-aos-duration="600"
-            data-aos-delay="100"
-            href="#contact"
-            style="margin-top: 30px"
-          >
-            <button class="btn"><%= t("TRANSPORTATION.btn") %></button>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services">
-      <div class="container">
-        <div class="top">
-          <h1
-            class="section-title"
-            data-aos="fade-right"
-            data-aos-duration="600"
-          >
-          <%= t("PRODUCTS.title") %>
-          </h1>
-          <a href="#contact" data-aos="fade-left" data-aos-duration="600">
-            <button class="btn outline"><%= t("PRODUCTS.contactBtn") %></button>
-          </a>
-        </div>
-        <div class="bottom">
-          <div class="item" data-aos="flip-left" data-aos-duration="700">
-            <div class="icon">
-              <img
-                class="icon-img"
-                src="<%= images.PRODUCTS.prod1 %>"
-                alt="wheat"
-              />
-            </div>
-            <h1><%= t("PRODUCTS.product1.name") %></h1>
-            <p>
-              <%= t("PRODUCTS.product1.desc") %>
-            </p>
-            <img
-              class="service-icon-shadow"
-              src="<%= images.PRODUCTS.prod1 %>"
-              alt="wheat"
-            />
-          </div>
-
-          <div class="item" data-aos="flip-left" data-aos-duration="700">
-            <div class="icon">
-              <img class="icon-img" src="<%= images.PRODUCTS.prod2 %>" alt="corn" />
-            </div>
-            <h1><%= t("PRODUCTS.product2.name") %></h1>
-            <p>
-              <%= t("PRODUCTS.product2.desc") %>
-            </p>
-            <img
-              class="service-icon-shadow"
-              src="<%= images.PRODUCTS.prod2 %>"
-              alt="corn"
-            />
-          </div>
-
-          <div class="item" data-aos="flip-left" data-aos-duration="700">
-            <div class="icon">
-              <img
-                class="icon-img"
-                src="<%= images.PRODUCTS.prod3 %>"
-                alt="sunflower"
-              />
-            </div>
-            <h1><%= t("PRODUCTS.product3.name") %></h1>
-            <p>
-              <%= t("PRODUCTS.product3.desc") %>
-            </p>
-            <img
-              class="service-icon-shadow"
-              src="<%= images.PRODUCTS.prod3 %>"
-              alt="sunflower"
-            />
-          </div>
-
-          <div class="item" data-aos="flip-left" data-aos-duration="700">
-            <div class="icon">
-              <img
-                class="icon-img"
-                src="<%= images.PRODUCTS.prod4 %>"
-                alt="soybean seed"
-              />
-            </div>
-            <h1><%= t("PRODUCTS.product4.name") %></h1>
-            <p>
-              <%= t("PRODUCTS.product4.desc") %>
-            </p>
-            <img
-              class="service-icon-shadow"
-              src="<%= images.PRODUCTS.prod4 %>"
-              alt="oil"
-            />
-          </div>
-
-          <div class="item" data-aos="flip-left" data-aos-duration="700">
-            <div class="icon">
-              <img class="icon-img" src="<%= images.PRODUCTS.prod5 %>" alt="soybean" />
-            </div>
-            <h1><%= t("PRODUCTS.product5.name") %></h1>
-            <p>
-              <%= t("PRODUCTS.product5.desc") %>
-            </p>
-            <img
-              class="service-icon-shadow"
-              src="<%= images.PRODUCTS.prod5 %>"
-              alt="soybean"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section id="gallery">
-      <div class="container">
-        <!-- section-title -->
-        <h1
-          class="section-title"
-          class="section-title"
-          data-aos="fade-right"
-          data-aos-duration="600"
-        >
-        <%= t("GALLERY.name") %>
-        </h1>
-        <!-- main-title -->
-        <h1
-          class="title"
-          data-aos="fade-right"
-          data-aos-duration="600"
-          class="title"
-        >
-        <%= t("GALLERY.h1") %> <span><%= t("GALLERY.span") %></span>
-        </h1>
-        <!-- swiper -->
-        <div
-          class="swiper-container mySwiper-gallery"
-          data-aos="fade-up"
-          data-aos-duration="600"
-          data-aos-delay="200"
-        >
-          <div class="swiper-wrapper">
-            <% for(let i=0;i<Math.min(10,galleryImgs.length);i++){ %>
-            <div class="swiper-slide">
-              <img
-                class="bg-img"
-                src="<%= galleryImgs[i].path %>"
-                alt="gallery"
-              />
-              <img
-                class="main-img"
-                src="<%= galleryImgs[i].path %>"
-                alt="gallery"
-              />
-            </div>
-
-            <% } %>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-        <!-- button -->
-        <a
-          href="/gallery<%=lang()%>"
-          data-aos="fade-left"
-          data-aos-duration="600"
-          class="a-btn"
-        >
-          <button class="btn"><%= t("GALLERY.btn") %></button>
-        </a>
       </div>
     </section>
 
@@ -700,14 +289,36 @@
                 <img src="./icons/facebook-f.svg" />
               </div>
               <h1>
-                <a
-                  style="color: var(--white)"
-                  target="_blank"
-                  href="<%= t("CONTACT.social.url") %>"
-                  ><%= t("CONTACT.social.title") %></a
-                >
+                  <%= t("CONTACT.social.title") %>
               </h1>
             </div>
+              <ul class="social-links">
+                <li>
+                  <a href="<%= t("CONTACT.social.url_1") %>" target="_blanked">
+                    - <%= t("CONTACT.social.url_name_1") %>
+                  </a>
+                </li>
+                <li>
+                  <a href="<%= t("CONTACT.social.url_2") %>" target="_blanked">
+                    - <%= t("CONTACT.social.url_name_2") %>
+                  </a>
+                </li>
+                <li>
+                  <a href="<%= t("CONTACT.social.url_3") %>" target="_blanked">
+                    - <%= t("CONTACT.social.url_name_3") %>
+                  </a>
+                </li>
+                <li>
+                  <a href="<%= t("CONTACT.social.url_4") %>" target="_blanked">
+                    - <%= t("CONTACT.social.url_name_4") %>
+                  </a>
+                </li>
+                <li>
+                  <a href="<%= t("CONTACT.social.url_5") %>" target="_blanked">
+                    - <%= t("CONTACT.social.url_name_5") %>
+                  </a>
+                </li>
+              </ul>
           </li>
         </ul>
         </div>
@@ -757,7 +368,7 @@
     </section>
 
     <!-- FOOTER -->
-    <%- include("./parts/footer.ejs",{base:""}) %>
+    <%- include("./parts/footer.ejs",{active:"home"}) %>
 
     <!-- Main Scripts -->
     <script src="./js/cardsHandler.js"></script>
@@ -770,70 +381,7 @@
     <script>
       AOS.init();
     </script>
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- Initialize Swipers-->
-    <script>
-      // History swipper
-      var historySwiper = new Swiper(".mySwiper-history", {
-        direction: "vertical",
-        slidesPerView: 1,
-        spaceBetween: 30,
-        autoplay: false,
-        pagination: {
-          el: ".swiper-pagination-history",
-          clickable: true,
-        },
-        allowTouchMove: window.innerWidth > 768,
-        grabCursor: window.innerWidth > 768,
-      });
-      // Gallery swipper
-      var gallerySwiper = new Swiper(".mySwiper-gallery", {
-        autoHeight: true,
-        spaceBetween: 20,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        breakpoints: {
-          696: {
-            slidesPerView: 1,
-          },
-
-          992: {
-            slidesPerView: 2,
-          },
-        },
-      });
-      // News swipper
-      var newsSwiper = new Swiper(".mySwiper-news", {
-        autoHeight: true,
-        spaceBetween: 25,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        breakpoints: {
-          800: {
-            slidesPerView: 1,
-          },
-          1000: {
-            slidesPerView: 2,
-          },
-          1200: {
-            slidesPerView: 3,
-          },
-        },
-      });
-    </script>
+    <!-- Lang -->
     <script>
       const transBtn = document.querySelector(".trans-btn");
       // Directly using the current URL of the browser

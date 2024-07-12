@@ -1,0 +1,135 @@
+<% function lang(){ return `?lang=${currentLocale}` } %>
+<!DOCTYPE html>
+<html
+  lang="<%= currentLocale %>"
+  dir="<%= currentLocale=='en' ? 'ltr' : 'rtl' %>"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="<%= images.FAVICON.icon %>" rel="shortcut icon" />
+    <title>El-Nour Trading - Vision</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/vision.css" />
+    <link rel="stylesheet" href="./css/transportation.css" />
+    <link rel="stylesheet" href="./css/services.css" />
+    <link rel="stylesheet" href="./css/banner.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <% if (currentLocale === 'ar') { %>
+    <link rel="stylesheet" href="./css/index-ar.css" />
+    <% } %>
+  </head>
+  <body>
+    <!-- SERVICES -->
+    <section id="commoditySec">
+      <%- include("./parts/navbar.ejs",{active:'commodity', base:"/"}) %>
+      <div class="container" id="services">
+        <div class="top">
+          <h1
+            class="section-title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          >
+            <%= t("PRODUCTS.title") %>
+          </h1>
+        </div>
+        <div class="bottom">
+          <% for(let prod of products) {%>
+          <div class="item" data-aos="flip-left" data-aos-duration="700">
+            <div class="icon">
+              <img
+                class="icon-img"
+                src="../icons/commodityIcons/<%= prod.icon %>"
+                alt="soybean"
+              />
+            </div>
+            <h1><%= currentLocale=='en' ? prod.title : prod.titleAr%></h1>
+            <p><%= currentLocale=='en' ? prod.desc : prod.descAr%></p>
+            <img
+              class="service-icon-shadow"
+              src="../icons/commodityIcons/<%= prod.icon %>"
+              alt="soybean"
+            />
+          </div>
+          <% }%>
+        </div>
+      </div>
+    </section>
+    <!--  -->
+    <!-- TRANSPORTATION -->
+    <section id="transportation">
+      <div class="container">
+        <img
+          class="transport-bg"
+          src="<%= images.TRANSPORTATION.bg %>"
+          alt=""
+        />
+        <img
+          class="transport-bg"
+          src="<%= images.TRANSPORTATION.gradient %>"
+          alt=""
+          style="opacity: 0.8"
+        />
+        <div class="main">
+          <h1
+            class="section-title"
+            class="section-title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          >
+            <%= t("TRANSPORTATION.name") %>
+          </h1>
+          <h1
+            class="title"
+            data-aos="fade-right"
+            data-aos-duration="600"
+            class="title"
+          >
+            <%= t("TRANSPORTATION.h1_first") %>
+            <span><%= t("TRANSPORTATION.span_first") %></span>
+            <br />
+            <%= t("TRANSPORTATION.h1_second") %>
+            <span><%= t("TRANSPORTATION.span_second") %></span>
+          </h1>
+          <p data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">
+            <%= t("TRANSPORTATION.p") %>
+          </p>
+          <a
+            data-aos="fade-right"
+            data-aos-duration="600"
+            data-aos-delay="100"
+            href="#contact"
+            style="margin-top: 30px"
+          >
+            <button class="btn"><%= t("TRANSPORTATION.btn") %></button>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- BANNER -->
+    <%- include("./parts/banner.ejs") %>
+
+    <!-- FOOTER -->
+    <%- include("./parts/footer.ejs",{active:"commodity"}) %>
+
+    <!-- Main Scripts -->
+    <script src="./js/phoneNavbar.js"></script>
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

@@ -2,10 +2,10 @@
   "NAVBAR": {
     "nav_elements": {
       "a1": "الصفحة الرئيسية",
-      "a2": "حول",
-      "a3": "ملف الشركة",
-      "a4": "السلع",
-      "a5": "معرض الصور",
+      "a2": "ملف الشركة",
+      "a3": "السلع",
+      "a4": "المعرض",
+      "a5": "الأخبار",
       "a6": "اتصل بنا"
     }
   },
@@ -136,8 +136,17 @@
       "ele3_num": "+2 01011393902"
     },
     "social": {
-      "title": "اجتماعي",
-      "url": "https://www.facebook.com/profile.php?id=100024270064870"
+      "title": "إجتماعي",
+      "url_name_1": "فيسبوك",
+      "url_1": "https://www.facebook.com/profile.php?id=100024270064870",
+      "url_name_2": "انستجرام",
+      "url_3": "https://www.facebook.com/profile.php?id=100024270064870",
+      "url_name_3": "لينكدن",
+      "url_4": "https://www.facebook.com/profile.php?id=100024270064870",
+      "url_name_4": "تويتر",
+      "url_5": "https://www.facebook.com/profile.php?id=100024270064870",
+      "url_name_5": "يوتيوب",
+      "url_2": "https://www.facebook.com/profile.php?id=100024270064870"
     }
   },
   "QUESTIONS": {
