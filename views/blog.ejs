@@ -36,7 +36,7 @@
     <section id="profile">
       <div class="container">
         <!-- navbar -->
-        <%- include("./parts/navbar.ejs",{base:"/"}) %>
+        <%- include("./parts/navbar.ejs",{active:'news',base:"/"}) %>
 
         <!-- header -->
         <header>
@@ -110,7 +110,7 @@
     <%- include("./parts/banner.ejs") %>
 
     <!-- FOOTER -->
-    <%- include("./parts/footer.ejs",{base:"/"}) %>
+    <%- include("./parts/footer.ejs",{active:"news"}) %>
 
     <!-- Main Scripts -->
     <script src="./js/phoneNavbar.js"></script>

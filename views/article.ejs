@@ -41,7 +41,7 @@ ${day}, ${year}`; return formattedDate; } %>
     <!-- navbar -->
     <div class="container">
       <!-- navbar -->
-      <%- include("./parts/navbar.ejs" , {base : "/"}) %>
+      <%- include("./parts/navbar.ejs" , {active:'news',base : "/"}) %>
     </div>
     <!-- Header -->
     <div class="container">
@@ -65,7 +65,7 @@ ${day}, ${year}`; return formattedDate; } %>
         <p><%= currentLocale=="en" ? article.desc : article.descAr %></p>
       </article>
     </div>
-    <%- include("./parts/footer.ejs",{base:"/"}) %>
+    <%- include("./parts/footer.ejs",{active:"news"}) %>
     <script>
       window.onload = () => {
         document.querySelector("img.cover").style.transform = "scale(1)";

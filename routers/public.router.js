@@ -3,6 +3,7 @@ const Gallery = require("../models/gallery.model");
 const Brochure = require("../models/brochure.model");
 const New = require("../models/news.model");
 const Message = require("../models/message.model");
+const Product = require("../models/products.model");
 const Job = require("../models/job.model");
 const os = require("os");
 const path = require("path");
@@ -88,6 +89,18 @@ router.get("/vision", (req, res) => {
   res.render("vision", { images, currentLocale, t: res.__ });
 });
 
+// GET commodity page
+router.get("/commodity", async (req, res) => {
+  try {
+    const { currentLocale, images } = getJsons(res);
+    const products = await Product.find({});
+    res.render("commodity", { products, images, currentLocale, t: res.__ });
+  } catch (err) {
+    res.send("ERROR : Check server logs");
+    console.log(err);
+  }
+});
+
 // GET profile page
 router.get("/profile", async (req, res) => {
   try {
@@ -97,6 +110,20 @@ router.get("/profile", async (req, res) => {
     res.render("profile", {
       brochures,
       osType,
+      images,
+      currentLocale,
+      t: res.__,
+    });
+  } catch (err) {
+    res.send("Internal Server Error");
+  }
+});
+
+// GET contact page
+router.get("/contact", async (req, res) => {
+  try {
+    const { currentLocale, images } = getJsons(res);
+    res.render("contact", {
       images,
       currentLocale,
       t: res.__,

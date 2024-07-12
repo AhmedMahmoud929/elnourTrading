@@ -92,9 +92,11 @@ const mediaRouter = require("./routers/media.router");
 const messagesRouter = require("./routers/messages.router");
 const adminsRouter = require("./routers/admins.router");
 const careersRouter = require("./routers/careers.router");
+const commodityRouter = require("./routers/commodity.router");
 
 app.use("/", publicRouter);
 app.use("/", AuthRouter);
+<<<<<<< HEAD
 app.use("/dashboard", require("./middlewares/requireAuth"), NewsRouter);
 app.use("/dashboard", require("./middlewares/requireAuth"), GalleryRouter);
 app.use("/dashboard", require("./middlewares/requireAuth"), BrochuresRouter);
@@ -103,6 +105,17 @@ app.use("/dashboard", require("./middlewares/requireAuth"), mediaRouter);
 app.use("/dashboard", require("./middlewares/requireAuth"), messagesRouter);
 app.use("/dashboard", require("./middlewares/requireAuth"), adminsRouter);
 app.use("/dashboard", require("./middlewares/requireAuth"), careersRouter);
+=======
+app.use("/dashboard", requireAuth, NewsRouter);
+app.use("/dashboard", requireAuth, GalleryRouter);
+app.use("/dashboard", requireAuth, BrochuresRouter);
+app.use("/dashboard", requireAuth, contentRouter);
+app.use("/dashboard", requireAuth, mediaRouter);
+app.use("/dashboard", requireAuth, messagesRouter);
+app.use("/dashboard", requireAuth, adminsRouter);
+app.use("/dashboard", requireAuth, careersRouter);
+app.use("/dashboard", requireAuth, commodityRouter);
+>>>>>>> subpages
 
 // Error handling middleware
 app.use((err, req, res, next) => {

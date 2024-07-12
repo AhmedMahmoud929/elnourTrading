@@ -8,33 +8,50 @@
     <div class="top">
       <img src="../../<%= images.FOOTER.logo %>" alt="el-nour trading" />
       <!-- list -->
-      <ul>
+      <ul class="main-ul">
         <li>
-          <a href="<%= base %><%=lang()%>#home" class="active"
-            ><%= t("FOOTER.footer_elements.a1") %></a
+          <a
+            href="/<%=lang()%>"
+            class="<%= active=='home' ? 'active' : 'inactive' %>"
+            ><%= t("NAVBAR.nav_elements.a1") %></a
+          >
+        </li>
+
+        <li>
+          <a
+            href="/vision<%=lang()%>"
+            class="<%= active=='co-profile' ? 'active' : 'inactive' %>"
+            ><%= t("NAVBAR.nav_elements.a2") %></a
           >
         </li>
         <li>
-          <a href="<%= base %><%=lang()%>#about"
-            ><%= t("FOOTER.footer_elements.a2") %></a
+          <a
+            href="/commodity<%=lang()%>"
+            class="<%= active=='commodity' ? 'active' : 'inactive' %>"
+            ><%= t("NAVBAR.nav_elements.a3") %></a
           >
         </li>
         <li>
-          <a href="/profile<%=lang()%>"
-            ><%= t("FOOTER.footer_elements.a3") %></a
+          <a
+            href="/gallery<%=lang()%>"
+            class="<%= active=='gallery' ? 'active' : 'inactive' %>"
+            ><%= t("NAVBAR.nav_elements.a4") %></a
           >
         </li>
         <li>
-          <a href="<%= base %><%=lang()%>#services"
-            ><%= t("FOOTER.footer_elements.a4") %></a
+          <a
+            href="/blog<%=lang()%>"
+            class="<%= active=='news' ? 'active' : 'inactive' %>"
+            ><%= t("NAVBAR.nav_elements.a5") %></a
           >
         </li>
         <li>
-          <a href="<%= base %><%=lang()%>#gallery"
-            ><%= t("FOOTER.footer_elements.a5") %></a
+          <a
+            href="/contact<%=lang()%>"
+            class="<%= active=='contact' ? 'active' : 'inactive' %>"
+            ><%= t("NAVBAR.nav_elements.a6") %></a
           >
         </li>
-        <li><a href="#contact"><%= t("FOOTER.footer_elements.a6") %></a></li>
       </ul>
     </div>
     <!-- just for styling -->

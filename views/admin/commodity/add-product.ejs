@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../icons/favicon.ico" rel="shortcut icon" />
+    <title>Add a product</title>
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../../css/dashboard/brochures.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      flex
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+
+  <style>
+    .info {
+      padding: 15px;
+      border: 1px solid #f0ad4e;
+      border-radius: 4px;
+      background-color: #f8e3d3;
+      color: #8a6d3b;
+      font-weight: 500;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .info .fa-circle-info {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    .info span {
+      font-weight: bold;
+    }
+  </style>
+  <body>
+    <!-- ASIDE -->
+    <%- include("../../parts/aside.ejs",{active:"commodity"}) %>
+    <!-- SECTION -->
+    <section class="home-section">
+      <header>
+        <div class="text">Add product</div>
+        <a href="/dashboard/commodity/">
+          <span class="link_name">Back</span>
+          <!-- <i class='bx bx-plus'></i> -->
+          <i class="bx bx-undo"></i>
+        </a>
+      </header>
+      <!-- HERE -->
+      <main id="uploadBrochure">
+        <!-- FLASH Message (success) -->
+        <% if(messages.success) { %>
+        <!--  -->
+        <%- include("../../parts/flash-msg.ejs", {
+        title:messages.success[0].title, msg: messages.success[0].msg, done:true
+        }) %>
+        <!--  -->
+        <% } %>
+        <div class="grid">
+          <form
+            data-aos="fade-up"
+            data-aos-duration="600"
+            action="/dashboard/commodity/add"
+            method="POST"
+            class="form login"
+            enctype="multipart/form-data"
+          >
+            <div class="info">
+              <i class="fa-solid fa-circle-info"></i>
+              Note that : Icons must be <span>SVG</span> and with dimensions
+              <span>512px*512px</span>
+
+              <center>
+                <small>Try to use flat icons website</small>
+              </center>
+            </div>
+            <div class="form__field">
+              <label for="login__password">
+                <i class="bx bxs-image icon"></i>
+                <span class="hidden">Icon</span>
+              </label>
+              <input
+                id="login__password"
+                type="file"
+                name="icon"
+                class="form__input"
+                placeholder="Icon"
+                required
+              />
+            </div>
+            <!-- Title en -->
+            <div class="form__field">
+              <label for="login__username">
+                <i class="bx bxs-pencil icon"></i>
+                <span class="hidden">Title EN</span></label
+              >
+              <input
+                autocomplete="off"
+                id="login__username"
+                type="text"
+                name="title"
+                class="form__input"
+                placeholder="Title EN"
+                required
+              />
+            </div>
+            <!-- Title ar -->
+            <div class="form__field">
+              <label for="login__username">
+                <i class="bx bxs-pencil icon"></i>
+                <span class="hidden">Title AR</span></label
+              >
+              <input
+                autocomplete="off"
+                id="login__username"
+                type="text"
+                name="titleAr"
+                class="form__input"
+                placeholder="Title AR"
+                required
+              />
+            </div>
+            <!-- Desc en -->
+            <div class="form__field">
+              <label for="login__username">
+                <i class="bx bxs-pencil icon"></i>
+                <span class="hidden">Description EN</span></label
+              >
+              <textarea
+                cols="30"
+                rows="10"
+                style="padding: 10px; resize: none"
+                autocomplete="off"
+                id="login__username"
+                type="text"
+                name="desc"
+                class="form__input"
+                placeholder="Description EN"
+                required
+              ></textarea>
+            </div>
+            <!-- Desc ar -->
+            <div class="form__field">
+              <label for="login__username">
+                <i class="bx bxs-pencil icon"></i>
+                <span class="hidden">Description AR</span></label
+              >
+              <textarea
+                cols="30"
+                rows="10"
+                style="padding: 10px; resize: none"
+                autocomplete="off"
+                id="login__username"
+                type="text"
+                name="descAr"
+                class="form__input"
+                placeholder="Description AR"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form__field">
+              <input type="submit" value="Publish" />
+            </div>
+          </form>
+        </div>
+      </main>
+    </section>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
