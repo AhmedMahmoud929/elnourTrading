@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const Admin = require("./models/admin.model");
 const bcrypt = require("bcryptjs");
 const readline = require("readline");
-const DB_URL = "mongodb://127.0.0.1:27017/elnourTrading";
+// const DB_URL = "mongodb://127.0.0.1:27017/elnourTrading";
+const DB_URL = "mongodb+srv://ahmedMahmoud:ahmedMahmoud@cluster0.u22xrj7.mongodb.net/elnourTrading?retryWrites=true&w=majority";
 let connected = false;
 
 // Connect to MongoDB

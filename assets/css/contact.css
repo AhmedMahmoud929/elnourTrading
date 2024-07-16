@@ -80,7 +80,7 @@ section#contact .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 60px 90px;
+  gap: 0px 90px;
   grid-template-areas:
     "location location phone phone"
     "social social phone phone";

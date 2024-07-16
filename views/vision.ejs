@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="./css/about.css" />
     <link rel="stylesheet" href="./css/values.css" />
     <link rel="stylesheet" href="./css/history.css" />
+    <link rel="stylesheet" href="./css/profile.css" />
     <link rel="stylesheet" href="./css/banner.css" />
     <link rel="stylesheet" href="./css/footer.css" />
     <% if (currentLocale === 'ar') { %>
@@ -38,55 +39,50 @@
     <% } %>
   </head>
   <body>
-    <!-- VISION -->
-    <section id="vision">
+
+    <section id="profile">
       <div class="container">
         <!-- navbar -->
-        <%- include("./parts/navbar.ejs",{active:'co-profile',base:"/"}) %>
+        <%- include("./parts/navbar.ejs",{active:"", base:"/"}) %>
 
         <!-- header -->
         <header>
-          <div class="left">
-            <h1
-              class="section-title"
-              class="section-title"
-              data-aos="fade-right"
-              data-aos-duration="600"
-            >
-              <%= t("VISION.name") %>
-            </h1>
-            <h1
-              class="title"
-              data-aos="fade-right"
-              data-aos-duration="600"
-              class="title"
-            >
-              <%= t("VISION.h1") %> <span><%= t("VISION.span") %></span>
-            </h1>
-            <p
-              data-aos="fade-right"
-              data-aos-duration="600"
+          <h1
+            class="title"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            class="title"
+          >
+            <%= t("PROFILE.h1") %> <span><%= t("PROFILE.span") %></span>
+          </h1>
+
+          <div class="cards-cont">
+            <% for(brochure of brochures) { %>
+            <div
+              class="card"
+              data-aos="zoom-out-down"
+              data-aos-duration="800"
               data-aos-delay="100"
             >
-              <%= t("VISION.p") %>
-            </p>
-            <a
-              data-aos="fade-right"
-              data-aos-duration="600"
-              data-aos-delay="100"
-              href="/<%=lang()%>"
-            >
-              <button class="btn"><%= t("VISION.btn") %></button>
-            </a>
+              <div class="cover">
+                <a href="<%= brochure.file %>" download="<%= brochure.file %>">
+                  <button class="btn">
+                    <i class="fa-solid fa-file-arrow-down"></i>
+                  </button>
+                </a>
+                <img src="<%= brochure.cover %>" alt="" />
+                <img src="./imgs/grady_bg.png" alt="" />
+              </div>
+              <div class="details">
+                <h1><%= brochure.title %></h1>
+              </div>
+            </div>
+            <% } %>
           </div>
-          <img
-            class="right"
-            data-aos="flip-right"
-            data-aos-duration="900"
-            data-aos-delay="100"
-            src="<%= images.VISION.main_img %>"
-            alt="el-nour trading"
-          />
+          <!-- end of MAIN ELEMENT -->
+          <a data-aos="fade-up" data-aos-duration="600" href="/<%=lang()%>">
+            <button class="btn"><%= t("PROFILE.btn") %></button>
+          </a>
         </header>
       </div>
     </section>
@@ -141,62 +137,57 @@
       </div>
     </section>
 
-    <!-- VALUES -->
-    <section id="values">
+     <!-- VISION -->
+     <section id="vision">
       <div class="container">
-        <!-- values -->
-        <div class="card-cont" data-aos="fade-up" data-aos-duration="600">
-          <div class="icon">
-            <img class="icon-img" src="./icons/diamond.svg" alt="our values" />
+
+        <!-- header -->
+        <header>
+          <div class="left">
+            <h1
+              class="section-title"
+              class="section-title"
+              data-aos="fade-right"
+              data-aos-duration="600"
+            >
+              <%= t("VISION.name") %>
+            </h1>
+            <h1
+              class="title"
+              data-aos="fade-right"
+              data-aos-duration="600"
+              class="title"
+            >
+              <%= t("VISION.h1") %> <span><%= t("VISION.span") %></span>
+            </h1>
+            <p
+              data-aos="fade-right"
+              data-aos-duration="600"
+              data-aos-delay="100"
+            >
+              <%= t("VISION.p") %>
+            </p>
+            <a
+              data-aos="fade-right"
+              data-aos-duration="600"
+              data-aos-delay="100"
+              href="/<%=lang()%>"
+            >
+              <button class="btn"><%= t("VISION.btn") %></button>
+            </a>
           </div>
-          <div class="card">
-            <div class="card-face front">
-              <h1 class="title">
-                <%= t("VALUES.values-card.h1") %>
-                <span><%= t("VALUES.values-card.span") %></span>
-              </h1>
-              <p class="view-btn view-more">
-                <%= t("VALUES.values-card.more-btn") %>
-              </p>
-            </div>
-            <div class="card-face back">
-              <p><%= t("VALUES.values-card.p") %></p>
-              <p class="view-btn view-less">
-                <%= t("VALUES.values-card.less-btn") %>
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- mission -->
-        <div
-          class="card-cont"
-          data-aos="fade-up"
-          data-aos-duration="600"
-          data-aos-delay="100"
-        >
-          <div class="icon">
-            <img class="icon-img" src="./icons/mission.svg" alt="our mission" />
-          </div>
-          <div class="card">
-            <div class="card-face front">
-              <h1 class="title">
-                <%= t("VALUES.mission-card.h1") %>
-                <span><%= t("VALUES.mission-card.span") %></span>
-              </h1>
-              <p class="view-btn view-more">
-                <%= t("VALUES.mission-card.more-btn") %>
-              </p>
-            </div>
-            <div class="card-face back">
-              <p><%= t("VALUES.mission-card.p") %></p>
-              <p class="view-btn view-less">
-                <%= t("VALUES.mission-card.less-btn") %>
-              </p>
-            </div>
-          </div>
-        </div>
+          <img
+            class="right"
+            data-aos="flip-right"
+            data-aos-duration="900"
+            data-aos-delay="100"
+            src="<%= images.VISION.main_img %>"
+            alt="el-nour trading"
+          />
+        </header>
       </div>
     </section>
+
 
     <!-- HISTORY -->
     <section id="history">
@@ -276,6 +267,63 @@
         ></div>
       </div>
     </section>
+
+        <!-- VALUES -->
+        <section id="values">
+          <div class="container">
+            <!-- values -->
+            <div class="card-cont" data-aos="fade-up" data-aos-duration="600">
+              <div class="icon">
+                <img class="icon-img" src="./icons/diamond.svg" alt="our values" />
+              </div>
+              <div class="card">
+                <div class="card-face front">
+                  <h1 class="title">
+                    <%= t("VALUES.values-card.h1") %>
+                    <span><%= t("VALUES.values-card.span") %></span>
+                  </h1>
+                  <p class="view-btn view-more">
+                    <%= t("VALUES.values-card.more-btn") %>
+                  </p>
+                </div>
+                <div class="card-face back">
+                  <p><%= t("VALUES.values-card.p") %></p>
+                  <p class="view-btn view-less">
+                    <%= t("VALUES.values-card.less-btn") %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- mission -->
+            <div
+              class="card-cont"
+              data-aos="fade-up"
+              data-aos-duration="600"
+              data-aos-delay="100"
+            >
+              <div class="icon">
+                <img class="icon-img" src="./icons/mission.svg" alt="our mission" />
+              </div>
+              <div class="card">
+                <div class="card-face front">
+                  <h1 class="title">
+                    <%= t("VALUES.mission-card.h1") %>
+                    <span><%= t("VALUES.mission-card.span") %></span>
+                  </h1>
+                  <p class="view-btn view-more">
+                    <%= t("VALUES.mission-card.more-btn") %>
+                  </p>
+                </div>
+                <div class="card-face back">
+                  <p><%= t("VALUES.mission-card.p") %></p>
+                  <p class="view-btn view-less">
+                    <%= t("VALUES.mission-card.less-btn") %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
     <!-- BANNER -->
     <%- include("./parts/banner.ejs") %>

@@ -84,9 +84,14 @@ router.get("/gallery", async (req, res) => {
 });
 
 // GET vision page
-router.get("/vision", (req, res) => {
-  const { currentLocale, images } = getJsons(res);
-  res.render("vision", { images, currentLocale, t: res.__ });
+router.get("/vision", async (req, res) => {
+  try {
+    const { currentLocale, images } = getJsons(res);
+    const brochures = await Brochure.find({});
+    res.render("vision", { brochures, images, currentLocale, t: res.__ });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 // GET commodity page

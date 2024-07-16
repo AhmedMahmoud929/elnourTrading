@@ -12,46 +12,80 @@
   <!-- list -->
   <ul class="main-ul">
     <li>
-      <a
-        href="/<%=lang()%>"
-        class="<%= active=='home' ? 'active' : 'inactive' %>"
-        ><%= t("NAVBAR.nav_elements.a1") %></a
+      <a href="#" class="drop-down-item">
+        <i class="fa-solid fa-chevron-down drop-down-icon"></i>
+        <%= t("NAVBAR.ele1.title") %></a
       >
+      <ul class="sub-list">
+        <li>
+          <a href="<%= base %>#home"><%= t("NAVBAR.ele1.sub1") %></a>
+        </li>
+        <li>
+          <a href="<%= base %>#about"><%= t("NAVBAR.ele1.sub2") %></a>
+        </li>
+        <li>
+          <a href="<%= base %>#questions"><%= t("NAVBAR.ele1.sub3") %></a>
+        </li>
+        <li>
+          <a href="<%= base %>#contact"><%= t("NAVBAR.ele1.sub4") %></a>
+        </li>
+      </ul>
     </li>
 
     <li>
-      <a
-        href="/vision<%=lang()%>"
-        class="<%= active=='co-profile' ? 'active' : 'inactive' %>"
-        ><%= t("NAVBAR.nav_elements.a2") %></a
+      <a href="#" class="drop-down-item">
+        <i class="fa-solid fa-chevron-down drop-down-icon"></i>
+        <%= t("NAVBAR.ele2.title") %></a
       >
+      <ul class="sub-list">
+        <li>
+          <a href="/vision#about"><%= t("NAVBAR.ele2.sub1") %></a>
+        </li>
+        <li>
+          <a href="/vision"><%= t("NAVBAR.ele2.sub2") %></a>
+        </li>
+        <li>
+          <a href="/vision#values"><%= t("NAVBAR.ele2.sub3") %></a>
+        </li>
+        <li>
+          <a href="/vision#history"><%= t("NAVBAR.ele2.sub4") %></a>
+        </li>
+      </ul>
     </li>
     <li>
-      <a
-        href="/commodity<%=lang()%>"
-        class="<%= active=='commodity' ? 'active' : 'inactive' %>"
-        ><%= t("NAVBAR.nav_elements.a3") %></a
+      <a href="#" class="drop-down-item">
+        <i class="fa-solid fa-chevron-down drop-down-icon"></i>
+        <%= t("NAVBAR.ele3.title") %></a
       >
+      <ul class="sub-list">
+        <li>
+          <a href="/commodity"><%= t("NAVBAR.ele3.sub1") %></a>
+        </li>
+        <li>
+          <a href="/commodity#transportation"><%= t("NAVBAR.ele3.sub2") %></a>
+        </li>
+      </ul>
     </li>
     <li>
       <a
         href="/gallery<%=lang()%>"
         class="<%= active=='gallery' ? 'active' : 'inactive' %>"
-        ><%= t("NAVBAR.nav_elements.a4") %></a
       >
+        <%= t("NAVBAR.ele4") %>
+      </a>
     </li>
     <li>
       <a
         href="/blog<%=lang()%>"
         class="<%= active=='news' ? 'active' : 'inactive' %>"
-        ><%= t("NAVBAR.nav_elements.a5") %></a
+        ><%= t("NAVBAR.ele5") %></a
       >
     </li>
     <li>
       <a
         href="/contact<%=lang()%>"
         class="<%= active=='contact' ? 'active' : 'inactive' %>"
-        ><%= t("NAVBAR.nav_elements.a6") %></a
+        ><%= t("NAVBAR.ele6") %></a
       >
     </li>
     <li class="image-li">
@@ -75,15 +109,68 @@
 </nav>
 <ul class="nav-phone">
   <li>
-    <a href="<%= base %>#home" class="active"
-      ><%= t("NAVBAR.nav_elements.a1") %></a
-    >
+    <a href="#" class="drop-down-item">
+      <i class="fa-solid fa-chevron-down drop-down-icon"></i>
+      <%= t("NAVBAR.ele1.title") %>
+    </a>
+    <ul class="sub-list">
+      <li>
+        <a href="<%= base %>#home"><%= t("NAVBAR.ele1.sub1") %></a>
+      </li>
+      <li>
+        <a href="<%= base %>#about"><%= t("NAVBAR.ele1.sub2") %></a>
+      </li>
+      <li>
+        <a href="<%= base %>#questions"><%= t("NAVBAR.ele1.sub3") %></a>
+      </li>
+      <li>
+        <a href="<%= base %>#contact"><%= t("NAVBAR.ele1.sub4") %></a>
+      </li>
+    </ul>
   </li>
-  <li><a href="<%= base %>#about"><%= t("NAVBAR.nav_elements.a2") %></a></li>
-  <li><a href="/profile"><%= t("NAVBAR.nav_elements.a3") %></a></li>
-  <li><a href="<%= base %>#services"><%= t("NAVBAR.nav_elements.a4") %></a></li>
-  <li><a href="<%= base %>#gallery"><%= t("NAVBAR.nav_elements.a5") %></a></li>
-  <li><a href="#contact"><%= t("NAVBAR.nav_elements.a6") %></a></li>
+
+  <li>
+    <a href="#" class="drop-down-item">
+      <i class="fa-solid fa-chevron-down drop-down-icon"></i>
+      <%= t("NAVBAR.ele2.title") %>
+    </a>
+    <ul class="sub-list">
+      <li>
+        <a href="/vision#about"><%= t("NAVBAR.ele2.sub1") %></a>
+      </li>
+      <li>
+        <a href="/vision"><%= t("NAVBAR.ele2.sub2") %></a>
+      </li>
+      <li>
+        <a href="/vision#values"><%= t("NAVBAR.ele2.sub3") %></a>
+      </li>
+      <li>
+        <a href="/vision#history"><%= t("NAVBAR.ele2.sub4") %></a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#" class="drop-down-item">
+      <i class="fa-solid fa-chevron-down drop-down-icon"></i>
+      <%= t("NAVBAR.ele3.title") %>
+    </a>
+    <ul class="sub-list">
+      <li>
+        <a href="/commodity"><%= t("NAVBAR.ele3.sub1") %></a>
+      </li>
+      <li>
+        <a href="/commodity#transportation"><%= t("NAVBAR.ele3.sub2") %></a>
+      </li>
+    </ul>
+  </li>
+
+  <li><a href="/gallery<%=lang()%>"><%= t("NAVBAR.ele4") %></a></li>
+
+  <li><a href="/blog<%= lang()%>"><%= t("NAVBAR.ele5") %></a></li>
+
+  <li><a href="/contact<%=lang()%>"><%= t("NAVBAR.ele6") %></a></li>
+
   <li class="image-li">
     <% if(currentLocale=="en"){%>
     <a href="/?lang=ar">
@@ -96,6 +183,37 @@
     <%} %>
   </li>
 </ul>
+<script>
+  let dropDownItems = document.querySelectorAll(".drop-down-item");
+  let subLists = document.querySelectorAll(".sub-list");
+  let subListsLinks = document.querySelectorAll(".sub-list li a");
+  //
+  dropDownItems.forEach((item, ix) => {
+    item.addEventListener("click", () => {
+      subLists[ix].classList.toggle("active");
+      item.classList.toggle("active");
+    });
+  });
+  //
+  subListsLinks.forEach((item, ix) => {
+    item.addEventListener("click", () => {
+      subLists.forEach((ele) => ele.classList.remove("active"));
+      dropDownItems.forEach((ele) => ele.classList.remove("active"));
+    });
+  });
+  //
+  document.addEventListener("click", (event) => {
+    dropDownItems.forEach((item, ix) => {
+      if (
+        !item.contains(event.target) &&
+        !subLists[ix].contains(event.target)
+      ) {
+        subLists[ix].classList.remove("active");
+        item.classList.remove("active");
+      }
+    });
+  });
+</script>
 <script>
   const langHref = document.querySelector(".image-li a");
   const pathName = location.pathname;

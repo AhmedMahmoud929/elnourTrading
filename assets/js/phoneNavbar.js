@@ -37,8 +37,8 @@ function openNavbar() {
 }
 
 // When click on a link
-navLinks.forEach((ele, ix) => {
-  ele.addEventListener("click", () => {
-    closeNavbar();
-  });
-});
+// navLinks.forEach((ele, ix) => {
+//   ele.addEventListener("click", () => {
+//     closeNavbar();
+//   });
+// });
