@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -16,10 +17,11 @@ const i18n = require("i18n");
 const cookieParser = require("cookie-parser");
 const SessionStore = require("connect-mongodb-session")(session);
 
-const DB_URL =
-  "mongodb+srv://ahmedMahmoud:ahmedMahmoud@cluster0.u22xrj7.mongodb.net/elnourTrading?retryWrites=true&w=majority";
+// const DB_URL =
+//   "mongodb+srv://ahmedMahmoud:ahmedMahmoud@cluster0.u22xrj7.mongodb.net/elnourTrading?retryWrites=true&w=majority";
 
-// const DB_URL = "mongodb://127.0.0.1:27017/elnourTrading";
+const DB_URL =
+  process.env.MONGO_URI || "mongodb://127.0.0.1:27017/elnourTrading";
 
 // Routers
 const AuthRouter = require("./routers/auth.router");

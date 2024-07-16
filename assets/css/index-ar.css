@@ -71,13 +71,15 @@ section.container .job-section .requirements li {
   margin-right: 40px;
 }
 
-.sub-list {
-transform: translateX(20%) scaleY(0) skew(20deg, 20deg);
-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
-}
-.sub-list.active {
-opacity: 1;
-transform: translateX(20%) scaleY(1) skew(0deg, 0deg);
+@media (max-width: 1000px) {
+  .sub-list {
+    transform: translateX(20%) scaleY(0) skew(20deg, 20deg);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+  }
+  .sub-list.active {
+    opacity: 1;
+    transform: translateX(20%) scaleY(1) skew(0deg, 0deg);
+  }
 }
 
 @media (max-width: 1100px) {
