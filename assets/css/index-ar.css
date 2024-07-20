@@ -11,6 +11,7 @@
 
 nav .main-ul {
   margin-left: -40px;
+  flex-direction: row-reverse;
 }
 
 nav .image-li {

@@ -39,56 +39,11 @@
     <% } %>
   </head>
   <body>
-
-    <section id="profile">
-      <div class="container">
-        <!-- navbar -->
-        <%- include("./parts/navbar.ejs",{active:"", base:"/"}) %>
-
-        <!-- header -->
-        <header>
-          <h1
-            class="title"
-            data-aos="fade-up"
-            data-aos-duration="600"
-            class="title"
-          >
-            <%= t("PROFILE.h1") %> <span><%= t("PROFILE.span") %></span>
-          </h1>
-
-          <div class="cards-cont">
-            <% for(brochure of brochures) { %>
-            <div
-              class="card"
-              data-aos="zoom-out-down"
-              data-aos-duration="800"
-              data-aos-delay="100"
-            >
-              <div class="cover">
-                <a href="<%= brochure.file %>" download="<%= brochure.file %>">
-                  <button class="btn">
-                    <i class="fa-solid fa-file-arrow-down"></i>
-                  </button>
-                </a>
-                <img src="<%= brochure.cover %>" alt="" />
-                <img src="./imgs/grady_bg.png" alt="" />
-              </div>
-              <div class="details">
-                <h1><%= brochure.title %></h1>
-              </div>
-            </div>
-            <% } %>
-          </div>
-          <!-- end of MAIN ELEMENT -->
-          <a data-aos="fade-up" data-aos-duration="600" href="/<%=lang()%>">
-            <button class="btn"><%= t("PROFILE.btn") %></button>
-          </a>
-        </header>
-      </div>
-    </section>
-
     <!-- ABOUT -->
     <section id="about">
+      <div style="width: 80%; margin: auto">
+        <%- include("./parts/navbar.ejs",{active:"", base:"/"}) %>
+      </div>
       <div class="container">
         <div
           class="left"
@@ -137,10 +92,9 @@
       </div>
     </section>
 
-     <!-- VISION -->
-     <section id="vision">
+    <!-- VISION -->
+    <section id="vision">
       <div class="container">
-
         <!-- header -->
         <header>
           <div class="left">
@@ -188,6 +142,62 @@
       </div>
     </section>
 
+    <!-- VALUES -->
+    <section id="values">
+      <div class="container">
+        <!-- values -->
+        <div class="card-cont" data-aos="fade-up" data-aos-duration="600">
+          <div class="icon">
+            <img class="icon-img" src="./icons/diamond.svg" alt="our values" />
+          </div>
+          <div class="card">
+            <div class="card-face front">
+              <h1 class="title">
+                <%= t("VALUES.values-card.h1") %>
+                <span><%= t("VALUES.values-card.span") %></span>
+              </h1>
+              <p class="view-btn view-more">
+                <%= t("VALUES.values-card.more-btn") %>
+              </p>
+            </div>
+            <div class="card-face back">
+              <p><%= t("VALUES.values-card.p") %></p>
+              <p class="view-btn view-less">
+                <%= t("VALUES.values-card.less-btn") %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- mission -->
+        <div
+          class="card-cont"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <div class="icon">
+            <img class="icon-img" src="./icons/mission.svg" alt="our mission" />
+          </div>
+          <div class="card">
+            <div class="card-face front">
+              <h1 class="title">
+                <%= t("VALUES.mission-card.h1") %>
+                <span><%= t("VALUES.mission-card.span") %></span>
+              </h1>
+              <p class="view-btn view-more">
+                <%= t("VALUES.mission-card.more-btn") %>
+              </p>
+            </div>
+            <div class="card-face back">
+              <p><%= t("VALUES.mission-card.p") %></p>
+              <p class="view-btn view-less">
+                <%= t("VALUES.mission-card.less-btn") %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- HISTORY -->
     <section id="history">
@@ -268,62 +278,49 @@
       </div>
     </section>
 
-        <!-- VALUES -->
-        <section id="values">
-          <div class="container">
-            <!-- values -->
-            <div class="card-cont" data-aos="fade-up" data-aos-duration="600">
-              <div class="icon">
-                <img class="icon-img" src="./icons/diamond.svg" alt="our values" />
-              </div>
-              <div class="card">
-                <div class="card-face front">
-                  <h1 class="title">
-                    <%= t("VALUES.values-card.h1") %>
-                    <span><%= t("VALUES.values-card.span") %></span>
-                  </h1>
-                  <p class="view-btn view-more">
-                    <%= t("VALUES.values-card.more-btn") %>
-                  </p>
-                </div>
-                <div class="card-face back">
-                  <p><%= t("VALUES.values-card.p") %></p>
-                  <p class="view-btn view-less">
-                    <%= t("VALUES.values-card.less-btn") %>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- mission -->
+    <section id="profile">
+      <div class="container">
+        <!-- header -->
+        <header>
+          <h1
+            class="title"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            class="title"
+          >
+            <%= t("PROFILE.h1") %> <span><%= t("PROFILE.span") %></span>
+          </h1>
+
+          <div class="cards-cont">
+            <% for(brochure of brochures) { %>
             <div
-              class="card-cont"
-              data-aos="fade-up"
-              data-aos-duration="600"
+              class="card"
+              data-aos="zoom-out-down"
+              data-aos-duration="800"
               data-aos-delay="100"
             >
-              <div class="icon">
-                <img class="icon-img" src="./icons/mission.svg" alt="our mission" />
+              <div class="cover">
+                <a href="<%= brochure.file %>" download="<%= brochure.file %>">
+                  <button class="btn">
+                    <i class="fa-solid fa-file-arrow-down"></i>
+                  </button>
+                </a>
+                <img src="<%= brochure.cover %>" alt="" />
+                <img src="./imgs/grady_bg.png" alt="" />
               </div>
-              <div class="card">
-                <div class="card-face front">
-                  <h1 class="title">
-                    <%= t("VALUES.mission-card.h1") %>
-                    <span><%= t("VALUES.mission-card.span") %></span>
-                  </h1>
-                  <p class="view-btn view-more">
-                    <%= t("VALUES.mission-card.more-btn") %>
-                  </p>
-                </div>
-                <div class="card-face back">
-                  <p><%= t("VALUES.mission-card.p") %></p>
-                  <p class="view-btn view-less">
-                    <%= t("VALUES.mission-card.less-btn") %>
-                  </p>
-                </div>
+              <div class="details">
+                <h1><%= brochure.title %></h1>
               </div>
             </div>
+            <% } %>
           </div>
-        </section>
+          <!-- end of MAIN ELEMENT -->
+          <a data-aos="fade-up" data-aos-duration="600" href="/<%=lang()%>">
+            <button class="btn"><%= t("PROFILE.btn") %></button>
+          </a>
+        </header>
+      </div>
+    </section>
 
     <!-- BANNER -->
     <%- include("./parts/banner.ejs") %>

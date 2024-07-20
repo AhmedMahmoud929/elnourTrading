@@ -5,35 +5,21 @@
   <div
     style="display: flex; justify-items: center; align-items: center; gap: 14px"
   >
-    <a href="/">
+    <a href="/<%= lang()%>">
       <img src="<%= images.NAVBAR.logo %>" alt="el-nour trading" />
     </a>
   </div>
   <!-- list -->
   <ul class="main-ul">
     <li>
-      <a href="#" class="drop-down-item">
-        <i class="fa-solid fa-chevron-down drop-down-icon"></i>
+      <a href="/<%= lang()%>">
+        <!-- <i class="fa-solid fa-chevron-down drop-down-icon"></i> -->
         <%= t("NAVBAR.ele1.title") %></a
       >
-      <ul class="sub-list">
-        <li>
-          <a href="<%= base %>#home"><%= t("NAVBAR.ele1.sub1") %></a>
-        </li>
-        <li>
-          <a href="<%= base %>#about"><%= t("NAVBAR.ele1.sub2") %></a>
-        </li>
-        <li>
-          <a href="<%= base %>#questions"><%= t("NAVBAR.ele1.sub3") %></a>
-        </li>
-        <li>
-          <a href="<%= base %>#contact"><%= t("NAVBAR.ele1.sub4") %></a>
-        </li>
-      </ul>
     </li>
 
-    <li>
-      <a href="#" class="drop-down-item">
+    <li class="drop-down-item">
+      <a href="#" class="main-a" route="vision" lang="<%= lang()%>">
         <i class="fa-solid fa-chevron-down drop-down-icon"></i>
         <%= t("NAVBAR.ele2.title") %></a
       >
@@ -52,8 +38,8 @@
         </li>
       </ul>
     </li>
-    <li>
-      <a href="#" class="drop-down-item">
+    <li class="drop-down-item">
+      <a href="#" class="main-a" route="commodity" lang="<%= lang()%>">
         <i class="fa-solid fa-chevron-down drop-down-icon"></i>
         <%= t("NAVBAR.ele3.title") %></a
       >
@@ -109,28 +95,14 @@
 </nav>
 <ul class="nav-phone">
   <li>
-    <a href="#" class="drop-down-item">
-      <i class="fa-solid fa-chevron-down drop-down-icon"></i>
+    <a href="/<%= lang()%>">
+      <!-- <i class="fa-solid fa-chevron-down drop-down-icon"></i> -->
       <%= t("NAVBAR.ele1.title") %>
     </a>
-    <ul class="sub-list">
-      <li>
-        <a href="<%= base %>#home"><%= t("NAVBAR.ele1.sub1") %></a>
-      </li>
-      <li>
-        <a href="<%= base %>#about"><%= t("NAVBAR.ele1.sub2") %></a>
-      </li>
-      <li>
-        <a href="<%= base %>#questions"><%= t("NAVBAR.ele1.sub3") %></a>
-      </li>
-      <li>
-        <a href="<%= base %>#contact"><%= t("NAVBAR.ele1.sub4") %></a>
-      </li>
-    </ul>
   </li>
 
-  <li>
-    <a href="#" class="drop-down-item">
+  <li class="drop-down-item">
+    <a href="#">
       <i class="fa-solid fa-chevron-down drop-down-icon"></i>
       <%= t("NAVBAR.ele2.title") %>
     </a>
@@ -150,8 +122,8 @@
     </ul>
   </li>
 
-  <li>
-    <a href="#" class="drop-down-item">
+  <li class="drop-down-item">
+    <a href="#">
       <i class="fa-solid fa-chevron-down drop-down-icon"></i>
       <%= t("NAVBAR.ele3.title") %>
     </a>
@@ -183,37 +155,7 @@
     <%} %>
   </li>
 </ul>
-<script>
-  let dropDownItems = document.querySelectorAll(".drop-down-item");
-  let subLists = document.querySelectorAll(".sub-list");
-  let subListsLinks = document.querySelectorAll(".sub-list li a");
-  //
-  dropDownItems.forEach((item, ix) => {
-    item.addEventListener("click", () => {
-      subLists[ix].classList.toggle("active");
-      item.classList.toggle("active");
-    });
-  });
-  //
-  subListsLinks.forEach((item, ix) => {
-    item.addEventListener("click", () => {
-      subLists.forEach((ele) => ele.classList.remove("active"));
-      dropDownItems.forEach((ele) => ele.classList.remove("active"));
-    });
-  });
-  //
-  document.addEventListener("click", (event) => {
-    dropDownItems.forEach((item, ix) => {
-      if (
-        !item.contains(event.target) &&
-        !subLists[ix].contains(event.target)
-      ) {
-        subLists[ix].classList.remove("active");
-        item.classList.remove("active");
-      }
-    });
-  });
-</script>
+<script src="./js/navDropDown.js"></script>
 <script>
   const langHref = document.querySelector(".image-li a");
   const pathName = location.pathname;

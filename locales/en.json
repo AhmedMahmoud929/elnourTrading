@@ -1,229 +1,231 @@
 {
-	"NAVBAR": {
-		"ele1": {
-			"title": "Home",
-			"sub1": "Home",
-			"sub2": "News",
-			"sub3": "Careers",
-			"sub4": "Contact"
-		},
-		"ele2": {
-			"title": "CO Profile",
-			"sub1": "About",
-			"sub2": "Brochures",
-			"sub3": "Values",
-			"sub4": "History"
-		},
-		"ele3": {
-			"title": "Commodity",
-			"sub1": "Commodity",
-			"sub2": "Transportation"
-		},
-		"ele4": "Gallery",
-		"ele5": "News",
-		"ele6": "Contact",
-		"nav_elements": {
-			"a1": "NAVBAR.nav_elements.a1",
-			"a2": "NAVBAR.nav_elements.a2",
-			"a3": "NAVBAR.nav_elements.a3",
-			"a4": "NAVBAR.nav_elements.a4",
-			"a5": "NAVBAR.nav_elements.a5",
-			"a6": "NAVBAR.nav_elements.a6"
-		}
-	},
-	"HOME": {
-		"span": "Reliability",
-		"h1": "through years of experience",
-		"p": "EL NOUR TRADING CO was founded in 1995, We are one of the main players within the Egyptian market.",
-		"btn": "Learn more!"
-	},
-	"ABOUT": {
-		"name": "ABOUT",
-		"pre-span": "We're",
-		"span": "Partner",
-		"post-span": "Of Your Innovations",
-		"p": "Founded in 1995, EL-NOUR TRADING CO is a prominent player in Egypt's grain market. specializing in wheat trading and land transportation. Our fleet of 30 trucks supports top-notch logistics.while our team of 250+ experienced employees ensures customer satisfaction and contract fulfillment.",
-		"btn": "Back to home"
-	},
-	"VALUES": {
-		"mission-card": {
-			"h1": "OUR",
-			"span": "MISSION",
-			"p": "To provide an excellent service to our clients, by giving them their principal position in the business and by treating them with integrity and honesty they deserve. To deliver quality service on time and at the convenience of our clients. To always use quality material to give our customers value for their money. To train young professionals who wish to operate in the same industry",
-			"more-btn": "view more",
-			"less-btn": "view less"
-		},
-		"values-card": {
-			"h1": "OUR",
-			"span": "VALUES",
-			"p": "We value excellence, trust, Respect, empowerment, accountability and mutual relationship. Consistent quality services, Consistent innovation and No substitute for quality.",
-			"more-btn": "view more",
-			"less-btn": "view less"
-		}
-	},
-	"NEWS": {
-		"name": "NEWS",
-		"h1": "The News",
-		"span": "Ledger",
-		"p": "Founded in 1995, EL-NOUR TRADING CO is a prominent player in Egypt's grain market. Founded in 1995, EL-NOUR TRADING CO is a prominent player in Egypt's grain market.",
-		"home_btn": "Our Blog",
-		"back_btn": "Back to home",
-		"view_btn": "Read More"
-	},
-	"HISTORY": {
-		"slide1": {
-			"date": "1995-2000",
-			"h1": "A New Name, A New Chapter",
-			"p": "El Nour Transportation is founded by Mohamed Abdelmonem to serve the transportation line across Egypt."
-		},
-		"slide2": {
-			"date": "2001-2013",
-			"h1": "Starting With Local Trading",
-			"p": "The company begins forging a new way forward, with renewed focus on sustainability and on building strong relationships based on trust, inspired by our past as we drive toward the future."
-		},
-		"slide3": {
-			"date": "2013-2015",
-			"h1": "Becoming The Value Chain",
-			"p": "The company begins forging a new way forward, with renewed focus on sustainability and on building strong relationships based on trust, inspired by our past as we drive toward the future."
-		},
-		"slide4": {
-			"date": "2015-2018",
-			"h1": "Diversity & Inclusion Council established",
-			"p": "We launch our strategic focus on Diversity & Inclusion which will include a newly created Chief Diversity Officer to lead the efforts."
-		},
-		"slide5": {
-			"date": "2018-2021",
-			"h1": "New beginning in industrial field",
-			"p": "First step in crude oil production As the world is swept by an unprecedented pandemic in modern times, our global reach, trading expertise and entrepreneurial outlook allow us to navigate challenges, deliver strong results and pursue transformation plans."
-		}
-	},
-	"TRANSPORTATION": {
-		"name": "TRANSPORTATION",
-		"h1_first": "Large Enough To",
-		"span_first": "Handle",
-		"h1_second": "Small Enough To",
-		"span_second": "Care",
-		"p": "100% guarantee safe delivery with over 50 highly modernized track, to local goals, We know the value of all products. We make thier save arrival our top priority.",
-		"btn": "Contact"
-	},
-	"PRODUCTS": {
-		"title": "WHAT WE OFFER",
-		"contactBtn": "Contact",
-		"product1": {
-			"name": "WHEAT",
-			"desc": "We are one of the largest companies in the wheat trade in Egypt"
-		},
-		"product2": {
-			"name": "CORN",
-			"desc": "We work in the field of corn from a period and we have a large part in the Egyptian market"
-		},
-		"product3": {
-			"name": "SOYBEAN MEALS",
-			"desc": "We supply all quantities required of animal feed from soyabean meals"
-		},
-		"product4": {
-			"name": "SOYA OIL",
-			"desc": "We supply all quantities required for oil extraction plants from Soybean seed"
-		},
-		"product5": {
-			"name": "SOYABEAN",
-			"desc": "We supply the quantities required for feed factories"
-		}
-	},
-	"GALLERY": {
-		"name": "GALLERY",
-		"h1": "Our company in",
-		"span": "frames",
-		"btn": "View All",
-		"sub_page_btn": "Back To Home"
-	},
-	"CONTACT": {
-		"name": "CONTACT",
-		"h1": "Let's stay",
-		"span": "connected",
-		"map_location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13706.65451112505!2d30.831620000000004!3d30.812065999999998!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f634723350ee21%3A0x2284d9ef134cc012!2z2LTYsdmD2Kkg2KfZhNmG2YjYsSDZhNmE2YbZgtmEINmI2KfZhNin2LPYqtmK2LHYp9ivINmI2KfZhNiq2LXYr9mK2LE!5e0!3m2!1sen!2sus!4v1691331399677!5m2!1sen!2sus",
-		"form": {
-			"name_placeholder": "Name",
-			"email_placeholder": "Email",
-			"msg_placeholder": "Message",
-			"btn": "Send"
-		},
-		"sub_pages_contact_btn": "Contact",
-		"sub_pages_contact_p": "AL-Nour Co. has a big and ambitious vision to raise, Contact us now if you have any questions",
-		"location": {
-			"title": "Location",
-			"content": "Egypt/El-Gharbiya/Kafr-Elzayat/El-Dalgamon"
-		},
-		"phone": {
-			"title": "Phone",
-			"ele1_job": "Head of trade",
-			"ele1_name": "Marwan El-Fouly",
-			"ele1_num": "+2 01000343444",
-			"ele2_job": "Chief financial officer",
-			"ele2_name": "Hisham Atef",
-			"ele2_num": "+2 01066652975",
-			"ele3_job": "Plant Manager",
-			"ele3_name": "Ahmed Shaltout",
-			"ele3_num": "+2 01011393902"
-		},
-		"social": {
-			"title": "Social",
-			"url_name_1": "Facebook",
-			"url_1": "https://www.facebook.com/profile.php?id=100024270064870",
-			"url_name_2": "Instagram",
-			"url_2": "https://www.facebook.com/profile.php?id=100024270064870",
-			"url_name_3": "Linkedin",
-			"url_3": "https://www.facebook.com/profile.php?id=100024270064870",
-			"url_name_4": "Twitter",
-			"url_4": "https://www.facebook.com/profile.php?id=100024270064870",
-			"url_name_5": "Youtube",
-			"url_5": "https://www.facebook.com/profile.php?id=100024270064870"
-		}
-	},
-	"QUESTIONS": {
-		"h1": "Questions?",
-		"h1_span": "Email us!",
-		"h1_p": "If you have any questions or need assistance feel free to contact us.",
-		"form_p": "we care about your data in our",
-		"form_span": "privacy policy",
-		"btn": "Send"
-	},
-	"VISION": {
-		"name": "VISION",
-		"h1": "Visionary Minds",
-		"span": "Unite",
-		"p": "Al Nour co. has a big and ambitious vision to raise the size of the company. Through the opening of many areas in the labor market and not to stand on what has been established only. We are in the process of establishing a plant to extract the oils of 1000 tons daily On an area of 17000 meters , We are establishing a subsidiary of Al Nour under the name of Global Green",
-		"btn": "Back to home"
-	},
-	"PROFILE": {
-		"h1": "Company",
-		"span": "profile",
-		"btn": "Back to home"
-	},
-	"FOOTER": {
-		"footer_elements": {
-			"a1": "Home",
-			"a2": "About",
-			"a3": "CO Profile",
-			"a4": "Commodity",
-			"a5": "Gallery",
-			"a6": "Contact"
-		},
-		"p": "© 2024 El-Nour, All rights reserved"
-	},
-	"CAREERS": {
-		"pre_main_span": "Build Your",
-		"main_span": "Career",
-		"post_main_span": "with Us",
-		"main_p": "We are looking for passionate, innovative, and driven individuals to join our team. At El-Nour, you'll have the opportunity to work on exciting projects, collaborate with a talented team, and make a real impact.",
-		"main_btn": "Explore jobs",
-		"apply_h1": "Apply now",
-		"apply_p": "We're hiring! If you're passionate, creative, and ready to make an impact, we'd love to hear from you. Join our innovative team at El-Nour and take your career to the next level. Apply now!",
-		"send_btn": "Send CV",
-		"upload_btn": "Upload CV",
-		"description_header": "Job description",
-		"requirements_header": "Job requirements",
-		"tags_header": "Tags",
-		"no_jobs_msg": "There is no jobs currently."
-	}
+  "NAVBAR": {
+    "ele1": {
+      "title": "Home",
+      "sub1": "Home",
+      "sub2": "News",
+      "sub3": "Careers",
+      "sub4": "Contact"
+    },
+    "ele2": {
+      "title": "CO Profile",
+      "sub1": "About",
+      "sub2": "Brochures",
+      "sub3": "Values",
+      "sub4": "History"
+    },
+    "ele3": {
+      "title": "Commodity",
+      "sub1": "Commodity",
+      "sub2": "Transportation"
+    },
+    "ele4": "Gallery",
+    "ele5": "News",
+    "ele6": "Contact",
+    "nav_elements": {
+      "a1": "NAVBAR.nav_elements.a1",
+      "a2": "NAVBAR.nav_elements.a2",
+      "a3": "NAVBAR.nav_elements.a3",
+      "a4": "NAVBAR.nav_elements.a4",
+      "a5": "NAVBAR.nav_elements.a5",
+      "a6": "NAVBAR.nav_elements.a6"
+    },
+    "ele7": "Careers"
+  },
+  "HOME": {
+    "span": "Reliability",
+    "h1": "through years of experience",
+    "p": "EL NOUR TRADING CO was founded in 1995, We are one of the main players within the Egyptian market.",
+    "btn": "Learn more!"
+  },
+  "ABOUT": {
+    "name": "ABOUT",
+    "pre-span": "We're",
+    "span": "Partner",
+    "post-span": "Of Your Innovations",
+    "p": "Founded in 1995, EL-NOUR TRADING CO is a prominent player in Egypt's grain market. specializing in wheat trading and land transportation. Our fleet of 30 trucks supports top-notch logistics.while our team of 250+ experienced employees ensures customer satisfaction and contract fulfillment.",
+    "btn": "Back to home"
+  },
+  "VALUES": {
+    "mission-card": {
+      "h1": "OUR",
+      "span": "MISSION",
+      "p": "To provide an excellent service to our clients, by giving them their principal position in the business and by treating them with integrity and honesty they deserve. To deliver quality service on time and at the convenience of our clients. To always use quality material to give our customers value for their money. To train young professionals who wish to operate in the same industry",
+      "more-btn": "view more",
+      "less-btn": "view less"
+    },
+    "values-card": {
+      "h1": "OUR",
+      "span": "VALUES",
+      "p": "We value excellence, trust, Respect, empowerment, accountability and mutual relationship. Consistent quality services, Consistent innovation and No substitute for quality.",
+      "more-btn": "view more",
+      "less-btn": "view less"
+    }
+  },
+  "NEWS": {
+    "name": "NEWS",
+    "h1": "The News",
+    "span": "Ledger",
+    "p": "Founded in 1995, EL-NOUR TRADING CO is a prominent player in Egypt's grain market. Founded in 1995, EL-NOUR TRADING CO is a prominent player in Egypt's grain market.",
+    "home_btn": "Our Blog",
+    "back_btn": "Back to home",
+    "view_btn": "Read More"
+  },
+  "HISTORY": {
+    "slide1": {
+      "date": "1995-2000",
+      "h1": "A New Name, A New Chapter",
+      "p": "El Nour Transportation is founded by Mohamed Abdelmonem to serve the transportation line across Egypt."
+    },
+    "slide2": {
+      "date": "2001-2013",
+      "h1": "Starting With Local Trading",
+      "p": "The company begins forging a new way forward, with renewed focus on sustainability and on building strong relationships based on trust, inspired by our past as we drive toward the future."
+    },
+    "slide3": {
+      "date": "2013-2015",
+      "h1": "Becoming The Value Chain",
+      "p": "The company begins forging a new way forward, with renewed focus on sustainability and on building strong relationships based on trust, inspired by our past as we drive toward the future."
+    },
+    "slide4": {
+      "date": "2015-2018",
+      "h1": "Diversity & Inclusion Council established",
+      "p": "We launch our strategic focus on Diversity & Inclusion which will include a newly created Chief Diversity Officer to lead the efforts."
+    },
+    "slide5": {
+      "date": "2018-2021",
+      "h1": "New beginning in industrial field",
+      "p": "First step in crude oil production As the world is swept by an unprecedented pandemic in modern times, our global reach, trading expertise and entrepreneurial outlook allow us to navigate challenges, deliver strong results and pursue transformation plans."
+    }
+  },
+  "TRANSPORTATION": {
+    "name": "TRANSPORTATION",
+    "h1_first": "Large Enough To",
+    "span_first": "Handle",
+    "h1_second": "Small Enough To",
+    "span_second": "Care",
+    "p": "100% guarantee safe delivery with over 50 highly modernized track, to local goals, We know the value of all products. We make thier save arrival our top priority.",
+    "btn": "Contact"
+  },
+  "PRODUCTS": {
+    "title": "WHAT WE OFFER",
+    "contactBtn": "Contact",
+    "product1": {
+      "name": "WHEAT",
+      "desc": "We are one of the largest companies in the wheat trade in Egypt"
+    },
+    "product2": {
+      "name": "CORN",
+      "desc": "We work in the field of corn from a period and we have a large part in the Egyptian market"
+    },
+    "product3": {
+      "name": "SOYBEAN MEALS",
+      "desc": "We supply all quantities required of animal feed from soyabean meals"
+    },
+    "product4": {
+      "name": "SOYA OIL",
+      "desc": "We supply all quantities required for oil extraction plants from Soybean seed"
+    },
+    "product5": {
+      "name": "SOYABEAN",
+      "desc": "We supply the quantities required for feed factories"
+    }
+  },
+  "GALLERY": {
+    "name": "GALLERY",
+    "h1": "Our company in",
+    "span": "frames",
+    "btn": "View All",
+    "sub_page_btn": "Back To Home"
+  },
+  "CONTACT": {
+    "name": "CONTACT",
+    "h1": "Let's stay",
+    "span": "connected",
+    "map_location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13706.65451112505!2d30.831620000000004!3d30.812065999999998!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f634723350ee21%3A0x2284d9ef134cc012!2z2LTYsdmD2Kkg2KfZhNmG2YjYsSDZhNmE2YbZgtmEINmI2KfZhNin2LPYqtmK2LHYp9ivINmI2KfZhNiq2LXYr9mK2LE!5e0!3m2!1sen!2sus!4v1691331399677!5m2!1sen!2sus",
+    "form": {
+      "name_placeholder": "Name",
+      "email_placeholder": "Email",
+      "msg_placeholder": "Message",
+      "btn": "Send"
+    },
+    "sub_pages_contact_btn": "Contact",
+    "sub_pages_contact_p": "AL-Nour Co. has a big and ambitious vision to raise, Contact us now if you have any questions",
+    "location": {
+      "title": "Location",
+      "content": "Egypt/El-Gharbiya/Kafr-Elzayat/El-Dalgamon"
+    },
+    "phone": {
+      "title": "Phone",
+      "ele1_job": "Head of trade",
+      "ele1_name": "Marwan El-Fouly",
+      "ele1_num": "+2 01000343444",
+      "ele2_job": "Chief financial officer",
+      "ele2_name": "Hisham Atef",
+      "ele2_num": "+2 01066652975",
+      "ele3_job": "Plant Manager",
+      "ele3_name": "Ahmed Shaltout",
+      "ele3_num": "+2 01011393902"
+    },
+    "social": {
+      "title": "Social",
+      "url_name_1": "Facebook",
+      "url_1": "https://www.facebook.com/profile.php?id=100024270064870",
+      "url_name_2": "Instagram",
+      "url_2": "https://www.facebook.com/profile.php?id=100024270064870",
+      "url_name_3": "Linkedin",
+      "url_3": "https://www.facebook.com/profile.php?id=100024270064870",
+      "url_name_4": "Twitter",
+      "url_4": "https://www.facebook.com/profile.php?id=100024270064870",
+      "url_name_5": "Youtube",
+      "url_5": "https://www.facebook.com/profile.php?id=100024270064870"
+    }
+  },
+  "QUESTIONS": {
+    "h1": "Questions?",
+    "h1_span": "Email us!",
+    "h1_p": "If you have any questions or need assistance feel free to contact us.",
+    "form_p": "we care about your data in our",
+    "form_span": "privacy policy",
+    "btn": "Send"
+  },
+  "VISION": {
+    "name": "VISION",
+    "h1": "Visionary Minds",
+    "span": "Unite",
+    "p": "Al Nour co. has a big and ambitious vision to raise the size of the company. Through the opening of many areas in the labor market and not to stand on what has been established only. We are in the process of establishing a plant to extract the oils of 1000 tons daily On an area of 17000 meters , We are establishing a subsidiary of Al Nour under the name of Global Green",
+    "btn": "Back to home"
+  },
+  "PROFILE": {
+    "h1": "Company",
+    "span": "profile",
+    "btn": "Back to home"
+  },
+  "FOOTER": {
+    "footer_elements": {
+      "a1": "Home",
+      "a2": "About",
+      "a3": "CO Profile",
+      "a4": "Commodity",
+      "a5": "Gallery",
+      "a6": "Contact",
+      "a7": "Careers"
+    },
+    "p": "© 2024 El-Nour, All rights reserved"
+  },
+  "CAREERS": {
+    "pre_main_span": "Build Your",
+    "main_span": "Career",
+    "post_main_span": "with Us",
+    "main_p": "We are looking for passionate, innovative, and driven individuals to join our team. At El-Nour, you'll have the opportunity to work on exciting projects, collaborate with a talented team, and make a real impact.",
+    "main_btn": "Explore jobs",
+    "apply_h1": "Apply now",
+    "apply_p": "We're hiring! If you're passionate, creative, and ready to make an impact, we'd love to hear from you. Join our innovative team at El-Nour and take your career to the next level. Apply now!",
+    "send_btn": "Send CV",
+    "upload_btn": "Upload CV",
+    "description_header": "Job description",
+    "requirements_header": "Job requirements",
+    "tags_header": "Tags",
+    "no_jobs_msg": "There is no jobs currently."
+  }
 }

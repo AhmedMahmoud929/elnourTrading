@@ -1,5 +1,5 @@
 section#about {
-  background-color: var(--white);
+  background-color: var(--dark-bg);
 }
 
 section#about .container {
@@ -22,7 +22,7 @@ section#about .container {
 #about .right h1.title {
   font-family: "Rubik", sans-serif;
   text-transform: capitalize;
-  color: var(--dark-bg);
+  color: var(--white);
   font-size: 2.5rem;
   font-weight: 800;
   letter-spacing: 2px;
@@ -65,7 +65,7 @@ section#about .container {
   right: 30px;
   width: 340px;
   z-index: 1;
-  border: 6px solid var(--white);
+  border: 6px solid var(--dark-bg);
 }
 #about .left .vert {
   position: absolute;
@@ -156,4 +156,12 @@ section#about .container {
   #about .left {
     width: 100%;
   }
+}
+
+.news {
+  background-color: var(--white) !important;
+}
+
+.news h1.title {
+  color: var(--dark-bg) !important;
 }
