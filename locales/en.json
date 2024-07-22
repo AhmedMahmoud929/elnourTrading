@@ -22,17 +22,10 @@
     "ele4": "Gallery",
     "ele5": "News",
     "ele6": "Contact",
-    "nav_elements": {
-      "a1": "NAVBAR.nav_elements.a1",
-      "a2": "NAVBAR.nav_elements.a2",
-      "a3": "NAVBAR.nav_elements.a3",
-      "a4": "NAVBAR.nav_elements.a4",
-      "a5": "NAVBAR.nav_elements.a5",
-      "a6": "NAVBAR.nav_elements.a6"
-    },
     "ele7": "Careers"
   },
   "HOME": {
+    "bg_opacity": "1",
     "span": "Reliability",
     "h1": "through years of experience",
     "p": "EL NOUR TRADING CO was founded in 1995, We are one of the main players within the Egyptian market.",

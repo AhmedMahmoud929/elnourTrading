@@ -62,7 +62,7 @@
           autoplay
         ></video>
         <!-- grady bg -->
-        <img class="grady-bg" src="<%= images.HOME.gradient %>" alt="" />
+        <img class="grady-bg" id="homeGradyBg" opacity="<%= t("HOME.bg_opacity")%>" src="<%= images.HOME.gradient %>" alt="" />
         <!-- circles -->
         <div class="circle right"></div>
         <div class="circle left"></div>
@@ -396,6 +396,10 @@
         else{
         transBtn.setAttribute("href",`${baseUrl}?lang=ar`)
       }
+    </script>
+    <script>
+      const homeGradyBg = document.getElementById("homeGradyBg")
+      homeGradyBg.style.opacity = homeGradyBg.getAttribute('opacity')
     </script>
   </body>
 </html>

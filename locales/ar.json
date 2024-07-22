@@ -22,17 +22,10 @@
     "ele4": "المعرض",
     "ele5": "الأخبار",
     "ele6": "اتصل بنا",
-    "nav_elements": {
-      "a1": "NAVBAR.nav_elements.a1",
-      "a2": "NAVBAR.nav_elements.a2",
-      "a3": "NAVBAR.nav_elements.a3",
-      "a4": "NAVBAR.nav_elements.a4",
-      "a5": "NAVBAR.nav_elements.a5",
-      "a6": "NAVBAR.nav_elements.a6"
-    },
     "ele7": "الوظائف"
   },
   "HOME": {
+    "bg_opacity": "0.5",
     "span": "الموثوقية",
     "h1": "من خلال سنوات من الخبرة",
     "p": "تأسست شركة النور للتجارة في عام 1995، نحن من اللاعبين الرئيسيين في السوق المصري.",
