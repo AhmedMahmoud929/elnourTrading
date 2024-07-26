@@ -6,30 +6,25 @@ services:
     ports:
       - 2502:2502
     depends_on:
-      - "mongo"
-    volumes:
-      - .:/usr/www/elnour
+      - "MongoDB"
     networks:
       - elnour-network
-    environment:
-      MONGO_URI: mongodb://mongo:27017/elnourTrading
-      MONGO_USER: root
-      MONGO_PASS: admin
-  mongo:
+  
+  MongoDB:
     image: mongo
     restart: always
     ports:
-      - 27017:27017
+      - 27018:27017
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
     volumes:
-      - elnourMongoVol:/data/db
+      - ElnourMongoVol:/data/db
     networks:
       - elnour-network
 
 volumes:
-  elnourMongoVol:
+  ElnourMongoVol:
 
 
 networks:

@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const flash = require("express-flash");
 const Admin = require("./models/admin.model");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const requireAuth = require("./middlewares/requireAuth");
 const requireSuper = require("./middlewares/requireSuper");
 const checkPerms = require("./middlewares/checkPermissions");
@@ -20,8 +20,9 @@ const SessionStore = require("connect-mongodb-session")(session);
 // const DB_URL =
 //   "mongodb+srv://ahmedMahmoud:ahmedMahmoud@cluster0.u22xrj7.mongodb.net/elnourTrading?retryWrites=true&w=majority";
 
-const DB_URL =
-  process.env.MONGO_URI || "mongodb://127.0.0.1:27017/elnourTrading";
+const DB_URL = `mongodb://admin:admin@MongoDB:27017/elnourTrading?authSource=admin
+`;
+console.log(DB_URL);
 
 // Routers
 const AuthRouter = require("./routers/auth.router");
