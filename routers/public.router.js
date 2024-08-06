@@ -55,6 +55,8 @@ router.get("/", async (req, res) => {
 
   const { currentLocale, images } = getJsons(res);
 
+  console.log(`Request of : ${os.hostname}`);
+
   res.render("index", {
     galleryImgs,
     news,

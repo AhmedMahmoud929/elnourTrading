@@ -22,7 +22,6 @@ const SessionStore = require("connect-mongodb-session")(session);
 
 const DB_URL = `mongodb://admin:admin@MongoDB:27017/elnourTrading?authSource=admin
 `;
-console.log(DB_URL);
 
 // Routers
 const AuthRouter = require("./routers/auth.router");
